@@ -1,0 +1,16 @@
+h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.37;
+    color: #ffffff;
+    background-color: #a0c5ef;
+    padding-top: 9px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    border-top-left-radius: 12px 12px;
+    border-top-right-radius: 12px 12px;
+    border-bottom-right-radius: 0px 0px;
+    border-bottom-left-radius: 0px 0px;
+}

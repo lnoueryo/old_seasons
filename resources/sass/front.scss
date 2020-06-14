@@ -1,0 +1,409 @@
+body {
+    font-size: 1.3rem;
+    font-family: "03スマートフォントUI", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, sans-serif;
+    line-height: 1.5;
+    color: rgb(51, 51, 51);
+    background-image: linear-gradient(to right bottom, rgb(216, 235, 234), rgb(255, 245, 234));
+    text-align: left;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    overflow-wrap: break-word;
+    min-width: 1000px;
+}
+
+.header {
+    background-image: linear-gradient(to right bottom, rgb(216, 235, 234), rgb(255, 245, 234));
+    font-size: 1rem;
+}
+
+.nav1 ul {
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50px;
+    border: solid 3px;
+    border-color: #d8d6bc;
+    background-color:#d5e6e4;
+}
+
+.nav1 li:hover{
+    background-color: #fff5ea;
+    border-radius: 50px;
+    }
+
+    .nav1 a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+  .nav1 a::after {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #eae0dd;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+  }
+  .nav1 a:hover::after {
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .address {
+    border-radius: 50px;
+    border: solid 7px;
+    border-color: rgb(170, 204, 202);
+    background-color:#ebeade;
+    list-style: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+  .tel {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+  .introduction {
+    border-radius: 42px;
+    border: solid 2px;
+    border-color: rgb(204, 179, 171);
+    background-color:rgb(234, 224, 221);
+    list-style: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+  .name {
+padding-top: 5px;
+line-height: 35px;
+}
+
+.calender {
+height: 600px;
+border: solid 1.2px;
+border-color: rgb(0, 0, 0, 0.2);
+
+}
+
+.calender th {/*table内のthに対して*/
+    padding: 10px;/*上下左右10pxずつ*/
+    font-size: 0.9rem;
+  }
+
+  .calender td {/*table内のtdに対して*/
+    padding: 3px 10px;/*上下3pxで左右10px*/
+  }
+
+  .calender thead th {
+    /* 縦スクロール時に固定する */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /* tbody内のセルより手前に表示する */
+    z-index: 1;
+  }
+
+  footer .pp {
+    color: #6e6e6e;
+    background-color: #d8ebea;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .pp a {
+    color: #6e6e6e;
+    background-color: #d8ebea;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  footer .cr {
+    color: #ffffff;
+    background-color: #a0c5ef;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 0.9rem;
+  }
+
+  .insta_btn2{/*ボタンの下地*/
+    color: #FFF;/*文字・アイコン色*/
+    border-radius: 7px;/*角丸に*/
+    position: relative;
+    display: inline-block;
+    height: 35px;/*高さ*/
+    width: 150px;/*幅*/
+    text-align: center;/*中身を中央寄せ*/
+    font-size: 15px;/*文字のサイズ*/
+    line-height: 35px;/*高さと合わせる*/
+    background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+    background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;/*グラデーション①*/
+    overflow: hidden;/*はみ出た部分を隠す*/
+    text-decoration:none;/*下線は消す*/
+  }
+
+  .insta_btn2:before{/*グラデーション②*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;/*全体を覆う*/
+    height: 100%;/*全体を覆う*/
+    background: -webkit-linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
+    background: linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
+  }
+
+  .insta_btn2 .fa-instagram{/*アイコン*/
+    font-size: 25px;/*アイコンサイズ*/
+    position: relative;
+    top: 5px;/*アイコン位置の微調整*/
+    padding: 0px;
+  }
+
+  .insta_btn2 span {/*テキスト*/
+    display:inline-block;
+    position: relative;
+    transition: .5s
+  }
+
+  .insta_btn2:hover span{/*ホバーで一周回転*/
+    -webkit-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+    color: #FFF;
+  }
+
+  .line_btn {
+    color: #FFF;/*文字・アイコン色*/
+    border-radius: 7px;/*角丸に*/
+    position: relative;
+    display: inline-block;
+    height: 35px;/*高さ*/
+    width: 150px;/*幅*/
+    text-align: center;/*中身を中央寄せ*/
+    font-size: 15px;/*文字のサイズ*/
+    line-height: 40px;/*高さと合わせる*/
+    overflow: hidden;/*はみ出た部分を隠す*/
+    text-decoration:none;/*下線は消す*/
+    background:#25af00;
+
+}
+
+.line_btn .fa-line{/*アイコン*/
+    font-size: 25px;/*アイコンサイズ*/
+    position: relative;
+    top: 3px;/*アイコン位置の微調整*/
+    padding-right: 5px;
+  }
+
+.line_btn span {/*テキスト*/
+    display:inline-block;
+    position: relative;
+    transition: .5s
+  }
+
+.line_btn:hover span{/*ホバーで一周回転*/
+    -webkit-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+    color: #FFF;
+  }
+
+  .fb_btn {
+    color: #FFF;/*文字・アイコン色*/
+    border-radius: 7px;/*角丸に*/
+    position: relative;
+    display: inline-block;
+    height: 35px;/*高さ*/
+    width: 150px;/*幅*/
+    text-align: center;/*中身を中央寄せ*/
+    font-size: 15px;/*文字のサイズ*/
+    line-height: 40px;/*高さと合わせる*/
+    overflow: hidden;/*はみ出た部分を隠す*/
+    text-decoration:none;/*下線は消す*/
+    background: #355392;
+
+}
+
+.fb_btn .fa-facebook{/*アイコン*/
+    font-size: 25px;/*アイコンサイズ*/
+    position: relative;
+    top: 3px;/*アイコン位置の微調整*/
+    padding-right: 5px;
+  }
+
+
+.fb_btn span {/*テキスト*/
+    display:inline-block;
+    position: relative;
+    transition: .5s
+  }
+
+.fb_btn:hover span{/*ホバーで一周回転*/
+    -webkit-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+    color: #FFF;
+  }
+
+  .menu {
+
+    background-color: #a0c5ef;
+    padding-top: 9px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 0px 0px;
+    border-bottom-left-radius: 0px 0px;
+    height: 40px;
+}
+
+.menu h1{
+    font-weight: bold;
+    line-height: 1.37;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.abc h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.25;
+    color: #444444;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #a0c5ef;
+}
+
+dt {
+    font-size: 0.8rem;
+    padding-left: 15px;
+    margin-top: 25px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: #a0c5ef;
+}
+
+dd {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    margin-left: 37px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.paragraph {
+    margin-top: 0px;
+    margin-bottom: 19px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: justify;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    text-justify: inter-ideograph;
+}
+
+.contact-form {
+    font-size: 0.8rem;
+    /* border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid; */
+    border-top-color: #d5d5d5;
+    border-left-color: #d5d5d5;
+    border-right-color: #d5d5d5;
+    border-bottom-color: #d5d5d5;
+    margin: 20px auto;
+}
+
+.contact-form th {
+    color: #b48054;
+    background-color: #d8ebea;
+    padding: 10px;
+    width: 200px;
+}
+
+.contact-form td {
+    background-color: #ffffff;
+    padding: 10px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-top-color: #d5d5d5;
+    border-left-color: #d5d5d5;
+    border-right-color: #d5d5d5;
+    border-bottom-color: #d5d5d5;
+    width: 600px;
+}
+
+@media screen and (max-width: 640px) {
+
+//     .contact-form {
+//       /* width: 100%; */
+//     }
+//     .contact-form th,
+//     .contact-form td {
+//   　　border-bottom: none;
+//       display: block;
+//       width: 180%;
+//     }
+//   }
+}
+
+.sub-button {
+    background-color: #a0c5ef;
+    color: #fff;
+}
+
+.sub-button:hover {
+
+    color: #fff;
+}
+
+
+.policy li {
+    background-image: url(img/icon-arrow-01.png);
+    background-repeat: no-repeat;
+    background-position: left 1.2em;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    font-size: 0.7rem;
+}
+
+
+

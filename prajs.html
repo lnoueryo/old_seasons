@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <section>
+        <h2><span>知ってました？</span><br>
+            2025年大阪万博開催まで
+        </h2>
+        <p class="timer">あと<span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒</p>
+        <div id="timerB"></div>
+    </section>
+
+<script>
+'use strict';
+
+function countdownB(due) {
+    const now = new Date();
+    const rest = due.getTime() - now.getTime();
+    const sec = Math.floor(rest/1000) % 60;
+    const min = Math.floor(rest/1000/60) % 60;
+    const hours = Math.floor(rest/1000/60/60) % 24;
+    const days = Math.floor(rest/1000/60/60/24);
+    const count = [days,hours,min,sec];
+    return count;
+}
+
+const goalB = new Date(2020,5,30);
+
+function recalc() {
+    const counter = countdownB(goalB);
+    const time = `${counter[1]}時間${counter[2]}分${counter[3]}秒`;
+    document.getElementById('timerB').textContent = time;
+    refresh();
+}
+
+
+
+
+function countdownA(due) {
+    const now = new Date();
+    const rest = due.getTime() - now.getTime();
+    const sec = Math.floor(rest/1000) % 60;
+    const min = Math.floor(rest/1000/60) % 60;
+    const hours = Math.floor(rest/1000/60/60) % 24;
+    const days = Math.floor(rest/1000/60/60/24);
+    const count = [days,hours,min,sec];
+
+    return count;
+
+}
+
+const goal = new Date(2020,5,30);
+// goal.setHours(15);
+// goal.setMinutes(0);
+// goal.setSeconds(0);
+
+console.log(countdownA(goal));
+// document.getElementById('time').textContent = countdown(goal);
+
+function reculc() {
+    const counter = countdownA(goal);
+    // const time = `${counter[0]}日${counter[1]}時間${counter[2]}分${counter[3]}秒`;
+    document.getElementById('day').textContent = counter[0];
+    document.getElementById('hour').textContent = counter[1];
+    document.getElementById('min').textContent = String(counter[2]).padStart(2,'0');
+    document.getElementById('sec').textContent = String(counter[3]).padStart(2,'0');
+    // document.getElementById('time').textContent = time;
+    refresh();
+}
+
+function refresh(){
+    setTimeout(reculc,1000);
+    setTimeout(recalc,1000);
+}
+recalc();
+reculc();
+</script>
+</body>
+</html>
+
