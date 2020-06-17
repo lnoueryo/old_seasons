@@ -30,7 +30,7 @@ class MyLoginController extends Controller
             // }
 
             if($user->is_admin()) {
-                return redirect()->route('user');
+                return redirect()->route('calender');
             } else{
                 return redirect()->route('home');
             }

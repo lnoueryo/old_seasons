@@ -23,7 +23,7 @@ class AdminController extends Controller
     {
 
         $user_form = User::find($request->id);
-        $user_activities = UserActivity::where('user_id', $user_form->id)->take(10)->get();
+        $user_activities = UserActivity::where('user_id', $user_form->id)->orderBy('created_at','desc')->take(10)->get();
 
         return view('admin.profile', ['user_form' => $user_form, 'user_activities' => $user_activities]);
 

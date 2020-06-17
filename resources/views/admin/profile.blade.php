@@ -1,5 +1,5 @@
 
-@extends('layouts.front2')
+@extends('layouts.admin')
 
 <link rel="stylesheet" href="{{ asset('css/contents/word.css') }}">
 
@@ -75,7 +75,7 @@
     <tr>
     {{--  <th>memo</th>
             <td class="col-md-4 float-right"><a type="button" class="btn btn-primary" href="{{ action('Admin\UserController@edit', ['id' => $user_form->id]) }}">編集</a>  --}}
-            <td><a type="button" class="btn btn-danger" href="{{ action('AdminController@user') }}">戻る</a></td>
+            <td><a type="button" class="btn btn-danger" href="{{ action('AdminController@calender') }}">戻る</a></td>
     </tr>
 
 </table>
