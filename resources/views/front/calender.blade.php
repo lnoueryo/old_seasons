@@ -39,15 +39,6 @@
                         <td><a href="{{ action('HomeController@reservation', ['time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i")]) }}">〇</a></td>
                         @endif
                         @endfor
-                        {{--  @for ($k = 1; $k <= 18; $k++)
-                        @for ($i = 1; $i <= 15; $i++)
-                        @if(null !==\App\User::where('booking_time', \Carbon\Carbon::today()->addDays($k)->addHours(10)->addMinutes($i*30)))
-                        <th>×</th>
-                        @else
-                        <th>〇</th>
-                        <th><a href="{{ action('HomeController@reservation', ['time' => \Carbon\Carbon::today()->addDays($k)->addHours(10)->addMinutes($i*30)]) }}">〇</a></th>
-                        @endif
-                        @endfor  --}}
                     </tr>
                     @endfor
                 </tbody>
@@ -55,7 +46,8 @@
         </div>
     </div>
 </div>
- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 
 {{-- <div>{{ \App\User::where('email', '123@gmail.com')->first()->id }}</div> --}}
 {{--  {{ \App\User::where('latest_booking_date', '6月14日 10:00')->first()->id }}  --}}

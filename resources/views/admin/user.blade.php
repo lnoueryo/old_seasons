@@ -140,6 +140,39 @@
                     </table>
                 </div>
             </div>
+            <table class="table table-responsive table-striped table-hover text-center align-middle mt-5 ml-3 calender">
+                <thead class="thead-light">
+                    <tr>
+                        <th colspan="16">SeaSons 空き状況</th>
+                    </tr>
+                    <tr>
+                        <th width="10%"></th>
+                        @for ($i = 1; $i <= 14; $i++)
+                        @if(null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->isoformat("YYYY年MM月DD日"))->first())
+                            <th width="3%"><a href="{{ action('AdminController@day_of_the_week_unblock', ['day' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->isoformat("YYYY年MM月DD日")]) }}">{{ \Carbon\Carbon::today()->addDays($i-1)->isoformat("DD日")  }}<br>{{ \Carbon\Carbon::today()->addDays($i-1)->isoformat("(ddd)")  }}</a></th>
+                        @else
+                            <th width="3%"><a href="{{ action('AdminController@day_of_the_week_block', ['day' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->isoformat("YYYY年MM月DD日")]) }}">{{ \Carbon\Carbon::today()->addDays($i-1)->isoformat("DD日")  }}<br>{{ \Carbon\Carbon::today()->addDays($i-1)->isoformat("(ddd)")  }}</a></th>
+                        @endif
+                            @endfor
+                    </tr>
+                </thead>
+                <tbody>
+                    @for($j = 0; $j <= 18; $j++)
+                    <tr>
+                        <th class="align-middle" scope="row">{{ \Carbon\Carbon::today()->addHours(10)->addMinutes($j*30)->format("H:i") }}</th>
+                        @for($i = 1; $i <= 14; $i++)
+                        @if(null !==\App\User::where('latest_booking_date', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i"))->first() || \Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd")== '火' || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30))
+                        <td>×</td>
+                        @elseif(null !==\App\BookingController::where('day_time', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i"))->first() || null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->isoformat("YYYY年MM月DD日"))->first())
+                        <td class="bg-danger"><a href="{{ action('AdminController@day_unblock', ['time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i")]) }}">×</a></td>
+                        @else
+                        <td><a href="{{ action('AdminController@day_block', ['time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i")]) }}">〇</a></td>
+                        @endif
+                        @endfor
+                    </tr>
+                    @endfor
+                </tbody>
+            </table>
     </div>
 </body>
 </html>

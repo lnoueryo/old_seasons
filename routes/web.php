@@ -12,13 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('front.calender');
+    return view('auth.login');
 });
 
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@calender')->name('home');
+Route::get('/home', 'HomeController@calender')->middleware('auth')->name('home');
 Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/concept', 'HomeController@concept')->name('concept');
 Route::get('/access', 'HomeController@access')->name('access');
@@ -30,3 +30,11 @@ Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/home', 'HomeController@booking');
 
 Route::get('/user', 'AdminController@user')->name('user');
+Route::get('/user/day_block', 'AdminController@day_block');
+Route::get('/user/day_of_the_week_block', 'AdminController@day_of_the_week_block');
+Route::get('/user/day_unblock', 'AdminController@day_unblock');
+Route::get('/user/day_of_the_week_unblock', 'AdminController@day_of_the_week_unblock');
+Route::post('/login/custom', [
+    'uses' => 'Auth\MyLoginController@login',
+    'as' => 'login.custom'
+    ]);
