@@ -29,13 +29,17 @@ Route::get('/confirmation', 'HomeController@confirmation')->name('confirmation')
 Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/home', 'HomeController@booking');
 
-Route::get('/user', 'AdminController@user')->name('user');
+
+
+
+Route::get('/calender', 'AdminController@calender')->name('calender');
+Route::get('/bookings', 'AdminController@bookings')->name('bookings');
 Route::get('/profile', 'AdminController@profile')->name('profile');
-Route::get('/user/day_time_block', 'AdminController@day_time_block');
-Route::get('/user/day_of_the_week_block', 'AdminController@day_of_the_week_block');
-Route::post('/user/day_block', 'AdminController@day_block');
-Route::get('/user/day_time_unblock', 'AdminController@day_time_unblock');
-Route::get('/user/day_of_the_week_unblock', 'AdminController@day_of_the_week_unblock');
+Route::get('/calender/day_time_block', 'AdminController@day_time_block');
+Route::get('/calender/day_of_the_week_block', 'AdminController@day_of_the_week_block');
+Route::post('/calender/day_block', 'AdminController@day_block');
+Route::get('/calender/day_time_unblock', 'AdminController@day_time_unblock');
+Route::get('/calender/day_of_the_week_unblock', 'AdminController@day_of_the_week_unblock');
 Route::post('/login/custom', [
     'uses' => 'Auth\MyLoginController@login',
     'as' => 'login.custom'

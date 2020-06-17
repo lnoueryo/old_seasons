@@ -94,7 +94,7 @@
                                     <ul class="navbar-nav mr-auto">
                                         @if(Auth::user()->admin == true)
                                         <li class="nav-item p-3 active">
-                                        <a class="nav-link mx-2" href="{{ route('user') }}">アドミンユーザー専用ページ</a>
+                                        <a class="nav-link mx-2" href="{{ route('calender') }}">アドミンユーザー専用ページ</a>
                                         </li>
                                         @else
                                         <li class="nav-item p-3 active">
