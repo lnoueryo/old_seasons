@@ -17,6 +17,15 @@ class AdminController extends Controller
 
     }
 
+    public function profile(Request $request)
+    {
+
+        $user_form = User::find($request->id);
+
+        return view('admin.profile', ['user_form' => $user_form]);
+
+    }
+
     public function day_time_block(Request $request)
     {
         $booking_controller = new BookingController;

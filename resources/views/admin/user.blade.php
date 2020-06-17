@@ -124,6 +124,7 @@
                                 <th width="5%">予約回数</th>
                                 <th width="10%">最新の予約日時</th>
                                 <th width="10%">前回の予約日時</th>
+                                <th width="10%"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,6 +135,14 @@
                                     <td>{{ \Str::limit($user->booking_counter, 3) }}</td>
                                     <td>{{ \Str::limit($user->latest_booking_date, 15) }}</td>
                                     <td>{{ \Str::limit($user->last_booking_date, 15) }}</td>
+                                    <td class="text-center">
+                                        <div>
+                                            <a href="{{ action('AdminController@profile', ['id' => $user->id]) }}">詳細</a>
+                                        </div>
+                                        <div>
+                                            {{--  <a href="{{ action('Admin\UserController@delete', ['id' => $user->id]) }}">削除</a>  --}}
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

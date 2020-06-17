@@ -30,6 +30,7 @@ Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/home', 'HomeController@booking');
 
 Route::get('/user', 'AdminController@user')->name('user');
+Route::get('/profile', 'AdminController@profile')->name('profile');
 Route::get('/user/day_time_block', 'AdminController@day_time_block');
 Route::get('/user/day_of_the_week_block', 'AdminController@day_of_the_week_block');
 Route::post('/user/day_block', 'AdminController@day_block');
