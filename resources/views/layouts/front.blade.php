@@ -92,7 +92,7 @@
                                 </button>
                                 <div class="collapse navbar-collapse" id="Navber">
                                     <ul class="navbar-nav mr-auto">
-                                        @if(Auth::user()->admin == false)
+                                        @if(Auth::user()->admin == true)
                                         <li class="nav-item p-3 active">
                                         <a class="nav-link mx-2" href="{{ route('user') }}">アドミンユーザー専用ページ</a>
                                         </li>
@@ -132,7 +132,7 @@
                 <div class="row">
                     <div class="col-md-10 mx-auto">
                         <div class="mt-5 offset-md-1">
-                            <iframe width="700" height="400" src="https://www.youtube.com/embed/N1a7VhqODY4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            <iframe width="700" height="400" src="{{ \App\BookingController::find(1)->first()->movie }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                             <a type="button" class="insta_btn2" href="https://www.instagram.com/hairmakeseasons/">
                                 <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
                             </a>

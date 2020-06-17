@@ -30,9 +30,10 @@ Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/home', 'HomeController@booking');
 
 Route::get('/user', 'AdminController@user')->name('user');
-Route::get('/user/day_block', 'AdminController@day_block');
+Route::get('/user/day_time_block', 'AdminController@day_time_block');
 Route::get('/user/day_of_the_week_block', 'AdminController@day_of_the_week_block');
-Route::get('/user/day_unblock', 'AdminController@day_unblock');
+Route::post('/user/day_block', 'AdminController@day_block');
+Route::get('/user/day_time_unblock', 'AdminController@day_time_unblock');
 Route::get('/user/day_of_the_week_unblock', 'AdminController@day_of_the_week_unblock');
 Route::post('/login/custom', [
     'uses' => 'Auth\MyLoginController@login',
