@@ -3,41 +3,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="list-news col-md-12 mx-auto">
-            <div class="row">
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th width="5%">ID</th>
-                            <th width="10%">氏名</th>
-                            <th width="5%">予約回数</th>
-                            <th width="10%">最新の予約日時</th>
-                            <th width="10%">前回の予約日時</th>
-                            <th width="10%"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($users as $user)
-                            <tr>
-                                <th>{{ $user->id }}</th>
-                                <td>{{ \Str::limit($user->family_name, 100) }} {{ \Str::limit($user->first_name, 100) }}</td>
-                                <td>{{ \Str::limit($user->booking_counter, 3) }}</td>
-                                <td>{{ \Str::limit($user->latest_booking_date, 15) }}</td>
-                                <td>{{ \Str::limit($user->last_booking_date, 15) }}</td>
-                                <td class="text-center">
-                                    <div>
-                                        <a href="{{ action('AdminController@profile', ['id' => $user->id]) }}">詳細</a>
-                                    </div>
-                                    <div>
-                                        {{--  <a href="{{ action('Admin\UserController@delete', ['id' => $user->id]) }}">削除</a>  --}}
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
         <form class="col-md-12" action="{{ action('AdminController@day_block') }}" method="POST">
             <label class="control-label" for="day[]">店休日</label>
                 <div class="radio">
@@ -50,8 +15,8 @@
                         <input type="checkbox" name="day[]" value="金" {{ (App\BookingController::find(1)->where('day', 'like', '%'."金". '%')->first())? "checked" : "" }}>金
                         <input type="checkbox" name="day[]" value="土" {{ (App\BookingController::find(1)->where('day', 'like', '%'."土". '%')->first())? "checked" : "" }}>土
                     </p>
-                    <label class="control-label" for="day[]">動画URL</label>
-                    <input type="text" class="form-control col-md-8" name="movie" value="{{ \App\BookingController::find(1)->first()->movie }}" required>
+                    {{--  <label class="control-label" for="day[]">動画URL</label>  --}}
+                    <input type="hidden" class="form-control col-md-8" name="movie" value="{{ \App\BookingController::find(1)->first()->movie }}" required>
                 </div>
                 {{ csrf_field() }}
                 <input type="submit" class="btn btn-primary mt-4" value="登録">
@@ -77,12 +42,22 @@
                 <tr>
                     <th class="align-middle" scope="row">{{ \Carbon\Carbon::today()->addHours(10)->addMinutes($j*30)->format("H:i") }}</th>
                     @for($i = 1; $i <= 14; $i++)
-                    @if(null !==\App\User::where('latest_booking_date', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i"))->first() ||  \App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first() || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30))
+                    {{--  予約がある場合×  --}}
+                    @if(null !==\App\User::where('latest_booking_date', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i"))->first())
+                    <td>
+                    <a class="text-secondry" href="{{ action('AdminController@profile', ['id' => App\User::where('latest_booking_date', Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i"))->first()->id]) }}">予約</a></td>
+                    {{--  定休日×  --}}
+                    @elseif(\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first() || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30))
                     <td>×</td>
-                    @elseif(null !==\App\BookingController::where('day_time', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i"))->first() || null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->isoformat("YYYY年MM月DD日"))->first())
-                    <td class="bg-danger"><a class="text-light" href="{{ action('AdminController@day_time_unblock', ['day_time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i")]) }}">×</a></td>
+
+                    @elseif(null !==\App\BookingController::where('day_time', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i"))->first())
+                    <td class="bg-danger"><a class="" href="{{ action('AdminController@day_time_unblock', ['day_time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i")]) }}">×</a></td>
+
+                    @elseif(null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->isoformat("YYYY年MM月DD日"))->first())
+                    <td class="bg-danger">×</a></td>
+
                     @else
-                    <td><a href="{{ action('AdminController@day_time_block', ['day_time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i")]) }}">〇</a></td>
+                    <td><a href="{{ action('AdminController@day_time_block', ['day_time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月j日 H:i")]) }}">〇</td>
                     @endif
                     @endfor
                 </tr>
@@ -91,4 +66,7 @@
         </table>
     </div>
 </div>
+{{--  <button class="btn btn-danger"><a href="{{ action('AdminController@unblock_all') }}">リセット</a></button>  --}}
+{{--  {{ App\User::where('latest_booking_date', Carbon\Carbon::today()->addDays(2)->addHours(10)->addMinutes(0)->format("n月j日 H:i"))->first()->id }}
+<div>{{ \App\User::where('email', 'popo62520908@gmail.com')->first()->id }}{{ Carbon\Carbon::today()->addDays(2)->addHours(10)->addMinutes(0)->format("n月j日 H:i") }}</div>  --}}
 @endsection

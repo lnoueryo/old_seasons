@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Kyslik\ColumnSortable\Sortable;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use Sortable;
     /**
      * The attributes that are mass assignable.
      *
@@ -18,6 +19,16 @@ class User extends Authenticatable
     protected $fillable = [
         'family_name','first_name','kana_family_name', 'kana_first_name','phone_number', 'gender','birth_year','birth_month','birth_day','mail_magazine','email', 'password',
     ];
+
+    public $sortable = ['id',
+                        'kana_family_name',
+                        'email',
+                        'booking_counter',
+                        'latest_booking_date',
+                        'latest_booking_plan',
+                        'review_customer_gives',
+                        'review_to_customer',
+                    ];
 
     /**
      * The attributes that should be hidden for arrays.

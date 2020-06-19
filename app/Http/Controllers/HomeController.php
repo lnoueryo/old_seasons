@@ -146,5 +146,12 @@ class HomeController extends Controller
 
     }
 
+    public function newCalender()
+    {
+
+        return view('front.newcalender');
+
+    }
+
 
 }

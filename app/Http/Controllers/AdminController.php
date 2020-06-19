@@ -37,6 +37,121 @@ class AdminController extends Controller
 
     }
 
+    public function setting()
+    {
+
+        $today_users = User::where('latest_booking_date', Carbon::today());
+        return view('admin.setting');
+
+    }
+
+    public function users(Request $request)
+    {
+        $cond_user = $request->cond_user;
+        if($cond_user !='') {
+            $users = User::sortable()->
+                        where(function ($query) use ($cond_user) {
+                            $query->where('family_name', 'like', $cond_user. '%')
+                            ->orWhere('first_name', 'like', $cond_user. '%')
+                            ->orWhere('kana_family_name', 'like', $cond_user. '%')
+                            ->orWhere('kana_first_name', 'like', $cond_user. '%')
+                            ->orWhere('email', 'like', $cond_user. '%')
+                            ->orWhere('phone_number', 'like', $cond_user. '%')
+                            ->orWhere('gender', 'like', $cond_user. '%');
+                        })
+                        ->get();
+        } else {
+            //     $cond_user = $request->cond_user;
+    //     $cond_user_country = $request->cond_user_country;
+    //     $cond_user_gender = $request->cond_user_gender;
+
+    //     if ($cond_user != '') {
+
+    //         if ($cond_user_country !='') {
+
+    //             if ($cond_user_gender !='') {
+    //                 $userPosts = User::sortable()->where('country', $cond_user_country)->
+    //                     where('gender', $cond_user_gender)->
+    //                     where(function ($query) use ($cond_user) {
+    //                         $query->where('name', 'like', '%' .$cond_user. '%')
+    //                         ->orWhere('email', 'like', $cond_user. '%')
+    //                         ->orWhere('nickname', 'like', $cond_user. '%');
+    //                     })->get();
+
+    //                 } else {
+    //                     $userPosts = User::sortable()->where('country', $cond_user_country)->
+    //                         where(function ($query) use ($cond_user) {
+    //                             $query->where('name', 'like', '%' .$cond_user. '%')
+    //                             ->orWhere('email', 'like', $cond_user. '%')
+    //                             ->orWhere('nickname', 'like', $cond_user. '%');
+    //                         })->get();
+    //                 }
+    //             }
+
+    //         if ($cond_user_country =='') {
+
+    //             if ($cond_user_gender !='') {
+    //                 $userPosts = User::sortable()->
+    //                     where('gender', $cond_user_gender)->
+    //                     where(function ($query) use ($cond_user) {
+    //                         $query->where('name', 'like', '%' .$cond_user. '%')
+    //                         ->orWhere('email', 'like', $cond_user. '%')
+    //                         ->orWhere('nickname', 'like', $cond_user. '%');
+    //                     })->get();
+
+    //                 } else {
+    //                     $userPosts = User::sortable()->where('country', $cond_user_country)->
+    //                         where(function ($query) use ($cond_user) {
+    //                             $query->where('name', 'like', '%' .$cond_user. '%')
+    //                             ->orWhere('email', 'like', $cond_user. '%')
+    //                             ->orWhere('nickname', 'like', $cond_user. '%');
+    //                         })->get();
+    //                 }
+    //             }
+
+
+
+
+    //     }
+
+    //     if ($cond_user == '') {
+
+    //         if ($cond_user_country !='') {
+
+    //             if ($cond_user_gender !='') {
+    //                 $userPosts = User::sortable()->where('country', $cond_user_country)->
+    //                 where('gender', $cond_user_gender)->
+    //                 get();
+
+    //             } else {
+    //                 $userPosts = User::sortable()->where('country', $cond_user_country)->
+    //                     get();
+    //             }
+    //         }
+
+    //         if ($cond_user_country =='') {
+
+    //             if ($cond_user_gender !='') {
+    //                 $userPosts = User::sortable()->
+    //                 where('gender', $cond_user_gender)->
+    //                 get();
+
+    //             } else {
+    //                 $userPosts = User::sortable()->
+    //                     get();
+    //             }
+    //         }
+    // }
+
+    $users = User::sortable()->get();
+        }
+    $cc = count($users, COUNT_RECURSIVE);
+
+
+        return view('admin.users', ['users' => $users, 'cond_user' => $cond_user, 'cc' => $cc]);
+
+    }
+
     public function day_time_block(Request $request)
     {
         $booking_controller = new BookingController;
@@ -62,11 +177,17 @@ class AdminController extends Controller
     public function day_block(Request $request)
     {
         $booking_controller = BookingController::find(1);
-        $days = $_POST["day"];
-        $days = join(",", $days);
-        $booking_controller->day = $days;
-        $booking_controller->movie = $request->movie;
-        $booking_controller->update();
+        if($request->day !=''){
+            $days = $_POST["day"];
+            $days = join(",", $days);
+            $booking_controller->day = $days;
+            $booking_controller->movie = $request->movie;
+            $booking_controller->update();
+        }else{
+            $booking_controller->day = '';
+            $booking_controller->save();
+        }
+
 
         return redirect('/calender');
 
@@ -87,4 +208,16 @@ class AdminController extends Controller
         return redirect('/calender');
 
     }
+    // public function unblock_all()
+    // {
+    //     $booking_controllers = BookingController::all()->diff(BookingController::whereIn('id', [1]))->first();
+    //     $booking_controllers = BookingController::all();
+    //     $booking_controller = $booking_controllers->diff(BookingController::whereIn('id', [1]));
+
+    //     $booking_controllers = BookingController::diff(BookingController::whereIn('id', [1]));
+    //     BookingController::all();
+    //     $booking_controllers->delete();
+    //     return redirect('/calender');
+
+    // }
 }

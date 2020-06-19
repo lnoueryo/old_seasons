@@ -95,7 +95,7 @@
                                     <a class="nav-link mx-2" href="{{ route('calender') }}">コントローラー</a>
                                     </li>
                                     <li class="nav-item p-3">
-                                    <a class="nav-link mx-2" href="">顧客管理</a>
+                                    <a class="nav-link mx-2" href="{{ route('users') }}">顧客管理</a>
                                     </li>
                                     <li class="nav-item p-3">
                                     <a class="nav-link mx-2" href="{{ route('bookings') }}">本日の予約一覧</a>
@@ -104,7 +104,7 @@
                                     <a class="nav-link mx-2" href="{{ route('contact') }}">お問い合わせ</a>
                                     </li>
                                     <li class="nav-item p-3">
-                                    <a class="nav-link mx-2" href="{{ route('access') }}">アクセス</a>
+                                    <a class="nav-link mx-2" href="{{ route('setting') }}">設定</a>
                                     </li>
                                 </ul>
                             </div>
