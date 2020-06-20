@@ -153,5 +153,12 @@ class HomeController extends Controller
 
     }
 
+    public function newConcept()
+    {
+
+        return view('front.new_concept');
+
+    }
+
 
 }

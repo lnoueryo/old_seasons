@@ -5,6 +5,8 @@ body {
 
 header {
     height: 141.1px;
+    z-index: 1;
+    background-color: rgba(238, 238, 238, 0.441);
 }
 
 .header-top-flame {
@@ -28,6 +30,14 @@ header {
 
 .logo-container {
     padding: 1em 0;
+}
+
+.logo-container a {
+    padding: 1em 0;
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+    color: #444444;
+    text-decoration: underline;
 }
 
 .booking-btn-flame {
@@ -81,14 +91,32 @@ header {
 
 }
 
-header .main-nav-container {
+.transform{
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
     flex: auto;
     justify-content: center;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    transition: 3s;
+    width: 100%;
+    background-color: rgba(238, 238, 238, 0.367);
+
 }
+
+.transform2{
+margin-top: 20px;
+    background-color: rgba(238, 238, 238, 0);
+
+}
+
+/* .main-nav-container .transform{
+    background-color: #eee;
+    padding: 120px 300px;
+} */
 
 .main-nav {
     justify-content: center;
@@ -152,18 +180,17 @@ header .main-nav-container {
 }
 
 .main-img {
-    transition: 60s;
     width: 100%;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    /* -webkit-transition: .10s ease-in-out;
-    transition: .10s ease-in-out; */
+    -webkit-filter: grayscale(1);
+    /* filter: grayscale(100%); */
+    /* -webkit-transition: 3s; */
+    /* transition: .10s ease-in-out; */
 }
 
-.main-img:hover {
-    transition: 1s;
+.grayscale {
     -webkit-filter: grayscale(0);
-    filter: grayscale(0);
+    -webkit-transition: 5s;
+
 }
 
 .article-flame {
@@ -278,11 +305,133 @@ margin-top: 40px;
 	border:solid 1px #ccc;
 }
 
-.two-img {
+#two-img {
     display: flex;
 
 }
 
+.img-1 {
+
+    position: relative;
+    transform: translate3d(3000px,0,3000px);
+    transition: 1.5s;
+    }
+
+    .hair-img-1 {
+        transition: 1.5s;
+    }
+
+.img-2 {
+
+    position: relative;
+    transform: translate3d(1500px,-500px,1500px);
+    transition: 1.5s;
+    }
+
+    .hair-img-2 {
+        transition: 1.5s;
+    }
+
+.img-3 {
+
+    position: relative;
+    transform: translate3d(-1500px,800px,0);
+    transition: 1.5s;
+    }
+
+    .hair-img-3 {
+        transition: 1.5s;
+    }
+
+.img-4 {
+
+    position: relative;
+    transform: translate3d(-3000px,0,0);
+    transition: 1.5s;
+    }
+
+    .hair-img-4 {
+        transition: 1.5s;
+    }
+
+/* .text-1 {
+    position: absolute;
+    top: 0;
+  left: 0;
+  margin: 0;
+  color: white;
+  background: skyblue;
+  font-size: 15px;
+  line-height: 1;
+  padding: 5px 10px;
+
+} */
+.text-1 {
+    position: relative;
+  margin: 0; /*余計な隙間を除く*/
+  color: white;/*文字を白に*/
+  background: rgba(135, 207, 235, 0.646);/*背景色*/
+  font-size: 15px;
+  line-height: 1;/*行高は1に*/
+  padding: 5px 10px;
+  margin-right:8.8px;
+  transform: translate3d(0px,-24.2px,0);
+}
+/*
+.text-2 {
+    position: relative;
+
+  margin: 0;
+  color: #fff;
+  background-color: rgba(0,0,0,0.5);
+  font-size: 15px;
+  line-height: 1;
+  padding: 5px 10px;
+
+  margin-right:8.0px;
+  padding-bottom:8.0px;
+  transform: translate3d(0px,-536.6px,0);
+} */
+
+.text-2 {
+    position: relative;
+
+  margin: 0; /*余計な隙間を除く*/
+  color: #fff;/*文字を白に*/
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  line-height: 1;/*行高は1に*/
+  padding: 5px 50px;
+  font-family: 'Lobster', cursive;
+  margin-right:8.9px;
+  margin-left:1px;
+  padding-bottom:8.0px;
+  transform: translate3d(0px,-29px,0);
+}
+
+.text-3 {
+    position: relative;
+  margin: 0; /*余計な隙間を除く*/
+  color: white;/*文字を白に*/
+  background: rgba(135, 207, 235, 0.646);/*背景色*/
+  font-size: 15px;
+  line-height: 1;/*行高は1に*/
+  padding: 5px 10px;
+  margin-right:8.8px;
+  transform: translate3d(0px,-24.2px,0);
+}
+
+.text-4 {
+    position: relative;
+  margin: 0; /*余計な隙間を除く*/
+  color: white;/*文字を白に*/
+  background: rgba(135, 207, 235, 0.646);/*背景色*/
+  font-size: 15px;
+  line-height: 1;/*行高は1に*/
+  padding: 5px 10px;
+  margin-right:8.8px;
+  transform: translate3d(0px,-24.2px,0);
+}
 
 @media (min-width: 960px){
     .header-container {

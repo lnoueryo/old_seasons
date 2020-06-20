@@ -11,8 +11,11 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 Route::get('/', function () {
-    return view('auth.login');
+    return view('front.newcalender');
 });
 
 Auth::routes();
@@ -30,7 +33,8 @@ Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/home', 'HomeController@booking');
 
 
-Route::get('/newcalender', 'HomeController@newCalender')->middleware('auth')->name('home');
+Route::get('/newcalender', 'HomeController@newCalender')->name('home');
+Route::get('/new_concept', 'HomeController@newConcept')->name('concept');
 
 
 Route::get('/calender', 'AdminController@calender')->name('calender');
