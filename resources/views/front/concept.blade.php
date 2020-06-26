@@ -5,13 +5,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 mx-auto">
-            <div class="justify-content-center">
+            <div class="">
                 <div class="card">
                     <div class="card-header menu">
                         <h1>コンセプト</h1></div>
                     <div class="col-md-11 mt-3">
                         <article>
-                            <div id="page-content" class="abc">
+                            <div id="page-content" class="">
                             <h3 class="paragraph">コンセプト</h3><a style="display: block"><img id="sp-image-5" src="image/concept.jpg" alt="店内イメージ" class="sp-part-top sp-image"></a>
                             <p class="paragraph">自然をテーマにしておくつろぎいただける空間です。お客さまの髪質とご要望に合わせて、洗練されたスタイルをご提案します。<br></p>
                             <hr>

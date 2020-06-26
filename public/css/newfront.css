@@ -84,6 +84,7 @@ header {
     transition: 0.5s;
     border-color: #444444;
     background-color: #444444;
+
 }
 
 .main-nav-flame {
@@ -127,24 +128,21 @@ margin-top: 20px;
 
 }
 
-.navbar-toggler {
+/* .navbar-toggler {
     min-height: 3em;
 }
 
 #navbarTogglerDemo02 {
     min-height: 3.5em;
 
-
-
-}
+} */
 
 .main-nav ul {
     font-size: 18px;
     text-decoration: none;
-    display: inline-block;
-    color: #fff;
     height: 50px;
     line-height: -20px;
+
 }
 
 .main-nav li {
@@ -152,14 +150,14 @@ margin-top: 20px;
     text-decoration: none;
     display: inline-block;
     transition: all .2s linear;
-    color: #fff;
     margin-right: -6px;
+    z-index: 0;
+    z-index: 0 !important;
 }
 
 .main-nav li:hover {
     transition: 0.5s;
     background-color: #757575;
-
 }
 
 .main-nav a {
@@ -173,15 +171,18 @@ margin-top: 20px;
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    z-index: 0 !important;
 }
 
 .main-nav a:hover {
     color: #fff;
+    z-index: 0 !important;
 }
 
 .main-img {
     width: 100%;
     -webkit-filter: grayscale(1);
+
     /* filter: grayscale(100%); */
     /* -webkit-transition: 3s; */
     /* transition: .10s ease-in-out; */
@@ -201,6 +202,8 @@ margin-top: 20px;
     border-bottom: 1px solid #fff;
     display: block;
     line-height: 1.6;
+    z-index: 2;
+
 }
 
 .article-flame h2 {
@@ -325,6 +328,7 @@ margin-top: 40px;
 
     position: relative;
     transform: translate3d(1500px,-500px,1500px);
+    margin-top: 1500px;
     transition: 1.5s;
     }
 
@@ -433,19 +437,40 @@ margin-top: 40px;
   transform: translate3d(0px,-24.2px,0);
 }
 
-@media (min-width: 960px){
+.logo-container {
+position: relative;
+
+}
+
+#icon {
+    /* z-index: 1; */
+    width: 40px;
+    height: 40px;
+/* margin-left: 72px; */
+
+}
+
+.icon-text {
+
+    top: 21px;
+    left: 0;
+    text-decoration: underline;
+    letter-spacing: 0px;
+}
+
+/* @media (min-width: 960px){
     .header-container {
         max-width: 1240px;
     }
 
 
-}
+} */
 
 
 
-@media (max-width: 340px)
+/* @media (max-width: 340px)
 {
     .uagb-post-grid .uagb-post__columns-tablet-2 article {
         width: 50%;
     }
-}
+} */

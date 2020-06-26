@@ -51,6 +51,7 @@ $(window).scroll(function(){
 
   $('body').hover(function(){
 
+    $('nav').addClass('delete');
   });
 
 //   $('body').hover(function(){
@@ -61,16 +62,24 @@ $(window).scroll(function(){
 
 
 $(function() {
-    // $('img').animate({
-    //   'margin-top': '-100px'
-    // },500);
+    $('.booking-img').animate({
+      'margin-top': '-150px'
+    },1400);
     $('.main-img').animate({
       '-webkit-filter': 'grayscale(0)'
     },1000);
-    $('#two-img').addClass('left-imgs-back');
 
   });
 
+//   var gohan;
+// $('input[type="radio"]').click(function(){
+// 	if($(this).val() == gohan){
+// 		$(this).prop('checked', false);
+// 		gohan = '';
+// 		}else{
+// 			gohan = $(this).val();
+// 		}
+// });
 
 
 

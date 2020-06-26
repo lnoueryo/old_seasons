@@ -20,6 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/new_front2.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/reservation_plan.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
 </head>
@@ -46,7 +47,7 @@
                     </div>
                     <div class="booking-btn-flame">
                         <div class="booking-btn-container">
-                            <a href="{{ action('HomeController@calender') }}"><button class="booking-btn">WEB予約</button></a>
+                            <a href="{{ route('reservation_plan') }}"><button class="booking-btn">WEB予約</button></a>
                         </div>
                     </div>
                     {{--  ここにログイン実装  --}}
@@ -82,17 +83,17 @@
                                     <!-- Authentication Links -->
                                     @guest
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            <a class="" href="{{ route('login') }}">{{ __('Login') }}</a>
                                         </li>
                                         @if (Route::has('register'))
                                             <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
                                             </li>
                                         @endif
                                         @else
                                         <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                {{ Auth::user()->family_name }} {{ Auth::user()->first_name }} <span class="caret"></span>
+                                            <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                Member<span class="caret"></span>
                                             </a>
 
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -127,7 +128,7 @@
         </div>
         <div class="vertical-letter-flame">
             <div class="vertical-letter-caontainer">
-                <p class="vertical-letter"><span class="sp-letter">自然をテーマに<br>四季折々のヘアースタイル<br>ご提案いたします</span></p>
+                <p class="vertical-letter"><span class="sp-letter">自然をテーマに<br>&nbsp;&nbsp;四季折々のヘアースタイル<br>&nbsp;&nbsp;&nbsp;&nbsp;ご提案いたします</span></p>
             </div>
         </div>
         <main class="">

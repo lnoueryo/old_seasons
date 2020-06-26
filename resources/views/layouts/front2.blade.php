@@ -7,11 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'SeaSons') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/front.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 
     <!-- Fonts -->
@@ -24,13 +24,9 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
         <div class="header">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
-                {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -82,9 +78,8 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 mx-auto">
-                <img src="/image/headermain2.png" class="img-fluid">
-                    <div class="d-flex justify-content-center">
+            <div class="col-md-10">
+                    <div class="">
                         <nav class="navbar navbar-expand-lg navbar-light nav1 mt-2 mb-2">
                             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
                                 <span class="navbar-toggler-icon"></span>

@@ -15,27 +15,37 @@
 //     return view('auth.login');
 // });
 Route::get('/', function () {
-    return view('front.newcalender');
+    return view('front.calender');
 });
 
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@calender');
+Route::get('/home', 'HomeController@calender')->name('home');
 Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/concept', 'HomeController@concept')->name('concept');
 Route::get('/access', 'HomeController@access')->name('access');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/calender/reservation', 'HomeController@reservation');
+Route::get('/reservation_plan', 'HomeController@reservationPlan');
+Route::get('/reservation_plan_sm', 'HomeController@reservationPlanSM')->name('reservationSM');
 Route::get('/policy', 'HomeController@policy')->name('policy');
 Route::get('/confirmation', 'HomeController@confirmation')->name('confirmation');
-Route::get('/confirmation/delete', 'HomeController@cancel');
+Route::post('/confirmation/delete', 'HomeController@cancel');
+Route::post('/reservation_date', 'HomeController@reservationDate');
 Route::post('/home', 'HomeController@booking');
 
 
-Route::get('/newcalender', 'HomeController@newCalender')->name('home');
-Route::get('/new_concept', 'HomeController@newConcept')->name('concept');
 
+Route::get('/newcalender', 'HomeController@newCalender');
+// Route::get('/new_concept', 'HomeController@newConcept')->name('concept');
+// Route::get('/reservation_plan', 'HomeController@reservationPlan')->name('reservation_plan');
+// Route::get('/reservation_date', 'HomeController@newReservationDate')->name('reservation_date');
+// Route::get('/new_reservation', 'HomeController@newReservation')->name('reservation');
+
+Route::get('/new_reservation_plan', 'HomeController@newReservationPlan')->name('reservation_plan');
+Route::get('/reservation_date', 'HomeController@reservationDate')->name('reservation_date');
+Route::get('/new_reservation', 'HomeController@newReservation')->name('reservation');
 
 Route::get('/calender', 'AdminController@calender')->name('calender');
 Route::get('/bookings', 'AdminController@bookings')->name('bookings');
