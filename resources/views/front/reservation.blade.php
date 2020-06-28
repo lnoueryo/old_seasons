@@ -26,35 +26,37 @@
                                 </tr>
                                 <tr>
                                     <th>予約プラン</th>
-                                    <td>@if ($user_activity->cut != '')&nbsp;&nbsp;&nbsp;{{ $user_activity->cut }}@endif
-                                        @if ($user_activity->perm != '')&nbsp;&nbsp;&nbsp;{{ $user_activity->perm }}@endif
-                                        @if ($user_activity->color != '')&nbsp;&nbsp;&nbsp;{{ $user_activity->color }}@endif
-                                        @if ($user_activity->spa != '')&nbsp;&nbsp;&nbsp;{{ $user_activity->spa }}@endif
-                                        @if ($user_activity->treatment != '')&nbsp;&nbsp;&nbsp;{{ $user_activity->treatment }}@endif
-                                    {{--  <td>&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" id="latest_booking_plan" name="latest_booking_plan" value="{{ $user_activity->cut }} {{ $user_activity->perm }} {{ $user_activity->color }} {{ $user_activity->spa }} {{ $user_activity->treatment }}"disabled></td>  --}}
+                                    <td>@if ($booking->cut != '')&nbsp;&nbsp;&nbsp;{{ $booking->cut }}@endif
+                                        @if ($booking->perm != '')&nbsp;&nbsp;&nbsp;{{ $booking->perm }}@endif
+                                        @if ($booking->color != '')&nbsp;&nbsp;&nbsp;{{ $booking->color }}@endif
+                                        @if ($booking->spa != '')&nbsp;&nbsp;&nbsp;{{ $booking->spa }}@endif
+                                        @if ($booking->treatment != '')&nbsp;&nbsp;&nbsp;{{ $booking->treatment }}@endif
+                                    {{--  <td>&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" id="latest_booking_plan" name="latest_booking_plan" value="{{ $booking->cut }} {{ $booking->perm }} {{ $booking->color }} {{ $booking->spa }} {{ $booking->treatment }}"disabled></td>  --}}
                                 </tr>
                                 <tr>
                                     <th>料金</th>
-                                    <td>&nbsp;&nbsp;&nbsp;{{ $user_activity->price }}<input id="price" type="hidden" name="price" value="{{ $user_activity->price }}"></td>
+                                    <td>&nbsp;&nbsp;&nbsp;{{ $booking->price }}<input id="price" type="hidden" name="price" value="{{ $booking->price }}"></td>
                                 </tr>
                                 <tr class="last">
                                     <th>所要時間</th>
-                                    <td>&nbsp;&nbsp;&nbsp;{{ $user_activity->length_of_time }}<input id="length_of_time" type="hidden" name="length_of_time" value="{{ $user_activity->length_of_time }}"></td>
+                                    <td>&nbsp;&nbsp;&nbsp;{{ $booking->length_of_time }}<input id="length_of_time" type="hidden" name="length_of_time" value="{{ $booking->length_of_time }}"></td>
                                 </tr>
                             </tbody>
                         </table>
                     <input id="id" type="hidden" name="id" value="{{ Auth::user()->id }}">
-                    <input id="id" type="hidden" name="cut" value="{{ $user_activity->cut }}">
-                    <input id="id" type="hidden" name="perm" value="{{ $user_activity->perm }}">
-                    <input id="id" type="hidden" name="color" value="{{ $user_activity->color }}">
-                    <input id="id" type="hidden" name="spa" value="{{ $user_activity->spa }}">
-                    <input id="id" type="hidden" name="treatment" value="{{ $user_activity->treatment }}">
+                    {{--  <input id="id" type="hidden" name="cut" value="{{ $booking->cut }}">
+                    <input id="id" type="hidden" name="perm" value="{{ $booking->perm }}">
+                    <input id="id" type="hidden" name="color" value="{{ $booking->color }}">
+                    <input id="id" type="hidden" name="spa" value="{{ $booking->spa }}">
+                    <input id="id" type="hidden" name="treatment" value="{{ $booking->treatment }}">  --}}
                     <input id="latest_booking_date_number" type="hidden" name="latest_booking_date_number" value="{{ $booking_date_month }}{{ $booking_date_day }}{{ $booking_date_hour }}{{ $booking_date_minute }}">
-                    <input type="hidden" class="form-control" id="latest_booking_plan" name="latest_booking_plan" value="{{ $user_activity->cut }} {{ $user_activity->perm }} {{ $user_activity->color }} {{ $user_activity->spa }} {{ $user_activity->treatment }}">
-                    <a type="button" class="btn btn-danger float-right ml-2 pl-3 pr-3" href="{{ action('HomeController@booking') }}">キャンセル</a>
+                    <input type="hidden" class="form-control" id="latest_booking_plan" name="latest_booking_plan" value="{{ $booking->cut }} {{ $booking->perm }} {{ $booking->color }} {{ $booking->spa }} {{ $booking->treatment }}">
+
+
                     <input id="submit" class="btn confirm-button float-right mb-3 pl-4 pr-4" row="10" type="submit" value="予約確定">
                 </form>
-            </div></div>
+            </div><a type="button" href="{{ action('HomeController@calender') }}"><button class="btn btn-danger float-right ml-2 pl-3 pr-3">キャンセル</button></a>
+        </div>
         </div>
     </div>
 </div>

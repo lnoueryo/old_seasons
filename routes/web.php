@@ -27,11 +27,11 @@ Route::get('/concept', 'HomeController@concept')->name('concept');
 Route::get('/access', 'HomeController@access')->name('access');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/calender/reservation', 'HomeController@reservation');
-Route::get('/reservation_plan', 'HomeController@reservationPlan');
+Route::get('/reservation_plan', 'HomeController@reservationPlan')->name('reservationPC');
 Route::get('/reservation_plan_sm', 'HomeController@reservationPlanSM')->name('reservationSM');
 Route::get('/policy', 'HomeController@policy')->name('policy');
 Route::get('/confirmation', 'HomeController@confirmation')->name('confirmation');
-Route::post('/confirmation/delete', 'HomeController@cancel');
+Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/reservation_date', 'HomeController@reservationDate');
 Route::post('/home', 'HomeController@booking');
 

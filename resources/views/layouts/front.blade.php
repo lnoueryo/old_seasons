@@ -175,7 +175,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="navbarDropdown">
-                                @if (Auth::user()->latest_booking_date !='' && Auth::user()->latest_booking_date_number > \Carbon\Carbon::now()->format("ndHi"))
+                                @if (null !== \App\Booking::where('user_id', Auth::user()->id)->first() && \App\Booking::where('user_id', Auth::user()->id)->first()->booking_date_number > \Carbon\Carbon::now()->format("ndHi"))
                                 <a class="dropdown-item" href="{{ route('confirmation') }}">
                                     予約確認
                                 </a>

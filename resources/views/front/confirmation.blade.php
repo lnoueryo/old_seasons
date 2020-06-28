@@ -42,28 +42,24 @@
                         </tr>
                         <tr>
                             <th>予約日時</th>
-                            <td>&nbsp;&nbsp;&nbsp;{{ Auth::user()->latest_booking_date }}</td>
+                            <td>&nbsp;&nbsp;&nbsp;{{ $booking->booking_plan }}</td>
                         </tr>
-                        {{-- <tr>
-                            <th>電話番号</th>
-                            <td>{{ Auth::user()->phone_number }}</td>
-                        </tr> --}}
                         <tr>
                             <th>予約プラン</th>
-                            <td>&nbsp;&nbsp;&nbsp;{{ \App\User::find(Auth::user())->first()->latest_booking_plan }}
+                            <td>&nbsp;&nbsp;&nbsp;{{ $booking->booking_date }}
                         </tr>
                         <tr>
                             <th>料金</th>
-                            <td>&nbsp;&nbsp;&nbsp;{{ \App\User::find(Auth::user())->first()->price }}</td>
+                            <td>&nbsp;&nbsp;&nbsp;{{ $booking->price }}</td>
                         </tr>
                         <tr class="last">
                             <th>所要時間</th>
-                            <td>&nbsp;&nbsp;&nbsp;{{ \App\User::find(Auth::user())->first()->length_of_time }}</td>
+                            <td>&nbsp;&nbsp;&nbsp;{{ $booking->length_of_time }}</td>
                         </tr>
                     </tbody>
                 </table>
-                <form action="{{ action('HomeController@cancel') }}" method="POST">
-                    {{ csrf_field() }}
+                {{--  <form action="{{ action('HomeController@cancel') }}" method="POST">
+                    {{ csrf_field() }}  --}}
                     <input type="hidden" name="latest_booking_date" value="">
                     <input type="hidden" name="latest_booking_date_number" value="">
                     <input type="hidden" name="latest_booking_plan" value="">
@@ -75,10 +71,11 @@
 
                         </li>
                         <li>
-                            <input id="submit" class="btn confirm-button float-right mb-3 pl-4 pr-4" row="10" type="submit" value="予約キャンセル"><a href="{{ action('HomeController@cancel') }}" class="btn btn-danger float-right" type="button">予約キャンセル</a>
+                            {{--  <input id="submit" class="btn confirm-button float-right mb-3 pl-4 pr-4" row="10" type="submit" value="予約キャンセル">  --}}
+                            <a href="{{ action('HomeController@cancel') }}" class="btn btn-danger float-right" type="button">予約キャンセル</a>
                         </li>
                     </ul>
-                </form>
+                {{--  </form>  --}}
             </div>
         </div>
     </div>

@@ -270,6 +270,7 @@ vertical-align: middle;
 
   .calender td {/*table内のtdに対して*/
     padding: 3px 10px;/*上下3pxで左右10px*/
+    z-index: 0;
   }
 
   .calender thead th {
@@ -278,7 +279,7 @@ vertical-align: middle;
     position: sticky;
     top: 0;
     /* tbody内のセルより手前に表示する */
-    z-index: 10;
+    z-index: 1;
     border-bottom: none;
   }
 
@@ -289,11 +290,12 @@ vertical-align: middle;
   }
 
   .calender-cell {
-      width: 25px;
-      height: 21px;
+      width: 40px;
+      height: 35px;
       border:none;
       background:none;
       text-align: center;
+      z-index: 0;
   }
 
   .calender th:first-child {
@@ -303,7 +305,7 @@ vertical-align: middle;
     left: 0;
     background-color: #e9ecef;
     border: 20px #dee2e6;
-    z-index: 0;
+    z-index: 10;
   }
 
   .delete {

@@ -37,22 +37,6 @@
         <td>{{ $user_form->birth_year }}年{{ $user_form->birth_month }}月{{ $user_form->birth_day }}日</td>
     </tr>
     <tr>
-        <th>最新の予約日</th>
-        <td>{{ $user_form->latest_booking_date }}</td>
-    </tr>
-    <tr>
-        <th>前回の予約日</th>
-        <td>{{ $user_form->last_booking_date }}</td>
-    </tr>
-    <tr>
-        <th>最新の予約プラン</th>
-        <td>{{ $user_form->latest_booking_plan }}</td>
-    </tr>
-    <tr>
-        <th>前回の予約プラン</th>
-        <td>{{ $user_form->last_booking_plan }}</td>
-    </tr>
-    <tr>
         <th>当サイトからの通知</th>
         <td>{{ $user_form->mail_magazine }}</td>
     </tr>
@@ -64,14 +48,6 @@
         <th>メモ</th>
         <td>{{ $user_form->memo }}</td>
     </tr>
-    {{--  <tr>
-        <th>ラストログイン</th>
-        <td>{{ date('Y年n月j日 G時i分', strtotime($user_form->last_sign_in_at)) }}</td>
-    </tr>
-    <tr>
-        <th>最新ログイン</th>
-        <td>{{ date('Y年n月j日 G時i分', strtotime($user_form->current_sign_in_at)) }}</td>
-    </tr>  --}}
     <tr>
     {{--  <th>memo</th>
             <td class="col-md-4 float-right"><a type="button" class="btn btn-primary" href="{{ action('Admin\UserController@edit', ['id' => $user_form->id]) }}">編集</a>  --}}
