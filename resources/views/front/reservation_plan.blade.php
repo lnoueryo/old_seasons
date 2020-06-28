@@ -26,6 +26,10 @@
                             $('#creepperm').val(6100);
                             $('#digitalperm').val(11600);
 
+                            $('#graycolor').val(2800);
+                            $('#fashioncolor').val(3900);
+                            $('#designcolor').val(10600);
+
                             if ($("#spa90min").prop("checked") == true){
                                 $('#treatments').val(0);
                                 yen += eval(document.Form.elements[i].value);
@@ -44,6 +48,11 @@
                             $('#coldperm').val(4000);
                             $('#creepperm').val(6200);
                             $('#digitalperm').val(11700);
+
+                            $('#graycolor').val(2900);
+                            $('#fashioncolor').val(4000);
+                            $('#designcolor').val(10700);
+
                             if ($("#spa90min").prop("checked") == true){
                                 $('#treatments').val(0);
                                 yen += eval(document.Form.elements[i].value);
@@ -61,6 +70,11 @@
                             $('#coldperm').val(5500);
                             $('#creepperm').val(7700);
                             $('#digitalperm').val(13200);
+
+                            $('#graycolor').val(4400);
+                            $('#fashioncolor').val(5500);
+                            $('#designcolor').val(12200);
+
                             if ($("#spa90min").prop("checked") == true){
                                 $('#treatments').val(0);
                                 yen += eval(document.Form.elements[i].value);
@@ -153,9 +167,9 @@
                                     <th width="25%"><input id="designcolor" type="checkbox" name="colors" value="12200" onclick="total()">3D・DesignColor</th>
                                 </tr>
                                 <tr>
-                                    <th width="40%">¥4,400- 税抜き</th>
-                                    <th width="40%">¥5,500- 税抜き</th>
-                                    <th width="40%">¥12,200- 税抜き</th>
+                                    <th width="40%">¥<span id="color1">4,400</span>- 税抜き</th>
+                                    <th width="40%">¥<span id="color2">5,500</span>- 税抜き</th>
+                                    <th width="40%">¥<span id="color3">12,200</span>- 税抜き</th>
                                 </tr>
                                 <tr>
                                     <th class="align-middle" rowspan="2">Spa</th>

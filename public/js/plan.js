@@ -67,7 +67,7 @@
         });
       });
 
-      
+
 
 // var number6 = 0;
 //     $('input[type=checkbox]').click(function() {
@@ -96,11 +96,18 @@
           document.getElementById('perm1').textContent = '3,900';
           document.getElementById('perm2').textContent = '6,100';
           document.getElementById('perm3').textContent = '11,600';
+          document.getElementById('color1').textContent = '2,800';
+          document.getElementById('color2').textContent = '3,900';
+          document.getElementById('color3').textContent = '10,600';
           $('#cut').val('カット');
+
         } else {
             document.getElementById('perm1').textContent = '5,500';
             document.getElementById('perm2').textContent = '7,700';
             document.getElementById('perm3').textContent = '13,200';
+            document.getElementById('color1').textContent = '4,400';
+            document.getElementById('color2').textContent = '5,500';
+            document.getElementById('color3').textContent = '12,200';
             number = 0;
             $('#cut').val();
         }
@@ -114,11 +121,19 @@
           document.getElementById('perm1').textContent = '4,000';
           document.getElementById('perm2').textContent = '6,200';
           document.getElementById('perm3').textContent = '11,700';
+          document.getElementById('color1').textContent = '2,900';
+          document.getElementById('color2').textContent = '4,000';
+          document.getElementById('color3').textContent = '10,700';
           $('#cut').val('カット');
+
         } else {
             document.getElementById('perm1').textContent = '5,500';
             document.getElementById('perm2').textContent = '7,700';
             document.getElementById('perm3').textContent = '13,200';
+            document.getElementById('color1').textContent = '4,400';
+            document.getElementById('color2').textContent = '5,500';
+            document.getElementById('color3').textContent = '12,200';
+
             $('#cut').val('');
             number = 0;
         }

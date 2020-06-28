@@ -612,6 +612,15 @@ vertical-align: middle;
 
   }
 
+  .booking-btn {
+    z-index: 500;
+
+ }
+  .booking-btn-container {
+    z-index: 500;
+
+ }
+
 
 
   footer .pp {

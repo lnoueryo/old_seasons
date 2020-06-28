@@ -38,7 +38,6 @@ class HomeController extends Controller
         return view('front.calender');
     }
 
-
     public function menu()
     {
         return view('front.menu');
@@ -64,7 +63,7 @@ class HomeController extends Controller
     }
 
     public function ReservationPlan() {
-        
+
         return view('front.reservation_plan');
     }
 
@@ -104,17 +103,16 @@ class HomeController extends Controller
 
     public function booking(Request $request)
     {
-        // $user = User::find($request->id);
-        // $user->phone_number = $request->phone_number;
-        // $user->booking_counter += 1;
+        $user = User::find($request->id);
+        $user->phone_number = $request->phone_number;
+        $user->booking_counter += 1;
         // $user->last_booking_date = $user->latest_booking_date ? $user->latest_booking_date : $request->latest_booking_date;
         // $user->last_booking_plan = $user->latest_booking_plan ? $user->latest_booking_plan : $request->latest_booking_plan;
         // $user->latest_booking_date = $request->latest_booking_date;
         // $user->latest_booking_plan = $request->latest_booking_plan;
-        // $user->latest_booking_date_number = $request->latest_booking_date_number;
+        $user->latest_booking_date_number = $request->latest_booking_date_number;
         // $user->price = $request->price;
-        // $user->length_of_time = $request->length_of_time;
-        // $user->update();
+        $user->update();
 
         $booking = new Booking;
         $booking->user_id = $request->id;
@@ -124,21 +122,6 @@ class HomeController extends Controller
         $booking->booking_date = $request->latest_booking_date;
         $booking->booking_date_number = $request->latest_booking_date_number;
 
-        if($request->cut != '') {
-            $booking->cut = '〇';
-        }
-        if($request->perm != '') {
-            $booking->perm = '〇';
-        }
-        if($request->color != '') {
-            $booking->color = '〇';
-        }
-        if($request->spa != '') {
-            $booking->spa = '〇';
-        }
-        if($request->treatment != '') {
-            $booking->treatment = '〇';
-        }
 
         $booking->save();
 
@@ -185,8 +168,10 @@ class HomeController extends Controller
         // $user->length_of_time = $request->length_of_time;
         // $user->save();
         // $booking->save();
-        $booking = Booking::where('user_id', Auth::user()->id)->first();
-        $booking->delete();
+
+        $booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
+        $booking->active = 0;
+        $booking->save();
 
         return redirect('/');
 

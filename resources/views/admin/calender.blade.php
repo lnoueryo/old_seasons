@@ -43,9 +43,9 @@
                     <th class="align-middle" scope="row">{{ \Carbon\Carbon::today()->addHours(10)->addMinutes($j*30)->format("H:i") }}</th>
                     @for($i = 1; $i <= 14; $i++)
                     {{--  予約がある場合×  --}}
-                    @if(null !==\App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first())
+                    @if(null !== \App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->where('active', 1)->first())
                     <td>
-                    <a class="text-secondry" href="{{ action('AdminController@profile', ['id' => App\User::where('latest_booking_date', Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->id]) }}">予約</a></td>
+                    <a class="text-secondry" href="{{ action('AdminController@profile', ['id' => \App\Booking::where('booking_date_number', Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->user_id]) }}">予約</a></td>
                     {{--  定休日×  --}}
                     @elseif(\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first() || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30))
                     <td>×</td>

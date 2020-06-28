@@ -246,6 +246,10 @@
                             $('#creepperm').val(6100);
                             $('#digitalperm').val(11600);
 
+                            $('#graycolor').val(2800);
+                            $('#fashioncolor').val(3900);
+                            $('#designcolor').val(10600);
+
                             if ($("#spa90min").prop("checked") == true){
                                 $('#treatments').val(0);
                                 yen += eval(document.Form.elements[i].value);
@@ -264,6 +268,11 @@
                             $('#coldperm').val(4000);
                             $('#creepperm').val(6200);
                             $('#digitalperm').val(11700);
+
+                            $('#graycolor').val(2900);
+                            $('#fashioncolor').val(4000);
+                            $('#designcolor').val(10700);
+
                             if ($("#spa90min").prop("checked") == true){
                                 $('#treatments').val(0);
                                 yen += eval(document.Form.elements[i].value);
@@ -281,6 +290,11 @@
                             $('#coldperm').val(5500);
                             $('#creepperm').val(7700);
                             $('#digitalperm').val(13200);
+
+                            $('#graycolor').val(4400);
+                            $('#fashioncolor').val(5500);
+                            $('#designcolor').val(12200);
+
                             if ($("#spa90min").prop("checked") == true){
                                 $('#treatments').val(0);
                                 yen += eval(document.Form.elements[i].value);
@@ -327,6 +341,7 @@
                 const search = document.getElementById('Form').price.value;
                 document.getElementById('Form').prices.value = `${search} +1000`
             };
+
 
 
     </script>
@@ -388,15 +403,15 @@
                 <div class="box_one">
                     <ul class="float1">
                         <li class="mr-3"><label for="graycolor"><input class="mr-1" id="graycolor" type="checkbox" name="colors" value="4400" onclick="total()">GrayColor</label></li>
-                        <li  class="float-right">¥<span id="perm1">4,400</span>- 税込<span class="ml-4">60分</span></li>
+                        <li  class="float-right">¥<span id="color1">4,400</span>- 税込<span class="ml-4">60分</span></li>
                     </ul>
                     <ul class="float1">
                         <li class="mr-3"><label for="fashioncolor"><input class="mr-1" id="fashioncolor"type="checkbox" name="colors" value="5500" onclick="total()">FashonColor</label></li>
-                        <li  class="float-right">¥<span id="perm2">5,500</span>- 税込<span class="ml-4">90分</span></li>
+                        <li  class="float-right">¥<span id="color2">5,500</span>- 税込<span class="ml-4">90分</span></li>
                     </ul>
                     <ul class="float1">
                         <li class="mr-"><label for="designcolor"><input class="mr-1" id="designcolor" type="checkbox" name="colors" value="13200" onclick="total()">3D-D<span class="design">esign</span>Color</label></li>
-                        <li  class="float-right">¥<span id="perm3">12,200</span>- 税込<span class="ml-3">150分</span></li>
+                        <li  class="float-right">¥<span id="color3">12,200</span>- 税込<span class="ml-3">150分</span></li>
                         <li class="mr-"></li>
                     </ul>
                 </div>
@@ -414,15 +429,15 @@
                 <div class="box_one">
                     <ul class="float1">
                         <li class="mr-3"><label for="spa30min"><input class="mr-2" id="spa30min" type="checkbox" name="spas" value="3900" onclick="total()">30min コース</label></li>
-                        <li  class="float-right">¥<span id="perm1">3,900</span>- 税込<span class="ml-4">30分</span></li>
+                        <li  class="float-right">¥<span id="spa1">3,900</span>- 税込<span class="ml-4">30分</span></li>
                     </ul>
                     <ul class="float1">
                         <li class="mr-3"><label for="spa60min"><input class="mr-2" id="spa60min" type="checkbox" name="spas" value="7000" onclick="total()">60min コース</label></li>
-                        <li  class="float-right">¥<span id="perm2">7,000</span>- 税込<span class="ml-4">60分</span></li>
+                        <li  class="float-right">¥<span id="spa2">7,000</span>- 税込<span class="ml-4">60分</span></li>
                     </ul>
                     <ul class="float1">
                         <li class="mr-"><label for="spa90min"><input class="mr-2" id="spa90min" type="checkbox" name="spas" value="11000" onclick="total()">90min コース</label></li>
-                        <li  class="float-right">¥<span id="perm3">11,000</span>- 税込<span class="ml-4">90分</span></li>
+                        <li  class="float-right">¥<span id="spa3">11,000</span>- 税込<span class="ml-4">90分</span></li>
                     </ul>
                 </div>
             </div>
