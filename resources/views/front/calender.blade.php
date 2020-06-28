@@ -332,10 +332,28 @@
                         </table>
                     </form>
                 </div>
+                <ul id="tabMenu" class="clearfix">
+                    <li><a class="man" href="#tabBox1">男性カットのみ</a></li>
+                    <li>
+                          <span>&nbsp;&nbsp;||&nbsp;&nbsp;</span>
+
+                    </li>
+                    <li><a class="woman" href="#tabBox2">女性カットのみ</a></li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
+                                <div class="booking-btn-flame text-center">
+                                    <div class="booking-btn-container">
+                                        <a class="justify-content-center" href="{{ action('HomeController@reservationPlan') }}"><button class="btn sub-button mt-3 text-center">予約へ進む</button></a>
+                                    </div>
+                                </div>
+                                <div class="booking-btn-flame-sm text-center delete">
+                                    <div class="booking-btn-container">
+                                        <a class="justify-content-center" href="{{ action('HomeController@reservationPlanSM') }}"><button class="btn booking-btn mt-3 text-center">予約へ進む</button></a>
+                                    </div>
+                                </div>
 
 
 

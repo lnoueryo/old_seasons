@@ -1,43 +1,4 @@
-{{-- for (i=0; i< document.Form.length-1; i++) {
-    var abc = document.Form.elements[i];
-    {{-- console.log(abc.placeholder); --}}
-    if(abc.placeholder === '2時間'){
 
-        document.Form.elements[i].value = "×";
-        document.Form.elements[i].classList.add('disabled');
-        document.Form.elements[i+14].value = "×";
-        document.Form.elements[i+14].classList.add('disabled');
-        document.Form.elements[i+28].value = "×";
-        document.Form.elements[i+28].classList.add('disabled');
-
-}
-
-}
-
-
-<td class="align-middle text-center">
-@if(null !==\App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first())
-<input id="date{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("mdHi")}}" class="calender-cell" type="button" onclick="location.href='{{ action('HomeController@reservation', ['booking_date' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月d日 H:i"),
-'cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa,
-'price' => $booking->price, 'length_of_time' => $booking->length_of_time,
-'booking_date_month' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n"),
-'booking_date_day' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("d"),
-'booking_date_hour' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("H"),
-'booking_date_minute' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("i")]) }}'" name="{{ $booking->length_of_time }}" value="〇" placeholder="{{ \App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->length_of_time }}" size="1" >
-@else
-<input id="date{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("mdHi")}}" class="calender-cell" type="button" onclick="location.href='{{ action('HomeController@reservation', ['booking_date' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月d日 H:i"),
-    'cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa,
-    'price' => $booking->price, 'length_of_time' => $booking->length_of_time,
-    'booking_date_month' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n"),
-    'booking_date_day' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("d"),
-    'booking_date_hour' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("H"),
-    'booking_date_minute' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("i")]) }}'" name="{{ $booking->length_of_time }}" value="〇" placeholder="30分" size="1" >
-
-@endif
-</td>
-
-
- --}}
 
 @extends('layouts.front3')
 
