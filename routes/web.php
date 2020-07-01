@@ -33,6 +33,7 @@ Route::get('/policy', 'HomeController@policy')->name('policy');
 Route::get('/confirmation', 'HomeController@confirmation')->name('confirmation');
 Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/reservation_date', 'HomeController@reservationDate');
+Route::post('/reservation_date_sm', 'HomeController@reservationDateSM');
 Route::post('/home', 'HomeController@booking');
 
 

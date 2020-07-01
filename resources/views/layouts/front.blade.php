@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/front.js') }}" defer></script>
+    <script src="{{ asset('js/calender.js') }}" defer></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     {{--  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>  --}}
@@ -25,6 +25,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/front.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/PC/calender.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/media/calender.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 
@@ -175,7 +177,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right bg-transparent" aria-labelledby="navbarDropdown">
-                                @if (null !== \App\Booking::where('user_id', Auth::user()->id)->first() && \App\Booking::where('user_id', Auth::user()->id)->first()->booking_date_number > \Carbon\Carbon::now()->format("ndHi"))
+                                @if (null !== \App\Booking::where('user_id', Auth::user()->id)->where('booking_date_number', Auth::user()->latest_booking_date_number)->where('active', 1)->first() && \App\Booking::where('user_id', Auth::user()->id)->where('active', 1)->first()->booking_date_number > \Carbon\Carbon::now()->format("ndHi"))
                                 <a class="dropdown-item" href="{{ route('confirmation') }}">
                                     予約確認
                                 </a>
@@ -304,3 +306,41 @@
 
 </body>
 </html>
+
+    <style>
+
+        footer {
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        footer .pp {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .pp a {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer .cr {
+            color: #ffffff;
+            background-color: #a0c5ef;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+        }
+    </style>

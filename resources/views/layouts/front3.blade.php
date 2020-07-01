@@ -12,7 +12,8 @@
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="{{ asset('js/plan.js') }}" defer></script>
-    <script src="{{ asset('js/front.js') }}" defer></script>
+    <script src="{{ asset('js/reservation_plan_sm.js') }}" defer></script>
+    <script src="{{ asset('js/reservation_date.js') }}" defer></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,7 +21,6 @@
     <link rel="stylesheet" href="sample.css" type="text/css" media="screen and (max-width:300px)">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/front.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 <body>
@@ -34,13 +34,13 @@
             </div>
         </div>
         <div class="main-image-flame">
-            <div class="main-image-container-inside">
-                <img src="image/woman3.jpg"  data-src="image/woman3.jpg" alt="seasons" class="main-img" data-srcset="image/woman3.jpg">
+            <div class="image-container-woman5">
+                <img id="woman5" src="image/woman5.png"  data-src="image/woman5.jpg" alt="seasons" class="main-img" data-srcset="image/woman5.jpg">
             </div>
         </div>
         <div class="header">
     </div>
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     <footer>
@@ -49,6 +49,44 @@
     </footer>
 </body>
 </html>
+
+    <style>
+
+        footer {
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        footer .pp {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+          }
+
+          .pp a {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-decoration: none;
+          }
+
+          footer .cr {
+            color: #ffffff;
+            background-color: #a0c5ef;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+          }
+    </style>
 
     <script>
         {{-- 30

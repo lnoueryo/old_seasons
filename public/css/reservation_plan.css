@@ -480,32 +480,8 @@ input+label:after {
     transition: 2s;
 }
 
-.calender {
-    height: 600px;
-    border: solid 1.2px;
-    border-color: rgb(0, 0, 0, 0.2);
 
-    }
 
-    .calender th {/*table内のthに対して*/
-        padding: 10px;/*上下左右10pxずつ*/
-        font-size: 0.9rem;
-      }
-
-      .calender td {/*table内のtdに対して*/
-        padding: 3px 10px;/*上下3pxで左右10px*/
-      }
-
-      .calender thead th {
-        /* 縦スクロール時に固定する */
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        /* tbody内のセルより手前に表示する */
-        z-index: 1;
-      }
-
-      
 
 @media (max-width: 1200px) {
 #cut2, #cut3 {

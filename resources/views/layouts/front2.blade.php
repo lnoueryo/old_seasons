@@ -268,3 +268,41 @@
 </footer>
 </body>
 </html>
+
+    <style>
+
+        footer {
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        footer .pp {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .pp a {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer .cr {
+            color: #ffffff;
+            background-color: #a0c5ef;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+        }
+    </style>

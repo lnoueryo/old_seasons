@@ -49,19 +49,7 @@ body {
     font-size: 1rem;
 }
 
-.main-nav {
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 50px;
-    border: solid 3px;
-    border-color: #d8d6bc;
-    background-color:#d5e6e4;
-    width: 100%;
-    display: flex;
 
-
-
-}
 
 .nav1 li:hover{
     background-color: #fff5ea;
@@ -91,231 +79,47 @@ body {
     visibility: visible;
   } */
 
-  .drop-down {
 
-  }
-
-  .address {
-    border-radius: 50px;
-    border: solid 7px;
-    border-color: rgb(170, 204, 202);
-    background-color:#ebeade;
-    list-style: none;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-  .tel {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-  .introduction {
-    border-radius: 42px;
-    border: solid 2px;
-    border-color: rgb(204, 179, 171);
-    background-color:rgb(234, 224, 221);
-    list-style: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-  .name {
-padding-top: 5px;
-line-height: 35px;
-}
-
-.vacancy {
-    padding-bottom: 0.5em;
-    padding-top: 1.0em;
-    font-family: cursive;
-    /* font-size: 50px; */
-    font-size: 25px;
-    color: #444444;
-    font-weight: 600;
-}
-
-.clearfix {
-
-    list-style-type: none;
-    padding-left: 0;
-    display: flex;
-    justify-content: center;
-
-}
-
-.clearfix a{
-
-    color: #444444;
-    font-size: 18px;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.clearfix a:hover{
-    color: #444444d0;
-}
-
-
-.toggle-input {
-    position: absolute;
-    left: 0;
-    top: 0;
+  #inside {
     width: 100%;
-    height: 100%;
-    z-index: 5;
-    opacity: 0;
-    cursor: pointer;
+    height: 350px;
+    object-fit: cover;
+    object-position: 100% 100%;
+    opacity: 0.85;
+  }
+
+  .img-container {
+    background-color: rgb(255, 255, 255);
+    display:inline-block;
 
   }
 
-  .toggle-label {
-    width: 40px;
-    height: 20px;
-    background-color: #4b9dd8;
-    position: relative;
-    display: inline-block;
-    border-radius: 46px;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    box-sizing: border-box;
-    margin-bottom: -0.2rem;
-  }
-
-  .toggle-label:after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-
-  }
-
-  .toggle-input:checked + .toggle-label {
-
-    background: #d84b6a;
-  }
-  .toggle-input:checked + .toggle-label:after {
-    left: 20px;
-
-  }
-
-  .toggle-switch {
-    position: relative;
-    width: 75px;
-
-    margin: auto;
 
 
-  }
+
+
+
+
+
+
+
+
+
 
   .confirmation {
     width: 600px;
   }
 
-/* 吹き出し本体 */
-.balloon{
-    position: relative;
-    padding: 20px;
-    background-color: #c6e1ff;
-    border-radius: 10px;
-    font-family: cursive;
-    transition: 2s;
-    box-shadow: 4px 5px 0px 0px #6180a382;         /* 吹き出し本体の影 */
-  }
-  /* 三角アイコン */
-  .balloon::before{
-    content: '';
-    position: absolute;
-    display: block;
-    width: 0;
-    height: 0;
-    left: 25px;
-    bottom: -17px;
-    border-top: 15px solid #6180a378;
-    border-right: 15px solid transparent;
-    border-left: 15px solid transparent;
-  }
-  /* 三角アイコンの影 */
-  .balloon::after{
-    content: '';
-    position: absolute;
-    display: block;
-    width: 0;
-    height: 0;
-    left: 20px;
-    bottom: -15px;
-    border-top: 15px solid #c6e1ff;
-    border-right: 15px solid transparent;
-    border-left: 15px solid transparent;
-  }
 
-.calender {
-height: 600px;
-border: solid 1.2px;
-border-color: rgb(0, 0, 0, 0.2);
-vertical-align: middle;
-}
 
-.calender th {/*table内のthに対して*/
-    padding: 10px;/*上下左右10pxずつ*/
-    font-size: 0.9rem;
-  }
 
-  .calender td {/*table内のtdに対して*/
-    padding: 3px 10px;/*上下3pxで左右10px*/
-    z-index: 0;
-  }
 
-  .calender thead th {
-    /* 縦スクロール時に固定する */
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    /* tbody内のセルより手前に表示する */
-    z-index: 1;
-    border-bottom: none;
-  }
-
-  .calender thead th:first-child {
-
-    padding: 30px;
-    z-index: 10;
-  }
-
-  .calender-cell {
-      width: 40px;
-      height: 35px;
-      border:none;
-      background:none;
-      text-align: center;
-      z-index: 0;
-  }
-
-  .calender th:first-child {
-    /* 横スクロール時に固定する */
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    background-color: #e9ecef;
-    border: 20px #dee2e6;
-    z-index: 10;
-  }
 
   .delete {
       display: none;
   }
 
-  #tabBox2{
-    background:#FFC;
-    display:none;
-    }
+
 
 #media {
     display: none;
@@ -359,7 +163,7 @@ vertical-align: middle;
 
 
 
-  @media screen and (max-width:780px) {
+  @media screen and (max-width:860px) {
     .logo-container {
         padding: 0.2em 0.8em;
     }
@@ -480,15 +284,7 @@ vertical-align: middle;
           }
 
 
-         .balloon {
-             height: 5%;
-             width: 60%;
-             margin: 0 0 0 auto;
-             font-size: 10px;
-             line-height: 15px;
-             padding: 10px;
-             font-weight: 600;
-         }
+
 
          .logo-container {
              padding-left: 5px;
@@ -500,27 +296,21 @@ vertical-align: middle;
              color: #111;
          }
 
-         .balloon-container {
-            margin-top: 290px;
-            margin-right: 15px;
-            top: 0;
-            position: absolute;
 
-            }
 
-            .sub-button {
-                background-color: #5f5f5f;
-                color: #fff;
-                width: 100%;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                letter-spacing: 3px;
-                font-size: 18px;
 
-            }
-
+/*
             .back {
-                margin-right: 90px;
+                margin-right: 100px;
+                right: 0;
+                margin-bottom: 10px;
+                bottom: 0;
+                position: fixed;
+
+            }
+
+            .cancel {
+                margin-right: 0px;
                 right: 0;
                 margin-bottom: 10px;
                 bottom: 0;
@@ -533,7 +323,7 @@ vertical-align: middle;
                 background-color: rgb(255, 245, 234);
             }
             .next {
-                margin-right: 10px;
+                margin-right: 15px;
                 right: 0;
                 margin-bottom: 10px;
                 bottom: 0;
@@ -543,7 +333,7 @@ vertical-align: middle;
             .fixed-output {
                 position: fixed;
                 left: 0;
-                /* bottom: ; */
+
                 margin-bottom: 15px;
                 bottom: 0;
                 margin-left: 10px;
@@ -579,32 +369,15 @@ vertical-align: middle;
                 padding-bottom: 10px;
                 color: #ffffffef;
                 z-index: 400;
+                width: 100%;
 
             }
 
             .design {
                 font-size: 12px;
-            }
+            } */
 
-            .booking-btn-container {
-                position: fixed;
-                bottom:1px;
-                transition:1s;
-                opacity:0.95;
-                z-index: 50;
-                text-align: center;
-                width: 100%;
 
-              }
-
-              .booking-btn {
-                z-index: 50;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                background-color: #5f5f5f;
-                color: #fff;
-                width: 100%;
-             }
 
   }
 
@@ -623,35 +396,7 @@ vertical-align: middle;
 
 
 
-  footer .pp {
-    color: #6e6e6e;
-    background-color: #d8ebea;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
 
-  .pp a {
-    color: #6e6e6e;
-    background-color: #d8ebea;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  footer .cr {
-    color: #ffffff;
-    background-color: #a0c5ef;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 0.9rem;
-  }
 
   .insta_btn2{/*ボタンの下地*/
     color: #FFF;/*文字・アイコン色*/
@@ -795,17 +540,7 @@ vertical-align: middle;
     font-size: 1rem;
 }
 
-.abc h3 {
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.25;
-    color: #444444;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #a0c5ef;
-}
+
 
 dt {
     font-size: 0.8rem;
@@ -837,25 +572,18 @@ dd {
     text-justify: inter-ideograph;
 }
 
-.contact-form {
+/* .contact-form {
     font-size: 0.8rem;
-    /* border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid; */
+
     border-top-color: #d5d5d5;
     border-left-color: #d5d5d5;
     border-right-color: #d5d5d5;
     border-bottom-color: #d5d5d5;
     margin-bottom: 20px;
     width: 100%;
-}
+} */
 
-.contact-form th {
+/* .contact-form th {
     color: #b48054;
     background-color: #d8ebea;
     padding: 20px;
@@ -885,56 +613,9 @@ dd {
     border-left-color: #d5d5d5;
     border-right-color: #d5d5d5;
     border-bottom-color: #d5d5d5;
-}
+} */
 
 
-.confirmation-form {
-    font-size: 0.8rem;
-    /* border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid; */
-    border-top-color: #d5d5d5;
-    border-left-color: #d5d5d5;
-    border-right-color: #d5d5d5;
-    border-bottom-color: #d5d5d5;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.confirmation-form th {
-    color: #b48054;
-    background-color: #d8ebea;
-    padding: 20px;
-
-}
-
-.confirmation-form td {
-    color: #b48054;
-    background-color: #d8ebea;
-    padding: 10px;
-}
-
-.confirmation-form td {
-    background-color: #ffffff;
-    padding: 10px;
-    border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-top-color: #d5d5d5;
-    border-left-color: #d5d5d5;
-    border-right-color: #d5d5d5;
-    border-bottom-color: #d5d5d5;
-}
 
 @media screen and (max-width: 640px) {
 
@@ -1011,9 +692,6 @@ dd {
     font-size: 0.7rem;
 }
 
-.main-image-container-inside {
-
-}
 
 .main-img {
     object-fit: cover;
@@ -1040,14 +718,12 @@ inset 0 0 100px rgba(0, 0, 0, 0.2);
 background: rgba(160, 83, 1, 0.1); /* カラーを重ねる */
     }
 
-footer {
-    width: 100%;
-}
 
 
 
 
-.back {
+
+/* .back {
     background-color: rgb(255, 245, 234);
     border: solid #CCCCCC;
     border-radius: 4px;
@@ -1068,15 +744,31 @@ footer {
     font-weight: bold;
     text-align: center;
     cursor: pointer;
+    z-index: 400;
+} */
+
+/* .cancel {
+    background-color: #693838;
+    border: solid #CCCCCC;
+    border-radius: 4px;
+    border-width: 1px 1px 3px;
+    color: rgb(255, 245, 234);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
 
     z-index: 400;
-}
+} */
 
 .sns-container {
     margin: 10px;
 }
 
-@media screen and (max-width: 720px) {
+.plan-table th {
+    margin: 100px;
+}
+
+/* @media screen and (max-width: 720px) {
     .main-image{
         width: 40%;
     }
@@ -1093,4 +785,4 @@ footer {
         font-size: 15px;
     }
 }
-
+ */

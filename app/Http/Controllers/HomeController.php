@@ -82,6 +82,16 @@ class HomeController extends Controller
         return view('front.reservation_date', ['booking' => $booking, 'times' => $times]);
     }
 
+    public function reservationDateSM(Request $request) {
+
+        $booking = new Booking($request->all());
+        $request->session()->put('booking', $booking);
+        $times = Booking::where('booking_date','>', Carbon::now())->get();
+
+
+        return view('front.reservation_date_sm', ['booking' => $booking, 'times' => $times]);
+    }
+
     public function reservation(Request $request)
     {
         $booking_date_month = $request->booking_date_month;

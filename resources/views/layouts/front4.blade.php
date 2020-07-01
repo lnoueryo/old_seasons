@@ -11,16 +11,21 @@
 
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-    <script src="{{ asset('js/plan.js') }}" defer></script>
-    <script src="{{ asset('js/front.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/plan.js') }}" defer></script> --}}
+    <script src="{{ asset('js/reservation_plan_sm.js') }}" defer></script>
+    <script src="{{ asset('js/reservation.js') }}" defer></script>
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="sample.css" type="text/css" media="screen and (max-width:300px)">
+    <link rel="stylesheet" href="sample.css" type="text/css" media="screen and (max-width:400px)">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/front.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/front.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 <body>
@@ -33,7 +38,9 @@
                 </a>
             </div>
         </div>
-        <div class="header">
+    </div>
+    <div class="img-container">
+        <img id="inside" src="image/inside2.png"  data-src="image/inside2.png" alt="seasons" class="main-img" data-srcset="image/inside2.png">
     </div>
         <main class="py-4">
             @yield('content')
@@ -44,3 +51,42 @@
     </footer>
 </body>
 </html>
+
+
+    <style>
+
+        footer {
+            width: 100%;
+            margin-top: 60px;
+        }
+
+        footer .pp {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .pp a {
+            color: #6e6e6e;
+            background-color: #d8ebea;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer .cr {
+            color: #ffffff;
+            background-color: #a0c5ef;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 0.9rem;
+        }
+    </style>
