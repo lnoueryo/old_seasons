@@ -248,12 +248,14 @@ $(function(){
         document.Form.elements[i].classList.add('disabled');
 
     }
-    if(!document.Form.elements[i+14].value) {
-        for (j=0; j< 14; j++) {
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
+    if(document.Form.elements[i+28].value !== "〇" && document.Form.elements[i+28].value !== "×") {
+        for (k=14; k< 28; k++) {
+            document.Form.elements[i+k].value = "×";
+            document.Form.elements[i+k].classList.add('disabled');
+
 
         }
+
 
 
     }
@@ -277,12 +279,17 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       else if(!document.Form.elements[i+28].value) {
-            for (k=0; k< 28; k++) {
+
+        if(document.Form.elements[i+42].value !== "〇" && document.Form.elements[i+42].value !== "×") {
+            for (k=14; k< 42; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
 
+
             }
+
+
+
         }
 
 
@@ -314,10 +321,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+42].value) {
-            for (k=0; k< 42; k++) {
+        if(document.Form.elements[i+56].value !== "〇" && document.Form.elements[i+56].value !== "×") {
+            for (k=14; k< 56; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -358,10 +366,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+56].value) {
-            for (k=0; k< 56; k++) {
+        if(document.Form.elements[i+70].value !== "〇" && document.Form.elements[i+70].value !== "×") {
+            for (k=14; k< 70; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -409,10 +418,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+70].value) {
-            for (k=0; k< 70; k++) {
+        if(document.Form.elements[i+84].value !== "〇" && document.Form.elements[i+84].value !== "×") {
+            for (k=14; k< 84; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -467,10 +477,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+84].value) {
-            for (k=0; k< 84; k++) {
+        if(document.Form.elements[i+98].value !== "〇" && document.Form.elements[i+98].value !== "×") {
+            for (k=14; k< 98; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -531,10 +542,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+98].value) {
-            for (k=0; k< 98; k++) {
+        if(document.Form.elements[i+112].value !== "〇" && document.Form.elements[i+112].value !== "×") {
+            for (k=14; k< 112; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -603,10 +615,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+112].value) {
-            for (k=0; k< 112; k++) {
+        if(document.Form.elements[i+126].value !== "〇" && document.Form.elements[i+126].value !== "×") {
+            for (k=14; k< 126; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -681,10 +694,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+126].value) {
-            for (k=0; k< 126; k++) {
+        if(document.Form.elements[i+140].value !== "〇" && document.Form.elements[i+140].value !== "×") {
+            for (k=14; k< 140; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -767,10 +781,11 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+140].value) {
-            for (k=0; k< 140; k++) {
+        if(document.Form.elements[i+154].value !== "〇" && document.Form.elements[i+154].value !== "×") {
+            for (k=14; k< 154; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
+
 
             }
         }
@@ -859,13 +874,15 @@ for (i=0; i< document.Form.length-1; i++) {
             document.Form.elements[i+j].classList.add('disabled');
         }
         }
-       if(!document.Form.elements[i+156].value) {
-            for (k=0; k< 156; k++) {
+        if(document.Form.elements[i+168].value !== "〇" && document.Form.elements[i+168].value !== "×") {
+            for (k=14; k< 168; k++) {
                 document.Form.elements[i+k].value = "×";
                 document.Form.elements[i+k].classList.add('disabled');
 
+
             }
         }
+
 
 
 

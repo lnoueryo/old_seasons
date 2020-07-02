@@ -5,7 +5,7 @@
 <link href="{{ asset('css/PC/reservation.css') }}" rel="stylesheet">
 <link href="{{ asset('css/media/reservation.css') }}" rel="stylesheet">
 <div class="img-container">
-    <img alt="" class="main-img" src="{{ asset('image/woman4.jpg') }}">
+    <img alt="" class="main-img" src="{{ asset('image/woman6.png') }}">
 </div>
 <div class="container mt-5">
     <div class="row">
@@ -219,5 +219,6 @@
             }
           }
     </style>
+    
 
 @endsection
