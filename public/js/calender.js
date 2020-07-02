@@ -27,6 +27,17 @@ $(document).ready(function(){
 
   //   ↑タブレット、スマホとPCのリンク先を変更↑
 
+  $(document).ready(function(){
+    if (matchMedia('(max-width: 960px)').matches) {
+        $('.footer-pc').addClass('delete');
+
+    } else {
+        $('.footer-sm').addClass('delete');
+
+    }
+
+
+  });
 
 
 
@@ -77,8 +88,8 @@ $(document).ready(function(){
 
 
 
+// ↓ドロワー↓
 
-//   ↓トグルスイッチ↓
   function toggleNav() {
     var body = document.body;
     var hamburger = document.getElementById('js-hamburger');
@@ -92,6 +103,13 @@ $(document).ready(function(){
     });
   }
   toggleNav();
+
+//   ↑ドロワー↑
+
+
+
+
+  //   ↓トグルスイッチ↓
 
   $(function(){
     $("#tabMenu li a").on("click", function() {

@@ -4,6 +4,9 @@
 @section('content')
 <link href="{{ asset('css/PC/reservation.css') }}" rel="stylesheet">
 <link href="{{ asset('css/media/reservation.css') }}" rel="stylesheet">
+<div class="img-container">
+    <img alt="" class="main-img" src="{{ asset('image/woman4.jpg') }}">
+</div>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-10">
@@ -68,10 +71,10 @@
                     </ul>
                 </div>
             </div>
-            <table>
-                <tbody class="plan-footer-container delete">
+            <table class="plan-footer-container delete">
+                <tbody>
                     <tr>
-                        <th width="3%">
+                        <th width="5%">
                         {{--  <div class="fixed-output">  --}}
                             <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
                         {{--  </div>  --}}
@@ -99,9 +102,28 @@
                     </li>
                 </ul>
             </div>  --}}
-        </form>
+
     </div>
 </div>
+<table>
+    <tbody class="plan-footer-container delete">
+        <tr>
+            <th width="5%">
+            {{--  <div class="fixed-output">  --}}
+                <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
+            {{--  </div>  --}}
+            </th>
+            {{--  <th width="2%">
+                <div class="fixed-output3"><div id="output2"></div></div>
+            </th>  --}}
+            <th width="3.5%">
+                <div class="float-left back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel" class="btn cancel">取消</button></a></div>
+                <div class="float-right next-container"><input id="next"class="btn next" type="submit" value="予約確定"></div>
+            </th>
+        </tr>
+    </tbody>
+</table>
+</form>
     <script>
 
 
@@ -154,12 +176,9 @@
             font-weight: 600;
             font-size: 16px
         }
-        .float1 li {
-            height: 50px;
-            {{--  padding: 20px;  --}}
-            {{--  padding-right: 30px;  --}}
 
-        }
+
+
         .float1 {
             margin: auto;
         }
@@ -172,10 +191,10 @@
             object-fit: cover;
             width: 100%;
             object-position: 50% 100%
-        }
+        }  --}}
 
 
-        @media screen and (max-width: 840px) {
+        @media screen and (max-width: 960px) {
             .last td:last-child {
               border-bottom: solid 1px #ccc;
               width: 100%;
@@ -191,7 +210,7 @@
             }
 
             th {
-            border: solid 1px #ccc;
+           border: solid 1px #ccc;
             border-bottom: none;
               display: block;
               width: 100%;

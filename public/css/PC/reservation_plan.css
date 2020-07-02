@@ -1,4 +1,11 @@
 
+
+.main-img {
+    object-fit: cover;
+    width: 100%;
+    object-position: 50% 90%
+}
+
 .main {
     padding-top: 0px;
 }

@@ -39,10 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="img-container">
-        <img id="inside" src="image/inside2.png"  data-src="image/inside2.png" alt="seasons" class="main-img" data-srcset="image/inside2.png">
-    </div>
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     <footer>

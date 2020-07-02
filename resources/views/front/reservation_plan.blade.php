@@ -4,7 +4,9 @@
 @section('content')
 <link href="{{ asset('css/PC/reservation_plan.css') }}" rel="stylesheet">
 
-
+<div class="img-container">
+    <img alt="" class="main-img" src="{{ asset('image/inside3.png') }}">
+</div>
 <div class="container main">
     <div class="row">
         <div class="col-md-10 offset-md-1">

@@ -1,6 +1,8 @@
 @extends('layouts.front2')
 
 @section('content')
+<link href="{{ asset('css/PC/contact.css') }}" rel="stylesheet">
+<link href="{{ asset('css/media/contact.css') }}" rel="stylesheet">
 
 <div class="container">
     <div class="row">
@@ -25,35 +27,35 @@
                             <p class="paragraph">*は必須項目です。</p>
 
                             <form id="sp-form-1" action="" method="POST" name="sp_form" class="sp-part-top sp-form">
-                                <table class="table contact-form table-responsive text-center">
+                                <table class="contact-form text-center">
                                 <tbody>
                                     <tr>
                                         <th>お問い合わせ内容 *</th>
-                                        <td><textarea class="col-md-12 form-control" rows="6" name="message" required="required"></textarea></td>
+                                        <td><textarea class="form-control" rows="6" name="message" required="required"></textarea></td>
                                     </tr>
                                     <tr>
                                         <th>お名前（漢字）*</th>
-                                        <td><input class="col-md-12 form-control" type="text" name="name-kanji" required="required" size="20"></td>
+                                        <td><input class="form-control" type="text" name="name-kanji" required="required" size="20"></td>
                                     </tr>
                                     <tr>
                                     <th>お名前（フリガナ）*</th>
-                                    <td><input class="col-md-12 form-control" type="text" name="kana" required="required"></td>
+                                    <td><input class="form-control" type="text" name="kana" required="required"></td>
                                     </tr>
                                     <tr>
                                     <th>E-Mail*</th>
-                                    <td><input class="col-md-12 form-control" type="text" name="email" required="required"></td>
+                                    <td><input class="form-control" type="text" name="email" required="required"></td>
                                     </tr>
                                     <tr>
                                     <th>電話番号（半角）*</th>
-                                    <td><input class="col-md-12 form-control" type="text" name="tel" required="required"></td>
+                                    <td><input class="form-control" type="text" name="tel" required="required"></td>
                                     </tr>
                                     <tr>
                                     <th>FAX番号（半角）</th>
-                                    <td><input class="col-md-12 form-control" type="text" name="fax"></td>
+                                    <td><input class="form-control" type="text" name="fax"></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <input class="btn float-right sub-button mb-3" type="submit" value="送信">
+                            <input class="btn float-right sub-btn mb-3" type="submit" value="送信">
                         </form>
                     </div>
                 </article>

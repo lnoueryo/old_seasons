@@ -104,7 +104,6 @@
                         </th>
                         <th width="3.5%">
                             <div class="back-container"><a href="{{ action('HomeController@reservationPlan') }}"><button id="back-pc" type="button" class="btn back">◀戻る</button></a></div>
-                            <div class="back-container"><a href="{{ action('HomeController@reservationPlanSM') }}"><button id="back-sm" type="button" class="btn back">◀戻る</button></a></div>
                             <div class="next-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel"class="btn cancel">取消</button></a></div>
                         </th>
                     </tr>

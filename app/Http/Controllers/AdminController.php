@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\BookingController;
-use App\UserActivity;
+use App\Booking;
 use Carbon\Carbon;
 
 class AdminController extends Controller
@@ -23,9 +23,11 @@ class AdminController extends Controller
     {
 
         $user_form = User::find($request->id);
-        // $user_activities = UserActivity::where('user_id', $user_form->id)->orderBy('created_at','desc')->take(10)->get();
+        $booking = Booking::where('user_id', $user_form->id)->where('active', 1)->first();
+        $activities = Booking::where('user_id', $user_form->id)->orderBy('created_at','desc')->get();
 
-        return view('admin.profile', ['user_form' => $user_form]);
+
+        return view('admin.profile', ['user_form' => $user_form, 'booking' => $booking, 'activities' => $activities]);
 
     }
 
@@ -45,7 +47,7 @@ class AdminController extends Controller
 
     }
 
-    public function users(Request $request)
+    public function user(Request $request)
     {
         $cond_user = $request->cond_user;
         if($cond_user !='') {
@@ -143,12 +145,52 @@ class AdminController extends Controller
     //         }
     // }
 
-    $users = User::sortable()->get();
+    $users = User::sortable()->paginate(1);
         }
     $cc = count($users, COUNT_RECURSIVE);
 
 
         return view('admin.users', ['users' => $users, 'cond_user' => $cond_user, 'cc' => $cc]);
+
+    }
+
+    public function users(Request $request)
+    {
+        $query = User::sortable();
+        $cond_user = $request->cond_user;
+        $gender = $request->gender;
+
+        //自分の書き方
+        // 検索条件の値を取得
+
+
+        //コメントでいただいた書き方
+        //hasメソッドを使用（値が存在、かつ空ではないか）
+        if($request->has('gender')) {
+            $query->where('gender', 'like', '%'.$gender.'%');
+        }
+
+
+        // フリーワード
+        if($request->has('cond_user')) {
+            $query->where(function ($query) use ($cond_user) {
+                $query->where('family_name', 'like', $cond_user. '%')
+                ->orWhere('first_name', 'like', $cond_user. '%')
+                ->orWhere('kana_family_name', 'like', $cond_user. '%')
+                ->orWhere('kana_first_name', 'like', $cond_user. '%')
+                ->orWhere('email', 'like', $cond_user. '%')
+                ->orWhere('phone_number', 'like', $cond_user. '%')
+                ->orWhere('gender', 'like', $cond_user. '%');
+            });
+        }
+
+
+       $users = $query->get();
+
+    $cc = count($users, COUNT_RECURSIVE);
+
+
+        return view('admin.users', ['users' => $users, 'cond_user' => $cond_user, 'gender' => $gender, 'cc' => $cc]);
 
     }
 

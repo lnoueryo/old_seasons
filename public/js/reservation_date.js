@@ -10,17 +10,17 @@ $(function(){
 
 
 
-    // $(document).ready(function(){
-    //     if (matchMedia('(max-width: 798px)').matches) {
-    //         $('.back-container-sm').show();
-    //         $('.back-container-pc').hide();
-    //     } else {
-    //         $('.back-container-sm').hide();
-    //         $('.back-container-pc').show();
-    //     }
+    $(document).ready(function(){
+        if (matchMedia('(max-width: 960px)').matches) {
+            $('.back-sm').show();
+            $('#back-pc').hide();
+        } else {
+            $('.back-sm').hide();
+            $('.back-pc').show();
+        }
 
 
-    //   });
+      });
 
 
     // ↓ブラウザバックを無効にする処理↓

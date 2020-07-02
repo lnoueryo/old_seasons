@@ -40,7 +40,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class=" offset-md-1">
                 <div class="header">
                     @guest
                     <nav class="global-nav">
@@ -157,14 +157,14 @@
                     <div class="black-bg" id="js-black-bg"></div>
                 <nav class="navbar-expand-lg navbar-light nav1 mt-4 mb-5">
                     <div class="collapse navbar-collapse" id="Navber">
-                        <ul class="navbar-nav main-nav abc col-md-12">
+                        <ul class="navbar-nav main-nav">
                             @guest
                                 <li class="nav-item p-3 active">
-                                    <a class="nav-link mx-2" href="{{ route('home') }}">トップ</a>
+                                    <a class="nav-link mx-1" href="{{ route('home') }}">トップ</a>
                                 </li>
-                                <li class="nav-item p-3">
+                                {{--  <li class="nav-item p-3">
                                     <a class="nav-link mx-2" href="#">ブログ</a>
-                                </li>
+                                </li>  --}}
                                 <li class="nav-item p-3">
                                     <a class="nav-link mx-2" href="{{ route('concept') }}">コンセプト</a>
                                 </li>
@@ -174,9 +174,9 @@
                                 <li class="nav-item p-3">
                                     <a class="nav-link mx-1" href="{{ route('contact') }}">コンタクト</a>
                                 </li>
-                                <li class="nav-item p-3">
+                                {{--  <li class="nav-item p-3">
                                     <a class="nav-link mx-1" href="{{ route('access') }}">アクセス</a>
-                                </li>
+                                </li>  --}}
                                 <li class="nav-item p-3">
                                     <a class="nav-link mx-1" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
@@ -195,9 +195,9 @@
                                         <a class="nav-link mx-2" href="{{ route('home') }}">トップ</a>
                                     </li>
                                 @endif
-                                <li class="nav-item p-3">
+                                {{--  <li class="nav-item p-3">
                                     <a class="nav-link mx-2" href="#">ブログ</a>
-                                </li>
+                                </li>  --}}
                                 <li class="nav-item p-3">
                                     <a class="nav-link mx-2" href="{{ route('concept') }}">コンセプト</a>
                                 </li>
@@ -207,9 +207,9 @@
                                 <li class="nav-item p-3">
                                     <a class="nav-link mx-2" href="{{ route('contact') }}">コンタクト</a>
                                 </li>
-                                <li class="nav-item p-3">
+                                {{--  <li class="nav-item p-3">
                                     <a class="nav-link mx-2" href="{{ route('access') }}">アクセス</a>
-                                </li>
+                                </li>  --}}
                                 <ul class="text-center navbar-nav">
                                     <li class="nav-item p-3">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle mx-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -249,7 +249,7 @@
         <div class="row">
             <div class="col-md-10 mx-auto">
                 <div class="mt-5">
-                    <iframe width="350" height="197" src="https://www.youtube.com/embed/N1a7VhqODY4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                    {{--  <iframe width="350" height="197" src="https://www.youtube.com/embed/N1a7VhqODY4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>  --}}
                     <a type="button" class="insta_btn2" href="https://www.instagram.com/hairmakeseasons/">
                         <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
                     </a>

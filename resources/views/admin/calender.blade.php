@@ -1,9 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
+<link href="{{ asset('css/admin/PC/calender.css') }}" rel="stylesheet">
+<link href="{{ asset('css/admin/media/calender.css') }}" rel="stylesheet">
 <div class="container">
     <div class="row">
-        <form class="col-md-12" action="{{ action('AdminController@day_block') }}" method="POST">
+        <form action="{{ action('AdminController@day_block') }}" method="POST">
             <label class="control-label" for="day[]">店休日</label>
                 <div class="radio">
                     <p>
@@ -15,7 +17,6 @@
                         <input type="checkbox" name="day[]" value="金" {{ (App\BookingController::find(1)->where('day', 'like', '%'."金". '%')->first())? "checked" : "" }}>金
                         <input type="checkbox" name="day[]" value="土" {{ (App\BookingController::find(1)->where('day', 'like', '%'."土". '%')->first())? "checked" : "" }}>土
                     </p>
-                    {{--  <label class="control-label" for="day[]">動画URL</label>  --}}
                     <input type="hidden" class="form-control col-md-8" name="movie" value="{{ \App\BookingController::find(1)->first()->movie }}" required>
                 </div>
                 {{ csrf_field() }}
@@ -23,9 +24,6 @@
         </form>
         <table class="table table-responsive table-striped table-hover text-center align-middle mt-5 ml-3 calender">
             <thead class="thead-light">
-                <tr>
-                    <th colspan="16">SeaSons 空き状況</th>
-                </tr>
                 <tr>
                     <th width="10%"></th>
                     @for ($i = 1; $i <= 14; $i++)
@@ -66,7 +64,4 @@
         </table>
     </div>
 </div>
-{{--  <button class="btn btn-danger"><a href="{{ action('AdminController@unblock_all') }}">リセット</a></button>  --}}
-{{--  {{ App\User::where('latest_booking_date', Carbon\Carbon::today()->addDays(2)->addHours(10)->addMinutes(0)->format("ndHi))->first()->id }}
-<div>{{ \App\User::where('email', 'popo62520908@gmail.com')->first()->id }}{{ Carbon\Carbon::today()->addDays(2)->addHours(10)->addMinutes(0)->format("ndHi) }}</div>  --}}
 @endsection

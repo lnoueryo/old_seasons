@@ -7,17 +7,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <div class="col-md-12">
+            <div class="">
                 <nav class="navbar-expand-lg navbar-light nav1 mt-4 mb-5">
                     <div class="collapse navbar-collapse" id="Navber">
-                        <ul class="navbar-nav main-nav abc col-md-12">
+                        <ul class="navbar-nav main-nav">
                             @guest
                             <li class="nav-item p-3 active">
                             <a class="nav-link mx-2" href="{{ route('home') }}">トップ</a>
                             </li>
-                            <li class="nav-item p-3">
+                            {{--  <li class="nav-item p-3">
                             <a class="nav-link mx-2" href="#">ブログ</a>
-                            </li>
+                            </li>  --}}
                             <li class="nav-item p-3">
                             <a class="nav-link mx-2" href="{{ route('concept') }}">コンセプト</a>
                             </li>
@@ -27,9 +27,9 @@
                             <li class="nav-item p-3">
                             <a class="nav-link mx-1" href="{{ route('contact') }}">コンタクト</a>
                             </li>
-                            <li class="nav-item p-3">
+                            {{--  <li class="nav-item p-3">
                             <a class="nav-link mx-1" href="{{ route('access') }}">アクセス</a>
-                            </li>
+                            </li>  --}}
                             <li class="nav-item p-3">
                                 <a class="nav-link mx-1" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -42,31 +42,31 @@
                             @else
                             @if(Auth::user()->admin == true)
                             <li class="nav-item p-3 active">
-                            <a class="nav-link mx-1" href="{{ route('calender') }}">アドミン</a>
+                            <a class="nav-link mx-3" href="{{ route('calender') }}">アドミン</a>
                             </li>
                             @else
                             <li class="nav-item p-3 active">
-                            <a class="nav-link mx-2" href="{{ route('home') }}">トップ</a>
+                            <a class="nav-link mx-3" href="{{ route('home') }}">トップ</a>
                             </li>
                             @endif
-                            <li class="nav-item p-3">
+                            {{--  <li class="nav-item p-3">
                             <a class="nav-link mx-2" href="#">ブログ</a>
+                            </li>  --}}
+                            <li class="nav-item p-3">
+                            <a class="nav-link mx-3" href="{{ route('concept') }}">コンセプト</a>
                             </li>
                             <li class="nav-item p-3">
-                            <a class="nav-link mx-2" href="{{ route('concept') }}">コンセプト</a>
+                            <a class="nav-link mx-3" href="{{ route('menu') }}">メニュー</a>
                             </li>
                             <li class="nav-item p-3">
-                            <a class="nav-link mx-2" href="{{ route('menu') }}">メニュー</a>
+                            <a class="nav-link mx-3" href="{{ route('contact') }}">コンタクト</a>
                             </li>
-                            <li class="nav-item p-3">
-                            <a class="nav-link mx-2" href="{{ route('contact') }}">コンタクト</a>
-                            </li>
-                            <li class="nav-item p-3">
+                            {{--  <li class="nav-item p-3">
                             <a class="nav-link mx-2" href="{{ route('access') }}">アクセス</a>
-                            </li>
+                            </li>  --}}
                             <ul class="text-center navbar-nav">
                             <li class="nav-item p-3">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle mx-2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle mx-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->family_name }} {{ Auth::user()->first_name }} <span class="caret"></span>
                                 </a>
 

@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         <h2>単語一覧</h2>
@@ -13,39 +14,30 @@
         <div class="col-md-8">
             <form action="{{ action('AdminController@users') }}" method="get">
                 <div class="form-group row">
-                    <label class="col-md-2">国籍</label>
-                    {{--  <div class="col-md-3">
-                        <select class="form-control" id="cond_user_country" name="cond_user_country" value="">
-                            　<option value=""></option>
-                            　<option value="日本">日本</option>
-                            　<option value="ドイツ">ドイツ</option>
-                            　<option value="アメリカ合衆国">アメリカ合衆国</option>
-                            　<option value="イギリス">イギリス</option>
-                            　<option value="">なし</option>
-                        </select>
-                    </div>
+
+                </div>
+                <div class="form-group row">
                     <label class="col-md-2">性別</label>
-                    <div class="col-md-3">
-                        <select class="form-control" id="cond_user_gender" name="cond_user_gender" value="">
-                            　<option value=""></option>
-                            　<option value="男性">男性</option>
-                            　<option value="女性">女性</option>
-                            　<option value="その他">その他</option>
-                            　<option value="">なし</option>
+                    <div class="col-md-6">
+                        <select class="form-control" id="cond_user_country" name="gender" value=""  placeholder="なし">
+                            　<option value="" {{ ($gender == '')? "selected" : "" }}></option>
+                            　<option value="男性" {{ ($gender == '男性')? "selected" : "" }}>男性</option>
+                            　<option value="女性" {{ ($gender == '女性')? "selected" : "" }}>女性</option>
                         </select>
-                    </div>  --}}
-                    <div class="col-md-2">
-                        <a href="{{ route('users') }}" role="button" class="btn btn-danger">リセット</a>
                     </div>
+
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2">フリーワード</label>
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <input type="text" class="form-control" name="cond_user" value="{{ $cond_user }}">
                     </div>
                     <div class="col-md-2">
                         {{ csrf_field() }}
                         <input type="submit" class="btn btn-primary" value="検索">
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ route('users') }}" role="button" class="btn btn-danger">リセット</a>
                     </div>
                 </div>
             </form>
@@ -67,6 +59,8 @@
                             <th width="5%"></th>
                         </tr>
                     </thead>
+
+
                     <tbody>
                         @foreach($users as $user)
                             <tr>
@@ -95,3 +89,5 @@
     </div>
 </div>
 @endsection
+{{--  {!! $users->appends([])->render() !!}@endif
+@if($users->count())  --}}
