@@ -52,10 +52,10 @@
                         <a class="nav-link mx-2" href="{{ route('users') }}">顧客管理</a>
                         </li>
                         <li class="nav-item p-3">
-                        <a class="nav-link mx-2" href="{{ route('bookings') }}">本日の予約一覧</a>
+                        <a class="nav-link mx-2" href="{{ route('todaysbooking') }}">本日の予約一覧</a>
                         </li>
                         <li class="nav-item p-3">
-                        <a class="nav-link mx-2" href="{{ route('contact') }}">お問い合わせ</a>
+                        <a class="nav-link mx-2" href="{{ route('bookings') }}">予約管理</a>
                         </li>
                         <li class="nav-item p-3">
                         <a class="nav-link mx-2" href="{{ route('setting') }}">設定</a>
@@ -129,10 +129,10 @@
                                     <a class="nav-link mx-1" href="{{ route('users') }}">顧客管理</a>
                                     </li>
                                     <li class="nav-item p-3">
-                                    <a class="nav-link mx-1" href="{{ route('bookings') }}">本日の予約一覧</a>
+                                    <a class="nav-link mx-1" href="{{ route('todaysbooking') }}">本日の予約一覧</a>
                                     </li>
                                     <li class="nav-item p-3">
-                                    <a class="nav-link mx-1" href="{{ route('contact') }}">お問い合わせ</a>
+                                    <a class="nav-link mx-1" href="{{ route('bookings') }}">予約管理</a>
                                     </li>
                                     <li class="nav-item p-3">
                                     <a class="nav-link mx-1" href="{{ route('setting') }}">設定</a>

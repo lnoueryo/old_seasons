@@ -21,7 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{--  <link href="{{ asset('css/front.css') }}" rel="stylesheet">  --}}
+    <link href="{{ asset('css/front.css') }}" rel="stylesheet">
     <link href="{{ asset('css/PC/calender.css') }}" rel="stylesheet">
     <link href="{{ asset('css/media/calender.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -164,7 +164,7 @@
             </main>
 
         <footer>
-            <div class="container footer-sm">
+            <div id="footer-sm" class="container">
                 <div class="row">
                     <div class="col-md-10">
                         <div class="mt-5">
@@ -182,7 +182,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center footer-pc">
+            <div id="footer-pc" class="text-center">
                 <div class="mt-5">
                     {{--  <iframe width="700" height="400" src="{{ \App\BookingController::find(1)->first()->movie }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>  --}}
                     <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
@@ -261,3 +261,17 @@
 
 
     </style>
+
+    <script>
+        $(document).ready(function(){
+            if (matchMedia('(max-width: 960px)').matches) {
+                $('#footer-pc').addClass('delete');
+
+            } else {
+                $('#footer-sm').addClass('delete');
+
+            }
+
+
+          });
+    </script>

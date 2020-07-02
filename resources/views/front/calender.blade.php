@@ -104,12 +104,12 @@
                 <li>誰でも来やすいアットホームな店つくりを心がけておりますので気軽に立ち寄っていただけたら幸いです。</li>
                 <li><span class="name">代表　道下 雅巳</span></li>
             </ul>
-
+{{--  
             <div class="balloon-container">
                 <div class="balloon col-md-4 offset-md-7 delete">
                     <p class="">カットのみの方はカレンダーの〇からクイック予約をご利用いただけます。</p>
                 </div>
-            </div>
+            </div>  --}}
 
             <div class="quick-booking-able-text">Quick Booking Table</div>
             <ul id="tabMenu" class="fix-line">

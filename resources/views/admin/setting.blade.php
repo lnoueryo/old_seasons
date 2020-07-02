@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
+{{--  <div class="container">
     <div class="row">
         <form class="col-md-12" action="{{ action('AdminController@day_block') }}" method="POST">
             <label class="control-label" for="day[]">店休日</label>
@@ -22,5 +22,5 @@
                 <input type="submit" class="btn btn-primary mt-4" value="登録">
         </form>
     </div>
-</div>
+</div>  --}}
 @endsection

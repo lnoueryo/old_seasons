@@ -29,10 +29,10 @@ $(document).ready(function(){
 
   $(document).ready(function(){
     if (matchMedia('(max-width: 960px)').matches) {
-        $('.footer-pc').addClass('delete');
+        $('#footer-pc').addClass('delete');
 
     } else {
-        $('.footer-sm').addClass('delete');
+        $('#footer-sm').addClass('delete');
 
     }
 

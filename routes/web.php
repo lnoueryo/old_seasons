@@ -49,7 +49,8 @@ Route::get('/reservation_date', 'HomeController@reservationDate')->name('reserva
 Route::get('/new_reservation', 'HomeController@newReservation')->name('reservation');
 
 Route::get('/calender', 'AdminController@calender')->name('calender');
-Route::get('/bookings', 'AdminController@bookings')->name('bookings');
+Route::get('/todaysbooking', 'AdminController@todaysBooking')->name('todaysbooking');
+Route::get('/bookings', 'AdminController@Bookings')->name('bookings');
 Route::get('/users', 'AdminController@users')->name('users');
 Route::get('/setting', 'AdminController@setting')->name('setting');
 Route::get('/profile', 'AdminController@profile')->name('profile');

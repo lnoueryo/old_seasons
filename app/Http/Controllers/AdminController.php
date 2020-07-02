@@ -31,12 +31,53 @@ class AdminController extends Controller
 
     }
 
-    public function bookings()
+    public function todaysBooking()
+    {
+        $today_users = User::whereBetween('latest_booking_date_number', [Carbon::today()->format('ndHi'), Carbon::tomorrow()->format('ndHi')])->get();
+        // $today_users = User::where('latest_booking_date', Carbon::today());
+        return view('admin.todaysbooking', ['today_users' => $today_users]);
+    }
+
+    public function Bookings()
     {
 
-        $today_users = User::where('latest_booking_date', Carbon::today());
-        return view('admin.bookings', ['today_users' => $today_users]);
+        $query = Booking::sortable()->orderBy('updated_at','desc');
+        // $cond_user = $request->cond_user;
+        // $active = $request->active;
+        // $start_time = $request->start_time;
+        // $end_time = $request->end_time;
 
+        // if($request->has('active')) {
+        //     $query->where('active', $active);
+        // }
+        // if($request->has('start_time') && $request->has('end_time')) {
+        //     $query->whereBetween('booking_date_number', [$start_time, $end_time]);
+        // } else if($request->has('start_time')) {
+        //     $query->where('booking_date_number', '>', $start_time);
+        // } else if($request->has('end_time')) {
+        //     $query->where('booking_date_number', '<', $end_time);
+        // }
+
+
+        // フリーワード
+        // if($request->has('cond_user')) {
+        //     $query->where(function ($query) use ($cond_user) {
+        //         $query->where('family_name', 'like', $cond_user. '%')
+        //         ->orWhere('first_name', 'like', $cond_user. '%')
+        //         ->orWhere('kana_family_name', 'like', $cond_user. '%')
+        //         ->orWhere('kana_first_name', 'like', $cond_user. '%')
+        //         ->orWhere('email', 'like', $cond_user. '%')
+        //         ->orWhere('phone_number', 'like', $cond_user. '%')
+        //         ->orWhere('gender', 'like', $cond_user. '%');
+        //     });
+        // }
+
+
+
+       $bookings = $query->paginate(5);
+
+    $cc = count($bookings, COUNT_RECURSIVE);
+        return view('admin.bookings', ['bookings' => $bookings]);
     }
 
     public function setting()
@@ -47,112 +88,7 @@ class AdminController extends Controller
 
     }
 
-    public function user(Request $request)
-    {
-        $cond_user = $request->cond_user;
-        if($cond_user !='') {
-            $users = User::sortable()->
-                        where(function ($query) use ($cond_user) {
-                            $query->where('family_name', 'like', $cond_user. '%')
-                            ->orWhere('first_name', 'like', $cond_user. '%')
-                            ->orWhere('kana_family_name', 'like', $cond_user. '%')
-                            ->orWhere('kana_first_name', 'like', $cond_user. '%')
-                            ->orWhere('email', 'like', $cond_user. '%')
-                            ->orWhere('phone_number', 'like', $cond_user. '%')
-                            ->orWhere('gender', 'like', $cond_user. '%');
-                        })
-                        ->get();
-        } else {
-            //     $cond_user = $request->cond_user;
-    //     $cond_user_country = $request->cond_user_country;
-    //     $cond_user_gender = $request->cond_user_gender;
 
-    //     if ($cond_user != '') {
-
-    //         if ($cond_user_country !='') {
-
-    //             if ($cond_user_gender !='') {
-    //                 $userPosts = User::sortable()->where('country', $cond_user_country)->
-    //                     where('gender', $cond_user_gender)->
-    //                     where(function ($query) use ($cond_user) {
-    //                         $query->where('name', 'like', '%' .$cond_user. '%')
-    //                         ->orWhere('email', 'like', $cond_user. '%')
-    //                         ->orWhere('nickname', 'like', $cond_user. '%');
-    //                     })->get();
-
-    //                 } else {
-    //                     $userPosts = User::sortable()->where('country', $cond_user_country)->
-    //                         where(function ($query) use ($cond_user) {
-    //                             $query->where('name', 'like', '%' .$cond_user. '%')
-    //                             ->orWhere('email', 'like', $cond_user. '%')
-    //                             ->orWhere('nickname', 'like', $cond_user. '%');
-    //                         })->get();
-    //                 }
-    //             }
-
-    //         if ($cond_user_country =='') {
-
-    //             if ($cond_user_gender !='') {
-    //                 $userPosts = User::sortable()->
-    //                     where('gender', $cond_user_gender)->
-    //                     where(function ($query) use ($cond_user) {
-    //                         $query->where('name', 'like', '%' .$cond_user. '%')
-    //                         ->orWhere('email', 'like', $cond_user. '%')
-    //                         ->orWhere('nickname', 'like', $cond_user. '%');
-    //                     })->get();
-
-    //                 } else {
-    //                     $userPosts = User::sortable()->where('country', $cond_user_country)->
-    //                         where(function ($query) use ($cond_user) {
-    //                             $query->where('name', 'like', '%' .$cond_user. '%')
-    //                             ->orWhere('email', 'like', $cond_user. '%')
-    //                             ->orWhere('nickname', 'like', $cond_user. '%');
-    //                         })->get();
-    //                 }
-    //             }
-
-
-
-
-    //     }
-
-    //     if ($cond_user == '') {
-
-    //         if ($cond_user_country !='') {
-
-    //             if ($cond_user_gender !='') {
-    //                 $userPosts = User::sortable()->where('country', $cond_user_country)->
-    //                 where('gender', $cond_user_gender)->
-    //                 get();
-
-    //             } else {
-    //                 $userPosts = User::sortable()->where('country', $cond_user_country)->
-    //                     get();
-    //             }
-    //         }
-
-    //         if ($cond_user_country =='') {
-
-    //             if ($cond_user_gender !='') {
-    //                 $userPosts = User::sortable()->
-    //                 where('gender', $cond_user_gender)->
-    //                 get();
-
-    //             } else {
-    //                 $userPosts = User::sortable()->
-    //                     get();
-    //             }
-    //         }
-    // }
-
-    $users = User::sortable()->paginate(1);
-        }
-    $cc = count($users, COUNT_RECURSIVE);
-
-
-        return view('admin.users', ['users' => $users, 'cond_user' => $cond_user, 'cc' => $cc]);
-
-    }
 
     public function users(Request $request)
     {
@@ -185,7 +121,8 @@ class AdminController extends Controller
         }
 
 
-       $users = $query->get();
+
+       $users = $query->paginate(2);
 
     $cc = count($users, COUNT_RECURSIVE);
 

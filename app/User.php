@@ -29,6 +29,7 @@ class User extends Authenticatable
                         'review_customer_gives',
                         'review_to_customer',
                     ];
+                    
 
     /**
      * The attributes that should be hidden for arrays.

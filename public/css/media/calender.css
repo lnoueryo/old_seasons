@@ -234,6 +234,12 @@
 
 @media screen and (max-width: 640px) {
 
+    .quick-booking-able-text {
+
+        padding-top: 80px;
+    }
+
+
     .booking-btn-container {
         position: fixed;
         bottom:1px;
