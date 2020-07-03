@@ -33,8 +33,7 @@
                                     @if ($booking->perm != '')&nbsp;&nbsp;&nbsp;{{ $booking->perm }}@endif
                                     @if ($booking->color != '')&nbsp;&nbsp;&nbsp;{{ $booking->color }}@endif
                                     @if ($booking->spa != '')&nbsp;&nbsp;&nbsp;{{ $booking->spa }}@endif
-                                    @if ($booking->treatment != '')&nbsp;&nbsp;&nbsp;{{ $booking->treatment }}@endif
-                                {{--  <td>&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" id="latest_booking_plan" name="latest_booking_plan" value="{{ $booking->cut }} {{ $booking->perm }} {{ $booking->color }} {{ $booking->spa }} {{ $booking->treatment }}"disabled></td>  --}}
+                                    @if ($booking->treatment != '')&nbsp;&nbsp;&nbsp;{{ $booking->treatment }}@endif</td>
                             </tr>
                             <tr>
                                 <th>料金</th>
@@ -47,16 +46,9 @@
                         </tbody>
                     </table>
                     <input id="id" type="hidden" name="id" value="{{ Auth::user()->id }}">
-                    {{--  <input id="id" type="hidden" name="cut" value="{{ $booking->cut }}">
-                    <input id="id" type="hidden" name="perm" value="{{ $booking->perm }}">
-                    <input id="id" type="hidden" name="color" value="{{ $booking->color }}">
-                    <input id="id" type="hidden" name="spa" value="{{ $booking->spa }}">
-                    <input id="id" type="hidden" name="treatment" value="{{ $booking->treatment }}">  --}}
                     <input id="latest_booking_date_number" type="hidden" name="latest_booking_date_number" value="{{ $booking_date_month }}{{ $booking_date_day }}{{ $booking_date_hour }}{{ $booking_date_minute }}">
                     <input type="hidden" class="form-control" id="latest_booking_plan" name="latest_booking_plan" value="{{ $booking->cut }} {{ $booking->perm }} {{ $booking->color }} {{ $booking->spa }} {{ $booking->treatment }}">
                 </div>
-                {{--  <a type="button" href="{{ action('HomeController@calender') }}"><button class="btn btn-danger float-right ml-2 pl-3 pr-3">キャンセル</button></a>
-                <input id="submit" class="btn confirm-button float-right mb-3 pl-4 pr-4" row="10" type="submit" value="予約確定">  --}}
                 <div class="plan-footer-container-pc">
                     <ul class="float1 ml-5">
                         <li class="back-container offset-md-2">
@@ -75,13 +67,8 @@
                 <tbody>
                     <tr>
                         <th width="5%">
-                        {{--  <div class="fixed-output">  --}}
                             <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
-                        {{--  </div>  --}}
                         </th>
-                        {{--  <th width="2%">
-                            <div class="fixed-output3"><div id="output2"></div></div>
-                        </th>  --}}
                         <th width="3.5%">
                             <div class="float-left back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel" class="btn cancel">取消</button></a></div>
                             <div class="float-right next-container"><input id="next"class="btn next" type="submit" value="予約確定"></div>
@@ -89,40 +76,26 @@
                     </tr>
                 </tbody>
             </table>
-            {{--  <div class="plan-footer-container delete">
-                <ul class="float1 ml-5">
-                    <li class="back-container">
-                        <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
-                    </li>
-                    <li class="cancel-container">
-                        <a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel" class="btn cancel">取消</button></a>
-                    </li>
-                    <li class="next-container">
-                        <input id="next"class="btn next" type="submit" value="予約確定">
-                    </li>
-                </ul>
-            </div>  --}}
-
+        </div>
     </div>
-</div>
-<table>
-    <tbody class="plan-footer-container delete">
-        <tr>
-            <th width="5%">
-            {{--  <div class="fixed-output">  --}}
-                <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
-            {{--  </div>  --}}
-            </th>
-            {{--  <th width="2%">
-                <div class="fixed-output3"><div id="output2"></div></div>
-            </th>  --}}
-            <th width="3.5%">
-                <div class="float-left back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel" class="btn cancel">取消</button></a></div>
-                <div class="float-right next-container"><input id="next"class="btn next" type="submit" value="予約確定"></div>
-            </th>
-        </tr>
-    </tbody>
-</table>
+    <table>
+        <tbody class="plan-footer-container delete">
+            <tr>
+                <th width="5%">
+                {{--  <div class="fixed-output">  --}}
+                    <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
+                {{--  </div>  --}}
+                </th>
+                {{--  <th width="2%">
+                    <div class="fixed-output3"><div id="output2"></div></div>
+                </th>  --}}
+                <th width="3.5%">
+                    <div class="float-left back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel" class="btn cancel">取消</button></a></div>
+                    <div class="float-right next-container"><input id="next"class="btn next" type="submit" value="予約確定"></div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
 </form>
     <script>
 
@@ -142,10 +115,9 @@
 
           $(function(){
             history.pushState(null, null, null); //ブラウザバック無効化
-            //ブラウザバックボタン押下時
             $(window).on("popstate", function (event) {
               history.pushState(null, null, null);
-              window.alert('前のページに戻る場合、前に戻るボタンから戻ってください。');
+              window.alert('前のページに戻る場合、戻るボタンからお戻りください。');
             });
            });
     </script>
@@ -219,6 +191,6 @@
             }
           }
     </style>
-    
+
 
 @endsection

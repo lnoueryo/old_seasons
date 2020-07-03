@@ -88,8 +88,8 @@
                 <input id="id" type="hidden" name="id" value="{{ Auth::user()->id }}">
 
                 {{-- これで×を判定している --}}
-                {{--  <input id="length_of_time" type="hidden" name="id" value="1時間">  --}}
                 <input id="length_of_time" type="hidden" name="id" value="{{ $booking->length_of_time }}">
+                
             </form>
             <table>
                 <tbody>

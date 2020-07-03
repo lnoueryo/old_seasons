@@ -151,12 +151,12 @@
 
             @endguest
             <div class="hamburger" id="js-hamburger">
-              <span class="hamburger__line hamburger__line--1"></span>
-              <span class="hamburger__line hamburger__line--2"></span>
-              <span class="hamburger__line hamburger__line--3"></span>
+                <span class="hamburger__line hamburger__line--1"></span>
+                <span class="hamburger__line hamburger__line--2"></span>
+                <span class="hamburger__line hamburger__line--3"></span>
             </div>
             <div class="black-bg" id="js-black-bg"></div>
-          </div>
+        </div>
 
 
             <main class="py-4">
@@ -168,7 +168,6 @@
                 <div class="row">
                     <div class="col-md-10">
                         <div class="mt-5">
-                            {{--  <iframe width="700" height="400" src="{{ \App\BookingController::find(1)->first()->movie }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>  --}}
                             <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
                                 <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
                             </a>

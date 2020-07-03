@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/front.js') }}" defer></script>
+    <script src="{{ asset('js/calender.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 
     <!-- Fonts -->
@@ -245,12 +245,11 @@
 </div>
 
 <footer>
-    <div class="container">
+    <div id="footer-sm" class="container">
         <div class="row">
-            <div class="col-md-10 mx-auto">
+            <div class="col-md-10">
                 <div class="mt-5">
-                    {{--  <iframe width="350" height="197" src="https://www.youtube.com/embed/N1a7VhqODY4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>  --}}
-                    <a type="button" class="insta_btn2" href="https://www.instagram.com/hairmakeseasons/">
+                    <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
                         <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
                     </a>
                     <a type="button" class="line_btn" href="https://line.me/R/ti/p/%40fai2592a">
@@ -261,6 +260,20 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="footer-pc" class="text-center">
+        <div class="mt-5">
+            {{--  <iframe width="700" height="400" src="{{ \App\BookingController::find(1)->first()->movie }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>  --}}
+            <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
+                <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
+            </a>
+            <a type="button" class="line_btn" href="https://line.me/R/ti/p/%40fai2592a">
+                <i class="fab fa-line fa-4x"></i><span>友だち追加</span>
+            </a>
+            <a type="button" class="fb_btn" href="https://www.facebook.com/hairmakeseasons">
+                <i class="fab fa-facebook"></i><span>Facebook</span>
+            </a>
         </div>
     </div>
     <p class="pp"><a href="{{ route('policy') }}">プライバシーポリシー</a></p>
@@ -305,4 +318,29 @@
             padding-bottom: 15px;
             font-size: 0.9rem;
         }
+
+        .main-nav h3 {
+            font-size: 1rem;
+            font-weight: normal;
+            line-height: 1.25;
+            color: #444444;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-color: #a0c5ef;
+        }
+        .main-nav {
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 50px;
+            border: solid 3px;
+            border-color: #d8d6bc;
+            background-color:#d5e6e4;
+            width: 100%;
+            display: flex;
+            margin-left: 120px;
+            margin-right: 120px;
+        }
     </style>
+

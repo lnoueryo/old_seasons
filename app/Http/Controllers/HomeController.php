@@ -160,25 +160,6 @@ class HomeController extends Controller
     {
         $user = User::find(Auth::user())->first();
 
-        // $booking = new Booking;
-        // $booking->booking = 'キャンセル';
-        // $booking->user_id = Auth::user()->id;
-        // $booking->booking_date = $user->latest_booking_date;
-        // $booking->length_of_time = $user->length_of_time;
-        // $booking->booking_plan = $user->latest_booking_plan;
-        // $booking->booking_plan = $user->latest_booking_plan;
-        // $booking->price = $user->price;
-
-
-
-        // $user->latest_booking_date = $request->latest_booking_date;
-        // $user->latest_booking_date_number = $request->latest_booking_date_number;
-        // $user->latest_booking_plan = $request->latest_booking_plan;
-        // $user->price = $request->price;
-        // $user->length_of_time = $request->length_of_time;
-        // $user->save();
-        // $booking->save();
-
         $booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
         $booking->active = 0;
         $booking->save();
@@ -187,47 +168,5 @@ class HomeController extends Controller
 
     }
 
-    public function newCalender()
-    {
 
-        return view('new.newcalender');
-
-    }
-
-    public function newConcept()
-    {
-
-        return view('new.new_concept');
-
-    }
-
-    public function newReservationPlan()
-    {
-
-        return view('new.reservation_plan');
-
-    }
-
-    public function newReservationDate()
-    {
-
-        return view('new.reservation_date');
-
-    }
-
-    public function newReservation(Request $request)
-    {
-        $user1 = $request->time;
-        return view('new.new_reservation', ['user1' => $user1]);
-
-    }
-
-
-
-    public function practice()
-    {
-
-        return view('new.new_reservation', ['user1' => $user1]);
-
-    }
 }

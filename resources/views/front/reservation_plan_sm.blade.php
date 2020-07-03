@@ -238,18 +238,6 @@
                         </tr>
                         </tbody>
                     </table>
-                    {{-- <ul class="float">
-                        <li class="mr-3"><label for="coldperm"><input class="mr-2" id="coldperm" type="checkbox" name="perms" value="5500" onclick="total()">ColdPerm</label></li>
-                        <li  class="float-right">¥<span id="perm1">5,500</span>- 税込<span class="ml-4">90分</span></li>
-                    </ul> --}}
-                    {{-- <ul class="float">
-                        <li class="mr-3"><label for="creepperm"><input class="mr-2" id="creepperm" type="checkbox" name="perms" value="7700" onclick="total()">CreepPerm</label></li>
-                        <li  class="float-right">¥<span id="perm2">7,700</span>- 税込<span class="ml-3">150分</span></li>
-                    </ul> --}}
-                    {{-- <ul class="float">
-                        <li class="mr-"><label for="digitalperm"><input class="mr-2" id="digitalperm" type="checkbox" name="perms" value="13200" onclick="total()">DigitalPerm</label></li>
-                        <li  class="float-right">¥<span id="perm3">13,200</span>- 税込<span class="ml-3">180分</span></li>
-                    </ul> --}}
                 </div>
             </div>
         </div>
@@ -293,19 +281,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    {{-- <ul class="float">
-                        <li class="mr-3"><label for="graycolor"><input class="mr-1" id="graycolor" type="checkbox" name="colors" value="4400" onclick="total()">fashioncolor</label></li>
-                        <li  class="float-right">¥<span id="color1">4,400</span>- 税込<span class="ml-4">60分</span></li>
-                    </ul> --}}
-                    {{-- <ul class="float">
-                        <li class="mr-3"><label for="fashioncolor"><input class="mr-1" id="fashioncolor"type="checkbox" name="colors" value="5500" onclick="total()">FashonColor</label></li>
-                        <li  class="float-right">¥<span id="color2">5,500</span>- 税込<span class="ml-4">90分</span></li>
-                    </ul> --}}
-                    {{-- <ul class="float">
-                        <li class="mr-"><label for="designcolor"><input class="mr-1" id="designcolor" type="checkbox" name="colors" value="13200" onclick="total()">3D-D<span class="design">esign</span>Color</label></li>
-                        <li  class="float-right">¥<span id="color3">12,200</span>- 税込<span class="ml-3">150分</span></li>
-                        <li class="mr-"></li>
-                    </ul> --}}
                 </div>
             </div>
         </div>
@@ -350,18 +325,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    {{-- <ul class="float">
-                        <li class="mr-3"><label for="spa30min"><input class="mr-2" id="spa30min" type="checkbox" name="spas" value="3900" onclick="total()">30min コース</label></li>
-                        <li  class="float-right">¥<span id="spa1">3,900</span>- 税込<span class="ml-4">30分</span></li>
-                    </ul> --}}
-                    {{-- <ul class="float">
-                        <li class="mr-3"><label for="spa60min"><input class="mr-2" id="spa60min" type="checkbox" name="spas" value="7000" onclick="total()">60min コース</label></li>
-                        <li  class="float-right">¥<span id="spa2">7,000</span>- 税込<span class="ml-4">60分</span></li>
-                    </ul> --}}
-                    {{-- <ul class="float">
-                        <li class="mr-"><label for="spa90min"><input class="mr-2" id="spa90min" type="checkbox" name="spas" value="11000" onclick="total()">90min コース</label></li>
-                        <li  class="float-right">¥<span id="spa3">11,000</span>- 税込<span class="ml-4">90分</span></li>
-                    </ul> --}}
                 </div>
             </div>
         </div>
@@ -386,10 +349,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    {{-- <ul class="float">
-                        <li class="mr-3"><label for="treatments"><input class="mr-2" id="treatments" type="checkbox" name="treatments" value="2200" onclick="total()">Treatment</label></li>
-                        <li  class="float-right">¥<span id="treat">2,200</span>- 税抜き<span class="ml-4">30分</span></li>
-                    </ul> --}}
                 </div>
             </div>
         </div>
@@ -401,24 +360,6 @@
         <input type="hidden" id="price" name="price" placeholder="合計" value="{{ old('price') }}">
         <input type="hidden" id="length_of_time" name="length_of_time" value="{{ old('length_of_time') }}" >
         <input id="id" type="hidden" name="id" value="{{ Auth::user()->id }}">
-        {{-- <div class="container plan-footer-container">
-            <ul class="float">
-                <li class="back-container">
-                    <a href="{{ action('HomeController@calender') }}"><button type="button" class="btn back">◀戻る</button></a>
-                </li>
-                <li class="next-container">
-                    <input id="next"class="btn next" type="submit" value="次へ▶">
-                </li>
-            </ul>
-            <ul class="output-container">
-                <li class="fixed-output">
-                    Total<div id="output"></div>
-                </li>
-                <li class="fixed-output2">
-                    <div id="output2"></div>
-                </li>
-            </ul>
-        </div> --}}
 
         <table>
             <tbody class="plan-footer-container">

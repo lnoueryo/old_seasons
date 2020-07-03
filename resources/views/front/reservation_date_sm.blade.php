@@ -16,7 +16,6 @@
         }
 
     </style>
-{{--  date{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30+$booking->length_of_time)->format("mjHi")  --}}
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">

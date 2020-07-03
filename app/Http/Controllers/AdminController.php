@@ -34,7 +34,6 @@ class AdminController extends Controller
     public function todaysBooking()
     {
         $today_users = User::whereBetween('latest_booking_date_number', [Carbon::today()->format('ndHi'), Carbon::tomorrow()->format('ndHi')])->get();
-        // $today_users = User::where('latest_booking_date', Carbon::today());
         return view('admin.todaysbooking', ['today_users' => $today_users]);
     }
 
@@ -42,35 +41,6 @@ class AdminController extends Controller
     {
 
         $query = Booking::sortable()->orderBy('updated_at','desc');
-        // $cond_user = $request->cond_user;
-        // $active = $request->active;
-        // $start_time = $request->start_time;
-        // $end_time = $request->end_time;
-
-        // if($request->has('active')) {
-        //     $query->where('active', $active);
-        // }
-        // if($request->has('start_time') && $request->has('end_time')) {
-        //     $query->whereBetween('booking_date_number', [$start_time, $end_time]);
-        // } else if($request->has('start_time')) {
-        //     $query->where('booking_date_number', '>', $start_time);
-        // } else if($request->has('end_time')) {
-        //     $query->where('booking_date_number', '<', $end_time);
-        // }
-
-
-        // フリーワード
-        // if($request->has('cond_user')) {
-        //     $query->where(function ($query) use ($cond_user) {
-        //         $query->where('family_name', 'like', $cond_user. '%')
-        //         ->orWhere('first_name', 'like', $cond_user. '%')
-        //         ->orWhere('kana_family_name', 'like', $cond_user. '%')
-        //         ->orWhere('kana_first_name', 'like', $cond_user. '%')
-        //         ->orWhere('email', 'like', $cond_user. '%')
-        //         ->orWhere('phone_number', 'like', $cond_user. '%')
-        //         ->orWhere('gender', 'like', $cond_user. '%');
-        //     });
-        // }
 
 
 
@@ -96,12 +66,7 @@ class AdminController extends Controller
         $cond_user = $request->cond_user;
         $gender = $request->gender;
 
-        //自分の書き方
-        // 検索条件の値を取得
 
-
-        //コメントでいただいた書き方
-        //hasメソッドを使用（値が存在、かつ空ではないか）
         if($request->has('gender')) {
             $query->where('gender', 'like', '%'.$gender.'%');
         }
@@ -187,16 +152,5 @@ class AdminController extends Controller
         return redirect('/calender');
 
     }
-    // public function unblock_all()
-    // {
-    //     $booking_controllers = BookingController::all()->diff(BookingController::whereIn('id', [1]))->first();
-    //     $booking_controllers = BookingController::all();
-    //     $booking_controller = $booking_controllers->diff(BookingController::whereIn('id', [1]));
 
-    //     $booking_controllers = BookingController::diff(BookingController::whereIn('id', [1]));
-    //     BookingController::all();
-    //     $booking_controllers->delete();
-    //     return redirect('/calender');
-
-    // }
 }

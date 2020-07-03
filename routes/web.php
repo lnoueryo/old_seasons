@@ -35,19 +35,10 @@ Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/reservation_date', 'HomeController@reservationDate');
 Route::post('/reservation_date_sm', 'HomeController@reservationDateSM');
 Route::post('/home', 'HomeController@booking');
+// Route::get('/reservation_date', 'HomeController@reservationDate')->name('reservation_date');
 
 
-
-Route::get('/newcalender', 'HomeController@newCalender');
-// Route::get('/new_concept', 'HomeController@newConcept')->name('concept');
-// Route::get('/reservation_plan', 'HomeController@reservationPlan')->name('reservation_plan');
-// Route::get('/reservation_date', 'HomeController@newReservationDate')->name('reservation_date');
-// Route::get('/new_reservation', 'HomeController@newReservation')->name('reservation');
-
-Route::get('/new_reservation_plan', 'HomeController@newReservationPlan')->name('reservation_plan');
-Route::get('/reservation_date', 'HomeController@reservationDate')->name('reservation_date');
-Route::get('/new_reservation', 'HomeController@newReservation')->name('reservation');
-
+// アドミン
 Route::get('/calender', 'AdminController@calender')->name('calender');
 Route::get('/todaysbooking', 'AdminController@todaysBooking')->name('todaysbooking');
 Route::get('/bookings', 'AdminController@Bookings')->name('bookings');
@@ -59,7 +50,8 @@ Route::get('/calender/day_of_the_week_block', 'AdminController@day_of_the_week_b
 Route::post('/calender/day_block', 'AdminController@day_block');
 Route::get('/calender/day_time_unblock', 'AdminController@day_time_unblock');
 Route::get('/calender/day_of_the_week_unblock', 'AdminController@day_of_the_week_unblock');
-// Route::get('/calender/unblock_all', 'AdminController@unblock_all');
+
+// ログインアドミン用
 Route::post('/login/custom', [
     'uses' => 'Auth\MyLoginController@login',
     'as' => 'login.custom'
