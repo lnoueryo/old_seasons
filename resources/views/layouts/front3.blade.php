@@ -35,7 +35,10 @@
         </div>
         <div class="main-image-flame">
             <div class="image-container-woman5">
-                <img id="woman5" src="image/woman5.png"  data-src="image/woman5.jpg" alt="seasons" class="main-img" data-srcset="image/woman5.jpg">
+                <picture>
+                    <source type="image/webp" srcset="{{ asset('image/woman3.webp') }}">
+                    <img id="woman5" src="image/woman5.png"  data-src="image/woman5.jpg" alt="seasons" class="main-img" data-srcset="image/woman5.jpg">
+                </picture>
             </div>
         </div>
         <div class="header">

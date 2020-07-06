@@ -150,7 +150,7 @@ class HomeController extends Controller
 
     public function confirmation()
     {
-        $booking = Booking::where('user_id', Auth::user()->id)->first();
+        $booking = Booking::where('user_id', Auth::user()->id)->where('active', 1)->first();
 
         return view('front.confirmation', (['booking' => $booking]));
 

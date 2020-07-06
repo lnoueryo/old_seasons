@@ -1,9 +1,6 @@
-{{-- null !== \App\Booking::where('user_id', Auth::user()->id)->where('booking_date_number', Auth::user()->latest_booking_date_number)->where('active', 1)->first() &&
- \App\Booking::where('user_id', Auth::user()->id)->where('booking_date_number', Auth::user()->latest_booking_date_number)->where('active', 1)->first()->booking_date_number > \Carbon\Carbon::now()->format("ndHi") --}}
 @extends('layouts.front')
-
 @section('content')
-
+    
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
@@ -104,7 +101,7 @@
                 <li>誰でも来やすいアットホームな店つくりを心がけておりますので気軽に立ち寄っていただけたら幸いです。</li>
                 <li><span class="name">代表　道下 雅巳</span></li>
             </ul>
-{{--  
+{{--
             <div class="balloon-container">
                 <div class="balloon col-md-4 offset-md-7 delete">
                     <p class="">カットのみの方はカレンダーの〇からクイック予約をご利用いただけます。</p>

@@ -9,6 +9,7 @@ $(document).ready(function(){
 
   });
 
+
 //   ↓タブレット、スマホとPCのリンク先を変更↓
 
   $(document).ready(function(){
@@ -554,26 +555,20 @@ $(document).ready(function(){
         60
         for (i=0; i< document.Form2.length-1; i++) {
 
-        if(document.Form2.elements[i].name == '1時間'){
 
 
-        if(document.Form2.elements[i+14].value == "×") {
-            document.Form2.elements[i].value = "×";
-            document.Form2.elements[i].classList.add('disabled');
 
-        }
-        if(!document.Form2.elements[i+14].value) {
-            for (j=0; j< 14; j++) {
-                document.Form2.elements[i+j].value = "×";
-                document.Form2.elements[i+j].classList.add('disabled');
+            if(document.Form2.elements[i+14].value == "×") {
+                document.Form2.elements[i].value = "×";
+                document.Form2.elements[i].classList.add('disabled');
 
             }
 
 
-        }
-    }
+            }
 
-    }
+
+
 
 
 

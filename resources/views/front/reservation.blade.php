@@ -5,7 +5,10 @@
 <link href="{{ asset('css/PC/reservation.css') }}" rel="stylesheet">
 <link href="{{ asset('css/media/reservation.css') }}" rel="stylesheet">
 <div class="img-container">
-    <img alt="" class="main-img" src="{{ asset('image/woman6.png') }}">
+    <picture>
+        <source type="image/webp" srcset="{{ asset('image/woman6.webp') }}">
+        <img id="woman5" src="image/woman6.png"  data-src="image/woman5.jpg" alt="seasons" class="main-img" data-srcset="image/woman6.jpg">
+    </picture>
 </div>
 <div class="container mt-5">
     <div class="row">

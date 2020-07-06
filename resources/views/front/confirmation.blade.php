@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <th>料金</th>
-                            <td>&nbsp;&nbsp;&nbsp;{{ $booking->price }}円</td>
+                            <td>&nbsp;&nbsp;&nbsp;{{ $booking->price }}</td>
                         </tr>
                         <tr class="last">
                             <th>所要時間</th>
