@@ -1,5 +1,12 @@
 {
+    "/js/admin_calender.js": "/js/admin_calender.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/admin.css": "/css/admin.css"
+    "/css/media/calender.css": "/css/media/calender.css",
+    "/css/PC/calender.css": "/css/PC/calender.css",
+    "/css/admin.css": "/css/admin.css",
+    "/js/calender.js": "/js/calender.js",
+    "/js/calender.min.js": "/js/calender.min.js",
+    "/js/plan.js": "/js/plan.js",
+    "/js/reservation.js": "/js/reservation.js"
 }
