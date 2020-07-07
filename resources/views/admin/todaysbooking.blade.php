@@ -24,17 +24,19 @@
                                 <td class="align-middle"><a href="{{ action('AdminController@profile', ['id' => $today_user->id]) }}">
                                     {{ \Str::limit($today_user->family_name, 100) }} {{ \Str::limit($today_user->first_name, 100) }}</a></td>
                                 <td class="align-middle"><a href="{{ action('AdminController@profile', ['id' => $today_user->id]) }}">{{ \Str::limit($today_user->gender, 15) }}</a></td>
+
                                 <td class="align-middle"><a href="{{ action('AdminController@profile', ['id' => $today_user->id]) }}">
                                     @if(null !== \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first() &&
-                                    \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_date_number > Carbon\Carbon::now()->format("ndHi"))
+                                    \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_date_number > Carbon\Carbon::today()->format("ndHi"))
                                     {{ \Str::limit(\App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_date, 15) }}@endif</a></td>
+
                                 <td class="align-middle"><a href="{{ action('AdminController@profile', ['id' => $today_user->id]) }}">
                                     @if(null !== \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first() &&
-                                    \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_date_number > Carbon\Carbon::now()->format("ndHi"))
+                                    \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_date_number > Carbon\Carbon::today()->format("ndHi"))
                                     {{ \Str::limit(\App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->price, 15) }}@endif</a></td>
                                 <td class="align-middle"><a href="{{ action('AdminController@profile', ['id' => $today_user->id]) }}">
                                     @if(null !== \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first() &&
-                                    \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_date_number > Carbon\Carbon::now()->format("ndHi"))
+                                    \App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_date_number > Carbon\Carbon::today()->format("ndHi"))
                                     <span class="booking-plan">{{ \Str::limit(\App\Booking::where('user_id', $today_user->id)->where('active', 1)->first()->booking_plan, 100) }}</span>@endif</a></td>
                                 <td class="align-middle">
                                     <div>

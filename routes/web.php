@@ -56,3 +56,6 @@ Route::post('/login/custom', [
     'uses' => 'Auth\MyLoginController@login',
     'as' => 'login.custom'
     ]);
+
+
+    Route::get('/JS_calender', 'HomeController@JSCalender');

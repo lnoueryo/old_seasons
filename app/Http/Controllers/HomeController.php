@@ -9,6 +9,7 @@ use Session;
 use Illuminate\Support\Facades\Auth;
 use App\Events\Book;
 use App\Booking;
+use App\BookingController;
 
 class HomeController extends Controller
 {
@@ -30,12 +31,22 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::all();
+
         return view('front.home', ['users' => $users]);
     }
 
     public function calender()
     {
-        return view('front.calender');
+        $json = Booking::all()->where('active', 1)->get(['booking_date_number']);
+        // $json = json_encode($booking, JSON_PRETTY_PRINT);
+        return view('front.calender', ['json' => $json]);
+    }
+
+    public function JSCalender()
+    {
+        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $json2 = BookingController::all('day_of_the_week');
+        return view('front.JS_calender', ['json' => $json, 'json2' => $json2]);
     }
 
     public function menu()

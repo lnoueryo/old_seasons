@@ -553,9 +553,7 @@ $(document).ready(function(){
         // ↓女性のカットの所要時間を考慮して既存の予約の前の〇を×にする処理↓
 
         60
-        for (i=0; i< document.Form2.length-1; i++) {
-
-
+        for (var i=0; i< document.Form2.length-1; i++) {
 
 
             if(document.Form2.elements[i+14].value == "×") {
