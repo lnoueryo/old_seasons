@@ -15,12 +15,15 @@
 //     return view('auth.login');
 // });
 Route::get('/', function () {
-    return view('front.calender');
+    $json = \App\Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $json2 = \App\BookingController::all('day_of_the_week');
+        $json3 = \App\BookingController::all('day_time');
+
+        return view('front.calender', ['json' => $json, 'json2' => $json2, 'json3' => $json3]);
 });
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@calender')->name('home');
 Route::get('/menu', 'HomeController@menu')->name('menu');
 Route::get('/concept', 'HomeController@concept')->name('concept');
@@ -35,7 +38,7 @@ Route::get('/confirmation/delete', 'HomeController@cancel');
 Route::post('/reservation_date', 'HomeController@reservationDate');
 Route::post('/reservation_date_sm', 'HomeController@reservationDateSM');
 Route::post('/home', 'HomeController@booking');
-// Route::get('/reservation_date', 'HomeController@reservationDate')->name('reservation_date');
+
 
 
 // アドミン

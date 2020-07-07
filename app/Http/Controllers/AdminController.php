@@ -42,11 +42,10 @@ class AdminController extends Controller
 
         $query = Booking::sortable()->orderBy('updated_at','desc');
 
+        $bookings = $query->paginate(5);
 
+        $cc = count($bookings, COUNT_RECURSIVE);
 
-       $bookings = $query->paginate(5);
-
-    $cc = count($bookings, COUNT_RECURSIVE);
         return view('admin.bookings', ['bookings' => $bookings]);
     }
 

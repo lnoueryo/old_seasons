@@ -35,18 +35,19 @@ class HomeController extends Controller
         return view('front.home', ['users' => $users]);
     }
 
-    public function calender()
-    {
-        $json = Booking::all()->where('active', 1)->get(['booking_date_number']);
-        // $json = json_encode($booking, JSON_PRETTY_PRINT);
-        return view('front.calender', ['json' => $json]);
-    }
+    // public function calender()
+    // {
 
-    public function JSCalender()
+    //     return view('front.calender');
+    // }
+
+    public function calender()
     {
         $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
         $json2 = BookingController::all('day_of_the_week');
-        return view('front.JS_calender', ['json' => $json, 'json2' => $json2]);
+        $json3 = BookingController::all('day_time');
+        
+        return view('front.calender', ['json' => $json, 'json2' => $json2, 'json3' => $json3]);
     }
 
     public function menu()

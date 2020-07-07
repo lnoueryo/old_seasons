@@ -19,7 +19,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{--  <link href="{{ asset('css/front.css') }}" rel="stylesheet">  --}}
     <link href="{{ asset('css/PC/calender.css') }}" rel="stylesheet">
     <link href="{{ asset('css/media/calender.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -162,7 +161,6 @@
         </div>
         <div class="black-bg" id="js-black-bg"></div>
     </div>
-
 
         <main class="py-4">
             @yield('content')

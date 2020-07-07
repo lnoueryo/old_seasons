@@ -183,183 +183,184 @@ $(document).ready(function(){
         // ↓予約の所要時間によって×の数を増やす処理↓
 
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '1時間'){
 
-                for (j=0; j< 15; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '1時間'){
 
-                }
+        //         for (j=0; j< 15; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '1.5時間'){
 
-                for (j=0; j< 29; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '1.5時間'){
 
-                }
+        //         for (j=0; j< 29; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '2時間'){
 
-                for (j=0; j< 43; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '2時間'){
 
-                }
+        //         for (j=0; j< 43; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '2.5時間'){
 
-                for (j=0; j< 57; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '2.5時間'){
 
-                }
+        //         for (j=0; j< 57; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '3時間'){
 
-                for (j=0; j< 71; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '3時間'){
 
-                }
+        //         for (j=0; j< 71; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '3.5時間'){
 
-                for (j=0; j< 85; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '3.5時間'){
 
-                }
+        //         for (j=0; j< 85; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '4時間'){
 
-                for (j=0; j< 99; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '4時間'){
 
-                }
+        //         for (j=0; j< 99; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '4.5時間'){
 
-                for (j=0; j< 113; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '4.5時間'){
 
-                }
+        //         for (j=0; j< 113; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '5時間'){
 
-                for (j=0; j< 127; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '5時間'){
 
-                }
+        //         for (j=0; j< 127; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '5.5時間'){
 
-                for (j=0; j< 141; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '5.5時間'){
 
-                }
+        //         for (j=0; j< 141; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
 
-        for (i=0; i< document.Form.length-1; i++) {
-            var Input = document.Form.elements[i];
+        // }
 
+        // for (i=0; i< document.Form.length-1; i++) {
+        //     var Input = document.Form.elements[i];
 
-            if(Input.placeholder === '6時間'){
 
-                for (j=0; j< 155; j+=14) {
-                    document.Form.elements[i+j].value = "×";
-                    document.Form.elements[i+j].classList.add('disabled');
+        //     if(Input.placeholder === '6時間'){
 
-                }
+        //         for (j=0; j< 155; j+=14) {
+        //             document.Form.elements[i+j].value = "×";
+        //             document.Form.elements[i+j].classList.add('disabled');
 
-        }
+        //         }
 
-        }
+        // }
+
+        // }
 
 
 
@@ -367,183 +368,183 @@ $(document).ready(function(){
 // {{--
 //         form2 --}}
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '1時間'){
+        //     if(Input.placeholder === '1時間'){
 
-                for (j=0; j< 15; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 15; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '1.5時間'){
+        //     if(Input.placeholder === '1.5時間'){
 
-                for (j=0; j< 29; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 29; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '2時間'){
+        //     if(Input.placeholder === '2時間'){
 
-                for (j=0; j< 43; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 43; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '2.5時間'){
+        //     if(Input.placeholder === '2.5時間'){
 
-                for (j=0; j< 57; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 57; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '3時間'){
+        //     if(Input.placeholder === '3時間'){
 
-                for (j=0; j< 71; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 71; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '3.5時間'){
+        //     if(Input.placeholder === '3.5時間'){
 
-                for (j=0; j< 85; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 85; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '4時間'){
+        //     if(Input.placeholder === '4時間'){
 
-                for (j=0; j< 99; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 99; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '4.5時間'){
+        //     if(Input.placeholder === '4.5時間'){
 
-                for (j=0; j< 113; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 113; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '5時間'){
+        //     if(Input.placeholder === '5時間'){
 
-                for (j=0; j< 127; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 127; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '5.5時間'){
+        //     if(Input.placeholder === '5.5時間'){
 
-                for (j=0; j< 141; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 141; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
-        for (i=0; i< document.Form2.length-1; i++) {
-            var Input = document.Form2.elements[i];
+        // for (i=0; i< document.Form2.length-1; i++) {
+        //     var Input = document.Form2.elements[i];
 
 
-            if(Input.placeholder === '6時間'){
+        //     if(Input.placeholder === '6時間'){
 
-                for (j=0; j< 155; j+=14) {
-                    document.Form2.elements[i+j].value = "×";
-                    document.Form2.elements[i+j].classList.add('disabled');
+        //         for (j=0; j< 155; j+=14) {
+        //             document.Form2.elements[i+j].value = "×";
+        //             document.Form2.elements[i+j].classList.add('disabled');
 
-                }
+        //         }
 
-        }
+        // }
 
-        }
+        // }
 
 
         // ↑予約の所要時間によって×の数を増やす処理↑
@@ -552,18 +553,18 @@ $(document).ready(function(){
 
         // ↓女性のカットの所要時間を考慮して既存の予約の前の〇を×にする処理↓
 
-        60
-        for (var i=0; i< document.Form2.length-1; i++) {
+        // 60
+        // for (var i=0; i< document.Form2.length-1; i++) {
 
 
-            if(document.Form2.elements[i+14].value == "×") {
-                document.Form2.elements[i].value = "×";
-                document.Form2.elements[i].classList.add('disabled');
+        //     if(document.Form2.elements[i+14].value == "×") {
+        //         document.Form2.elements[i].value = "×";
+        //         document.Form2.elements[i].classList.add('disabled');
 
-            }
+        //     }
 
 
-            }
+        //     }
 
 
 

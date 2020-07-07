@@ -51,7 +51,7 @@
                     @elseif(null !==\App\BookingController::where('day_time', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first())
                     <td class="bg-danger"><a class="" href="{{ action('AdminController@day_time_unblock', ['day_time' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")]) }}">×</a></td>
 
-                    @elseif(null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->isoformat("YYYY年MM月DD日"))->first())
+                    @elseif(null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("nd"))->first())
                     <td class="bg-danger">×</a></td>
 
                     @else
@@ -64,4 +64,5 @@
         </table>
     </div>
 </div>
+
 @endsection

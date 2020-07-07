@@ -1,6 +1,81 @@
 @extends('layouts.front3')
 @section('content')
+    <style>
+        .calender {
 
+            height: 600px;
+            border: solid 1.2px;
+            border-color: rgb(0, 0, 0, 0.2);
+            vertical-align: middle;
+
+            }
+
+            .calender th {/*table内のthに対して*/
+                padding: 10px;/*上下左右10pxずつ*/
+                font-size: 0.9rem;
+
+            }
+
+            .calender th:first-child {
+            /* 横スクロール時に固定する */
+            position: -webkit-sticky;
+            position: sticky;
+            left: 0;
+            background-color: #e9ecef;
+            border: 20px #dee2e6;
+            z-index: 10;
+
+            }
+
+            .calender thead th {
+            /* 縦スクロール時に固定する */
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            /* tbody内のセルより手前に表示する */
+            z-index: 1;
+            border-bottom: none;
+
+            }
+
+            .calender thead th:first-child {
+            padding: 30px;
+            z-index: 10;
+
+            }
+
+            .calender td {/*table内のtdに対して*/
+            padding: 3px 10px;/*上下3pxで左右10px*/
+            z-index: 0;
+
+            }
+
+            .calender td:hover {/*table内のtdに対して*/
+            padding: 3px 10px;/*上下3pxで左右10px*/
+            z-index: 0;
+            background-color:#4444442d;
+            }
+
+            /* input */
+            .calender-cell {
+                width: 40px;
+                height: 35px;
+                border:none;
+                background:none;
+                text-align: center;
+                z-index: 0;
+                color: #4b9dd8;
+
+            }
+
+            .calender-cell:active {
+
+                border:none;
+                background:none;
+                outline:0;
+
+            }
+    </style>
 
 <div class="container">
     <div class="row">
@@ -19,15 +94,14 @@
                                     @endfor
                                 </tr>
                             </thead>
-                            <tbody class="text-center">
+                            <tbody>
                                 @for($j = 0; $j <= 18; $j++)
                                 <tr>
                                     <th class="align-middle" scope="row">{{ \Carbon\Carbon::today()->addHours(10)->addMinutes($j*30)->format("H:i") }}</th>
                                     @for($i = 1; $i <= 14; $i++)
-                                    @if (\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first() || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30) || null !==\App\BookingController::where('day_time', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first() ||
-                                        null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->isoformat("YYYY年MM月DD日"))->first())
-                                            <td>
-                                                <input class="calender-cell" type="text" name="30分" placeholder="{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" value="×" size="1" disabled>
+                                        @if (\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first())
+                                            <td class="align-middle text-center">
+                                                <input class="calender-cell text-center" type="text" name="30分" placeholder="{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" value="×" size="1" disabled>
                                             </td>
                                         @else
                                         <td class="align-middle text-center">
@@ -93,20 +167,48 @@
         $(function() {
             const booking = @json($json);
             const bookingController = @json($json2);
+            const bookingController2 = @json($json3);
             console.log(booking[0].length_of_time);
             {{-- console.log(bookingController[7].day_of_the_week);
             var abc = bookingController.day_of_the_week;
             $('form[name="Form"] input[placeholder^=' + abc + ']').val("×"); --}}
 
-            {{-- bookingController.forEach(function(item,index){
-                var dayOfTheWeek = item.day_of_the_week;
-                for (var i=0; i< document.Form.length-1; i++) {
-                if($('form[name="Form"] input[placeholder^=' + dayOfTheWeek + ']').eq(i)) {
-                    $('form[name="Form"] input[placeholder^=' + dayOfTheWeek + ']').eq(i).val("×");
-                }
-            }
-            }) --}}
 
+            {{--  ブッキングコントローラー日付用  --}}
+            bookingController.forEach(function(item,index){
+
+                var dayOfTheWeek = item.day_of_the_week;
+
+                for (var i=0; i< document.Form.length-1; i++) {
+                    var placeholder = $('form[name="Form"] input').eq(i).attr("placeholder");
+
+                if(Math.floor(placeholder/10000) == dayOfTheWeek) {
+                    $('form[name="Form"] input').eq(i).val("×");
+                    $('form[name="Form"] input').eq(i).attr('onclick', '');
+                }
+
+            }
+            })
+
+
+            {{--  ブッキングコントローラー日付用  --}}
+            bookingController2.forEach(function(item,index){
+
+                var dayTime = item.day_time;
+
+                for (var i=0; i< document.Form.length-1; i++) {
+                    var placeholder = $('form[name="Form"] input').eq(i).attr("placeholder");
+
+                if(placeholder == dayTime) {
+                    $('form[name="Form"] input').eq(i).val("×");
+                    $('form[name="Form"] input').eq(i).attr('onclick', '');
+                }
+
+            }
+            })
+
+
+            {{--  既存の予約用  --}}
             booking.forEach(function(item,index){
                 var bookingDate = item.booking_date_number;
                 var time = item.length_of_time;
@@ -115,13 +217,11 @@
                     if($('form[name="Form"] input').eq(i+28).val() !== "〇" && $('form[name="Form"] input').eq(i+28).val() !== "×") {
                         for (var k=14; k< 28; k++) {
                             $('form[name="Form"] input').eq(i+k).val("×");
-                            {{-- document.Form.elements[i+k].classList.add('disabled'); --}}
+                            $('form[name="Form"] input').eq(i+k).attr('onclick', '');
                         }
 
                         }
-                        {{-- if($('form[name="Form"] input[placeholder^={{ \App\BookingController::find(46)->day_of_the_week }}]').eq(i)) {
-                            $('form[name="Form"] input[placeholder^={{ \App\BookingController::find(46)->day_of_the_week }}]').eq(i).val("×");
-                        } --}}
+
                     if($('form[name="Form"] input').eq(i).attr("placeholder") == bookingDate) {
 
                         $('form[name="Form"] input').eq(i).prop("name", time)
@@ -129,10 +229,12 @@
                         if($('form[name="Form"] input').eq(i).attr('name') === 1+0.5*l + '時間') {
                             for (var j=0; j< 14*l+15; j+=14) {
                                 $('form[name="Form"] input').eq(i+j).val("×");
+                                $('form[name="Form"] input').eq(i+j).attr('onclick', '');
                             }
 
                         }  else {
                             $('form[name="Form"] input').eq(i).val("×");
+                            $('form[name="Form"] input').eq(i).attr('onclick', '');
                         }
                     }
                     }

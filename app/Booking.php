@@ -21,5 +21,6 @@ class Booking extends Model
         'booking_date_number',
         'price',
         'created_at',
+        'updated_at',
                     ];
 }
