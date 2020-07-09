@@ -303,6 +303,7 @@
         console.log(booking[0].length_of_time);
         const twoHoursFromNow = {{ \Carbon\Carbon::now()->addHours(2)->format("ndHi") }};
 
+
         for (var i = 0; i < document.Form.length - 1; i++) {
             var placeholder = $('form[name="Form"] input').eq(i).attr("placeholder");
             if (placeholder < twoHoursFromNow) {
@@ -318,7 +319,6 @@
                         $('form[name="Form2"] input').eq(i).attr('disabled', true);
             }
           }
-
     </script>
     <script src="{{ asset('js/calender.min.js') }}" defer></script>
 @endsection

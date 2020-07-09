@@ -61,12 +61,12 @@
         </div>
     </div>
 </div>
-    <script src="{{ asset('js/calender.min.js') }}" defer></script>
         <script>
             const booking = @json($json);
             const bookingController = @json($json2);
             const bookingController2 = @json($json3);
             console.log(booking[0].length_of_time);
+            console.log($('form[name="Form"] input').eq(270).val());
 
             function getServerDate(callback){
                 $.ajax({
@@ -89,7 +89,7 @@
                 const month = result.getMonth() + 1;
                 const day = String(result.getDate()).padStart(2,'0');
                 const hour = result.getHours();
-                const twoHours = result.getHours()+2;
+                const twoHours = String(result.getHours()+2).padStart(2,'0');
                 const min = String(result.getMinutes()).padStart(2,'0');
                 const now = `${month}${day}${hour}${min}`;
                 const twoHoursFromNow = `${month}${day}${twoHours}${min}`;
@@ -123,5 +123,8 @@
             // ↑カレンダー値別カラー↑
 
 
+
         </script>
-    @endsection
+        <script src="{{ asset('js/calender.min.js') }}" defer></script>
+       
+@endsection

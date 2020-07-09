@@ -49,7 +49,6 @@
     </table>
 </div>
 
-    <script src="{{ asset('js/calender.min.js') }}" defer></script>
     <script>
         const booking = @json($json);
         const bookingController = @json($json2);
@@ -77,7 +76,7 @@
             const month = result.getMonth() + 1;
             const day = String(result.getDate()).padStart(2,'0');
             const hour = result.getHours();
-            const twoHours = result.getHours()+2;
+            const twoHours = String(result.getHours()+2).padStart(2,'0');
             const min = String(result.getMinutes()).padStart(2,'0');
             const now = `${month}${day}${hour}${min}`;
             const twoHoursFromNow = `${month}${day}${twoHours}${min}`;
@@ -112,4 +111,5 @@
 
 
     </script>
+    <script src="{{ asset('js/calender.min.js') }}" defer></script>
 @endsection
