@@ -46,7 +46,7 @@ class HomeController extends Controller
         $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
         $json2 = BookingController::all('day_of_the_week');
         $json3 = BookingController::all('day_time');
-        
+
         return view('front.calender', ['json' => $json, 'json2' => $json2, 'json3' => $json3]);
     }
 
@@ -88,20 +88,21 @@ class HomeController extends Controller
 
         $booking = new Booking($request->all());
         $request->session()->put('booking', $booking);
-        $times = Booking::where('booking_date','>', Carbon::now())->get();
+        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $json2 = BookingController::all('day_of_the_week');
+        $json3 = BookingController::all('day_time');
 
-
-        return view('front.reservation_date', ['booking' => $booking, 'times' => $times]);
+        return view('front.reservation_date', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3]);
     }
 
     public function reservationDateSM(Request $request) {
-
         $booking = new Booking($request->all());
         $request->session()->put('booking', $booking);
-        $times = Booking::where('booking_date','>', Carbon::now())->get();
+        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $json2 = BookingController::all('day_of_the_week');
+        $json3 = BookingController::all('day_time');
 
-
-        return view('front.reservation_date_sm', ['booking' => $booking, 'times' => $times]);
+        return view('front.reservation_date_sm', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3]);
     }
 
     public function reservation(Request $request)

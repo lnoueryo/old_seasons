@@ -10,87 +10,36 @@
             color: black;
         }
 
-        @media and screen(max-width: 800px){
-
-
+        body {
+            font-size: 1.3rem;
+            font-family: "03スマートフォントUI", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, sans-serif, "Lobster",cursive;
+            line-height: 1.5;
+            color: rgb(51, 51, 51);
+            background-image: linear-gradient(to right bottom, rgb(216, 235, 234), rgb(255, 245, 234));
+            text-align: left;
+            padding-top: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            overflow-wrap: break-word;
         }
 
     </style>
-{{--  date{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30+$booking->length_of_time)->format("mjHi")  --}}
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <form id="sp-form-1" action="{{ action('HomeController@reservation') }}" method="POST" name="Form">
-                {{ csrf_field() }}
-                <table id="booking-calender" class="table table-responsive table-striped align-middle mt-2 calender">
-                    <thead class="thead-light">
-                        <tr class="text-center">
-                            <th class="row2" width="10%">Booking</th>
-                            @for ($i = 1; $i <= 14; $i++)
-                            <th class="row2" width="3%">{{ \Carbon\Carbon::today()->addDays($i-1)->isoformat("DD日")  }}<br>{{ \Carbon\Carbon::today()->addDays($i-1)->isoformat("(ddd)")  }}</th>
-                            @endfor
-                        </tr>
-                    </thead>
-                    <tbody class="text-center">
-                        @for($j = 0; $j <= 18; $j++)
-                            <tr>
-                                <th class="align-middle" scope="row">{{ \Carbon\Carbon::today()->addHours(10)->addMinutes($j*30)->format("H:i") }}</th>
-                                @for($i = 1; $i <= 14; $i++)
-                                    @if(null !==\App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first() &&
-                                    \App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->active == 1)
-                                        @if(null !==\App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first())
-                                        <td>
-                                            <input class="calender-cell" type="text" name="{{ $booking->length_of_time }}" placeholder="{{\App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->length_of_time}}" value="×" size="1" disabled>
-                                        </td>
-                                        @else
-                                        <td>
-                                            <input class="calender-cell" type="text" name="{{ $booking->length_of_time }}" placeholder="{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" value="×" size="1" disabled>
-                                        </td>
-                                        @endif
-
-                                    @elseif (\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first() || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30) || null !==\App\BookingController::where('day_time', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first() ||
-                                        null !==\App\BookingController::where('day_of_the_week', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->isoformat("YYYY年MM月DD日"))->first())
-                                        <td>
-                                            <input class="calender-cell" type="text" name="{{ $booking->length_of_time }}" placeholder="{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" value="×" size="1" disabled>
-                                        </td>
-                                    @else
-
-                                        @if(null !==\App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first() &&
-                                        \App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->active == 0)
-                                        <td class="align-middle text-center">
-                                            <input id="date{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" class="calender-cell" type="button" onclick="location.href='{{ action('HomeController@reservation', ['booking_date' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月d日 H:i"),
-                                                'cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa,
-                                                'price' => $booking->price, 'length_of_time' => $booking->length_of_time,
-                                                'booking_date_month' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n"),
-                                                'booking_date_day' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("d"),
-                                                'booking_date_hour' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("H"),
-                                                'booking_date_minute' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("i")]) }}'" name="{{ \App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->length_of_time }}" value="〇" placeholder="{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" size="1" >
-                                        </td>
-
-                                        @else
-
-                                        <td class="align-middle text-center">
-                                            <input id="date{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" class="calender-cell" type="button" onclick="location.href='{{ action('HomeController@reservation', ['booking_date' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n月d日 H:i"),
-                                                'cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa,
-                                                'price' => $booking->price, 'length_of_time' => $booking->length_of_time,
-                                                'booking_date_month' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("n"),
-                                                'booking_date_day' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("d"),
-                                                'booking_date_hour' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("H"),
-                                                'booking_date_minute' => \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("i")]) }}'" name="{{ $booking->length_of_time }}" value="〇" placeholder="{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" size="1" >
-                                        </td>
-                                        @endif
-                                    @endif
-                                @endfor
-                            </tr>
-                        @endfor
-                    </tbody>
-                </table>
-                <input id="id" type="hidden" name="id" value="{{ Auth::user()->id }}">
-
-                {{-- これで×を判定している --}}
-                <input id="length_of_time" type="hidden" name="id" value="{{ $booking->length_of_time }}">
-                
-            </form>
+            <div id="tabBoxes">
+                <div id="tabBox3">
+                    <form id="sp-form-1" action="{{ action('HomeController@reservation') }}" method="POST" name="Form">
+                        @include('components.calender', ['cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa, 'price' => $booking->price, 'length_of_time' => $booking->length_of_time])
+                    </form>
+                </div>
+            </div>
             <table>
                 <tbody>
                     <tr>
@@ -112,6 +61,67 @@
         </div>
     </div>
 </div>
+    <script src="{{ asset('js/calender.min.js') }}" defer></script>
+        <script>
+            const booking = @json($json);
+            const bookingController = @json($json2);
+            const bookingController2 = @json($json3);
+            console.log(booking[0].length_of_time);
+
+            function getServerDate(callback){
+                $.ajax({
+                    type : 'HEAD',
+                    url :  window.location.href,
+                    cache : false
+                }).done(function(data, textStatus, xhr) {
+                    try {
+                        var result = new Date(xhr.getResponseHeader("Date"));
+                    } catch(e) {
+                        var result = new Date();
+                    }
+                    callback(result);
+                }).fail(function() {
+                    var result = new Date();
+                    callback(result);
+                });
+            }
+            function makeHTML(result){
+                const month = result.getMonth() + 1;
+                const day = String(result.getDate()).padStart(2,'0');
+                const hour = result.getHours();
+                const twoHours = result.getHours()+2;
+                const min = String(result.getMinutes()).padStart(2,'0');
+                const now = `${month}${day}${hour}${min}`;
+                const twoHoursFromNow = `${month}${day}${twoHours}${min}`;
+
+                for (var i = 0; i < document.Form.length - 1; i++) {
+                    var placeholder = $('form[name="Form"] input').eq(i).attr("placeholder");
+                    if (placeholder < twoHoursFromNow) {
+
+                                $('form[name="Form"] input').eq(i).val("×").css({
+                                    'color': '#696969',
+                                    'font-weight': '600'
+                                  });
+                                $('form[name="Form"] input').eq(i).attr('disabled', true);
+
+                    }
+                  }
+                console.log(twoHoursFromNow);
+            }
+            getServerDate(makeHTML);
+            // ↓カレンダー値別カラー↓
+            window.onload = function () {
+                $('#tabBox3 input[value="×"]').css({
+                    'color': '#696969',
+                    'font-weight': '600'
+                  });
+                  $('#tabBox3 input[value="〇"]').css({
+                    'color': '#d84b6a',
+                    'font-weight': '600'
+                  });
+            };
+            // ↑カレンダー値別カラー↑
 
 
-@endsection
+        </script>
+    @endsection

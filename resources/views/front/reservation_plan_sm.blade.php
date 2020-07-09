@@ -3,157 +3,7 @@
 @extends('layouts.front3')
 
 @section('content')
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<link href="{{ asset('css/media/reservation_plan_sm.css') }}" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <script>
-
-    </script>
-
-    <script>
-        function total() {
-            yen = 0;
-            time = 0;
-            const array = [0,30,60,90,150,180,60,90,150,30,60,90,30]
-            for (i=1; i< document.Form.length-1; i++) {
-
-                    if (document.Form.elements[i].checked) {
-
-                        if($("#menscut").prop("checked") == true) {
-                            $('#coldperm').val(3900);
-                            $('#creepperm').val(6100);
-                            $('#digitalperm').val(11600);
-
-                            $('#graycolor').val(2800);
-                            $('#fashioncolor').val(3900);
-                            $('#designcolor').val(10600);
-
-                            if ($("#spa90min").prop("checked") == true){
-                                $('#treatments').val(0);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else if ($("#spa90min").prop("checked") == false){
-                                $('#treatments').val(2200);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else {
-
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            }
-
-                        } else if($("#ladiescut").prop("checked") == true) {
-                            $('#coldperm').val(4000);
-                            $('#creepperm').val(6200);
-                            $('#digitalperm').val(11700);
-
-                            $('#graycolor').val(2900);
-                            $('#fashioncolor').val(4000);
-                            $('#designcolor').val(10700);
-
-                            if ($("#spa90min").prop("checked") == true){
-                                $('#treatments').val(0);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else if ($("#spa90min").prop("checked") == false){
-                                $('#treatments').val(2200);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else {
-
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            }
-                        } else if ($("#menscut").prop("checked") == false && $("#ladiescut").prop("checked") == false) {
-                            $('#coldperm').val(5500);
-                            $('#creepperm').val(7700);
-                            $('#digitalperm').val(13200);
-
-                            $('#graycolor').val(4400);
-                            $('#fashioncolor').val(5500);
-                            $('#designcolor').val(12200);
-
-                            if ($("#spa90min").prop("checked") == true){
-                                $('#treatments').val(0);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else if ($("#spa90min").prop("checked") == false){
-                                $('#treatments').val(2200);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else {
-
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            }
-                        }  else {
-                            if ($("#spa90min").prop("checked") == true){
-                                $('#treatments').val(0);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else if ($("#spa90min").prop("checked") == false){
-                                $('#treatments').val(2200);
-                                yen += eval(document.Form.elements[i].value);
-                                time += array[i];
-                            } else {
-
-                                yen += eval(document.Form.elements[i].value);
-                                 time += array[i];
-                            }
-
-                    }
-
-                }}
-
-            document.Form.price.value = yen + '円';
-            if (time === 30 || time === 0) {
-            document.Form.length_of_time.value = time + '分';
-            } else if(time === 0) {
-            document.Form.length_of_time.value = time;
-            } else {
-            document.Form.length_of_time.value = time/60 + '時間';
-            }
-
-            }
-            document.getElementById('Form').onsubmit = function() {
-                const search = document.getElementById('Form').price.value;
-                document.getElementById('Form').prices.value = `${search} +1000`
-            };
-
-
-
-    </script>
-
-    <style>
-
-
-
-        .float li {
-            height: 50px;
-            {{--  padding: 20px;  --}}
-            {{--  padding-right: 30px;  --}}
-
-        }
-        .float {
-            margin: auto;
-        }
-
-
-        .main-img {
-
-            object-fit: cover;
-            width: 100%;
-            object-position: 50% 100%
-        }
-
-        .abc {
-            padding-right: 50px;
-            margin-right: 10px;
-        }
-
-
-    </style>
 <div class="section s_03">
     <form id="sp-form-1" action="{{ action('HomeController@reservationDateSM') }}" method="POST" name="Form">
         {{ csrf_field() }}
@@ -186,16 +36,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    {{-- <ul class="float">
-                        <label for="menscut"><li class=""><input class="mr-2" id="menscut" type="checkbox" name="cuts" value="2900" onclick="total()">Mens<span>¥2,900- 税込</span></li>
-                            <li  class="float-right"><span class="ml-">30分</span></li></label>
-                    </ul> --}}
-                    {{--  <ul class="float">
-                        <label for="ladiescut"><li class="mr-5"><input class="mr-2" id="ladiescut" type="checkbox" name="cuts" value="3100" onclick="total()">Ladies</li>
-                        <li class="float-right">¥3,100- 税込<span class="ml-5">60分</span></li></label>
-                    </ul>  --}}
-
                 </div>
+                <div>カットと同時に<span>カラー</span>、<span>パーマ</span>で最大1600円off‼</div>
             </div>
         </div>
 
@@ -380,4 +222,152 @@
         </table>
     </form>
 </div>
+
+{{--  <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.js"></script>  --}}
+<link href="{{ asset('css/media/reservation_plan_sm.css') }}" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        function total() {
+            yen = 0;
+            time = 0;
+            const array = [0,30,60,90,150,180,60,90,150,30,60,90,30]
+            for (i=1; i< document.Form.length-1; i++) {
+
+                    if (document.Form.elements[i].checked) {
+
+                        if($("#menscut").prop("checked") == true) {
+                            $('#coldperm').val(3900);
+                            $('#creepperm').val(6100);
+                            $('#digitalperm').val(11600);
+
+                            $('#graycolor').val(2800);
+                            $('#fashioncolor').val(3900);
+                            $('#designcolor').val(10600);
+
+                            if ($("#spa90min").prop("checked") == true){
+                                $('#treatments').val(0);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else if ($("#spa90min").prop("checked") == false){
+                                $('#treatments').val(2200);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else {
+
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            }
+
+                        } else if($("#ladiescut").prop("checked") == true) {
+                            $('#coldperm').val(4000);
+                            $('#creepperm').val(6200);
+                            $('#digitalperm').val(11700);
+
+                            $('#graycolor').val(2900);
+                            $('#fashioncolor').val(4000);
+                            $('#designcolor').val(10700);
+
+                            if ($("#spa90min").prop("checked") == true){
+                                $('#treatments').val(0);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else if ($("#spa90min").prop("checked") == false){
+                                $('#treatments').val(2200);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else {
+
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            }
+                        } else if ($("#menscut").prop("checked") == false && $("#ladiescut").prop("checked") == false) {
+                            $('#coldperm').val(5500);
+                            $('#creepperm').val(7700);
+                            $('#digitalperm').val(13200);
+
+                            $('#graycolor').val(4400);
+                            $('#fashioncolor').val(5500);
+                            $('#designcolor').val(12200);
+
+                            if ($("#spa90min").prop("checked") == true){
+                                $('#treatments').val(0);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else if ($("#spa90min").prop("checked") == false){
+                                $('#treatments').val(2200);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else {
+
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            }
+                        }  else {
+                            if ($("#spa90min").prop("checked") == true){
+                                $('#treatments').val(0);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else if ($("#spa90min").prop("checked") == false){
+                                $('#treatments').val(2200);
+                                yen += eval(document.Form.elements[i].value);
+                                time += array[i];
+                            } else {
+
+                                yen += eval(document.Form.elements[i].value);
+                                 time += array[i];
+                            }
+
+                    }
+
+                }}
+
+            document.Form.price.value = yen + '円';
+            if (time === 30 || time === 0) {
+            document.Form.length_of_time.value = time + '分';
+            } else if(time === 0) {
+            document.Form.length_of_time.value = time;
+            } else {
+            document.Form.length_of_time.value = time/60 + '時間';
+            }
+
+            }
+            document.getElementById('Form').onsubmit = function() {
+                const search = document.getElementById('Form').price.value;
+                document.getElementById('Form').prices.value = `${search} +1000`
+            };
+
+
+
+    </script>
+
+    <style>
+
+
+
+        .float li {
+            height: 50px;
+            {{--  padding: 20px;  --}}
+            {{--  padding-right: 30px;  --}}
+
+        }
+        .float {
+            margin: auto;
+        }
+
+
+        .main-img {
+
+            object-fit: cover;
+            width: 100%;
+            object-position: 50% 100%
+        }
+
+        .abc {
+            padding-right: 50px;
+            margin-right: 10px;
+        }
+
+
+    </style>
 @endsection

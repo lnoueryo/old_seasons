@@ -98,7 +98,7 @@
             </ul>
 
             <ul class="introduction col-md-12 text-center mt-4 mb-5">
-                <li class="mt-2">美容室SesSons(シーズン)はお客様の四季折々のヘアースタイルを常に提供させて頂けたらいいな、と言う思いでオープンしました。</li>
+                <li class="mt-2">美容室SeaSons(シーズン)はお客様の四季折々のヘアースタイルを常に提供させて頂けたらいいな、と言う思いでオープンしました。</li>
                 <li>誰でも来やすいアットホームな店つくりを心がけておりますので気軽に立ち寄っていただけたら幸いです。</li>
                 <li><span class="name">代表　道下 雅巳</span></li>
             </ul>
@@ -129,7 +129,7 @@
 </div>
 
 
-<div class="container">
+{{--  <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div id="tabBoxes">
@@ -231,6 +231,35 @@
             </div>
         </div>
     </div>
+</div>  --}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div id="tabBoxes">
+                <div id="tabBox1">
+                    <form id="sp-form-1" action="{{ action('HomeController@reservation') }}" method="POST" name="Form">
+                        @include('components.calender', ['cut' => 'カット', 'perm' => '', 'color' => '', 'treatment' => '', 'spa' => '', 'price' => '2900円', 'length_of_time' => '30分'])
+                    </form>
+                </div>
+
+                <div id="tabBox2">
+                    <form id="sp-form-1" action="{{ action('HomeController@reservation') }}" method="POST" name="Form2">
+                        @include('components.calender',  ['cut' => 'カット', 'perm' => '', 'color' => '', 'treatment' => '', 'spa' => '', 'price' => '3100円', 'length_of_time' => '1時間'])
+                    </form>
+                </div>
+                <ul id="tabMenu" class="fix-line">
+                    <li>
+                        <a class="man" href="#tabBox1">男性カットのみ</a>
+                    </li>
+                    <li>
+                          <span>&nbsp;&nbsp;||&nbsp;&nbsp;</span>
+
+                    </li>
+                    <li><a class="woman" href="#tabBox2">女性カットのみ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 @guest
@@ -272,6 +301,23 @@
         const bookingController = @json($json2);
         const bookingController2 = @json($json3);
         console.log(booking[0].length_of_time);
+        const twoHoursFromNow = {{ \Carbon\Carbon::now()->addHours(2)->format("ndHi") }};
+
+        for (var i = 0; i < document.Form.length - 1; i++) {
+            var placeholder = $('form[name="Form"] input').eq(i).attr("placeholder");
+            if (placeholder < twoHoursFromNow) {
+                        $('form[name="Form"] input').eq(i).val("×");
+                        $('form[name="Form"] input').eq(i).attr('disabled', true);
+            }
+          }
+
+        for (var i = 0; i < document.Form2.length - 1; i++) {
+            var placeholder = $('form[name="Form2"] input').eq(i).attr("placeholder");
+            if (placeholder < twoHoursFromNow) {
+                        $('form[name="Form2"] input').eq(i).val("×");
+                        $('form[name="Form2"] input').eq(i).attr('disabled', true);
+            }
+          }
 
     </script>
     <script src="{{ asset('js/calender.min.js') }}" defer></script>

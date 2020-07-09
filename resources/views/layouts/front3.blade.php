@@ -7,13 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'SeaSons') }}</title>
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
-    <script src="{{ asset('js/plan.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/plan.js') }}" defer></script> --}}
     <script src="{{ asset('js/reservation_plan_sm.js') }}" defer></script>
-    <script src="{{ asset('js/reservation_date.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/reservation_date.js') }}" defer></script> --}}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -54,7 +54,6 @@
 </html>
 
     <style>
-
         footer {
             width: 100%;
             margin-top: 60px;
