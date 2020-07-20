@@ -1,4 +1,6 @@
-
+// $(function(){
+//     if($('form[name=Form] input').attr('checked').length())
+// })
 
 // ↓アコーディオン↓
 
@@ -42,8 +44,8 @@ $(function(){
   function total() {
     yen = 0;
     time = 0;
-    const array = [0,30,60,90,150,180,60,90,150,30,60,90,30]
-    for (i=1; i< document.Form.length-1; i++) {
+    const array = [30,60,90,150,180,60,90,150,30,60,90,30]
+    for (i=0; i< document.Form.length-1; i++) {
 
             if (document.Form.elements[i].checked) {
 
@@ -380,3 +382,12 @@ $(function(){
     //     const search = document.getElementById('Form').price.value;
     //     document.getElementById('Form').prices.value = `${search} +1000`
     // };
+    $('input[type=checkbox]').click(function() {
+        var checked_length = $('input[type=checkbox]:checked').length;
+
+        if (checked_length > 0) {
+          $('#next').prop('disabled', false);
+        } else {
+          $('#next').prop('disabled', true);
+        }
+    })

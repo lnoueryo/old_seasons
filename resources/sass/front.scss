@@ -1,9 +1,9 @@
 body {
     font-size: 1.3rem;
-    font-family: "03スマートフォントUI", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, sans-serif;
+    font-family: "03スマートフォントUI", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, sans-serif, "Lobster",cursive;
     line-height: 1.5;
-    color: rgb(51, 51, 51);
-    background-image: linear-gradient(to right bottom, rgb(216, 235, 234), rgb(255, 245, 234));
+    color: #626262;
+    background-color: rgb(240, 240, 240);
     text-align: left;
     padding-top: 0px;
     padding-left: 0px;
@@ -14,251 +14,292 @@ body {
     margin-right: 0px;
     margin-bottom: 0px;
     overflow-wrap: break-word;
-    min-width: 1000px;
 }
 
-.header {
-    background-image: linear-gradient(to right bottom, rgb(216, 235, 234), rgb(255, 245, 234));
-    font-size: 1rem;
-}
-
-.nav1 ul {
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 50px;
-    border: solid 3px;
-    border-color: #d8d6bc;
-    background-color:#d5e6e4;
-}
-
-.nav1 li:hover{
-    background-color: #fff5ea;
-    border-radius: 50px;
-    }
-
-    .nav1 a {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-  }
-  .nav1 a::after {
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    content: '';
+footer {
     width: 100%;
-    height: 2px;
-    background: #eae0dd;
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s;
-  }
-  .nav1 a:hover::after {
-    bottom: -4px;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .address {
-    border-radius: 50px;
-    border: solid 7px;
-    border-color: rgb(170, 204, 202);
-    background-color:#ebeade;
-    list-style: none;
-    font-size: 1rem;
-    font-weight: bold;
+    margin-top: 60px;
 }
 
-  .tel {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
-
-  .introduction {
-    border-radius: 42px;
-    border: solid 2px;
-    border-color: rgb(204, 179, 171);
-    background-color:rgb(234, 224, 221);
-    list-style: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-  .name {
-padding-top: 5px;
-line-height: 35px;
-}
-
-.calender {
-height: 600px;
-border: solid 1.2px;
-border-color: rgb(0, 0, 0, 0.2);
-
-}
-
-.calender th {/*table内のthに対して*/
-    padding: 10px;/*上下左右10pxずつ*/
-    font-size: 0.9rem;
-  }
-
-  .calender td {/*table内のtdに対して*/
-    padding: 3px 10px;/*上下3pxで左右10px*/
-  }
-
-  .calender thead th {
-    /* 縦スクロール時に固定する */
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    /* tbody内のセルより手前に表示する */
-    z-index: 1;
-  }
-
-  footer .pp {
+footer .pp {
     color: #6e6e6e;
-    background-color: #d8ebea;
+    background-color:rgba(182, 206, 229, 0.898);
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 0.9rem;
     font-weight: bold;
-  }
+}
 
-  .pp a {
+.pp a {
     color: #6e6e6e;
-    background-color: #d8ebea;
+    background-color:rgba(182, 206, 229, 0.898);
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 0.9rem;
     font-weight: bold;
     text-decoration: none;
-  }
+}
 
-  footer .cr {
+footer .cr {
     color: #ffffff;
     background-color: #a0c5ef;
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 0.9rem;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.logo-flame {
+    line-height: 1;
+    align-self: center;
+    position: absolute;
+    z-index: 100;
   }
 
-  .insta_btn2{/*ボタンの下地*/
-    color: #FFF;/*文字・アイコン色*/
-    border-radius: 7px;/*角丸に*/
+  .logo-container {
+    padding: 0.2em 2em;
+    font-family: cursive;
+  }
+
+  .logo-container a {
+    padding: 1em 0;
+    font-family: "Lobster", cursive;
+    /* font-size: 50px; */
+    font-size: calc(4.5rem + ((1vw - 0.64rem) * 6));
+    color: #444444;
+    text-decoration: underline;
+  }
+
+  .main-img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    -o-object-position: 50% 90%;
+       object-position: 50% 90%;
+  }
+
+  .nav1 li:hover {
+    background-color: #e9967a87;
+  }
+  .nav1 a:hover {
+    background-color: #e9967a87;
+  }
+
+  .nav1 a {
     position: relative;
     display: inline-block;
-    height: 35px;/*高さ*/
-    width: 150px;/*幅*/
-    text-align: center;/*中身を中央寄せ*/
-    font-size: 15px;/*文字のサイズ*/
-    line-height: 35px;/*高さと合わせる*/
-    background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
-    background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;/*グラデーション①*/
-    overflow: hidden;/*はみ出た部分を隠す*/
-    text-decoration:none;/*下線は消す*/
+    text-decoration: none;
+    color: #626262;
   }
 
-  .insta_btn2:before{/*グラデーション②*/
-    content: '';
+  .nav1 a::after {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: #eae0dd;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+
+  .main-navi h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.25;
+    color: #444444;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #a0c5ef;
+  }
+
+  .main-navi {
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: solid 3px;
+    border-color: #ebdedaa3;
+    background-color: #e9967a87;
+    width: 100%;
+    display: flex;
+    margin-left: 0px;
+    margin-right: px;
+    margin: 0 auto;
+
+  }
+
+  .main-navi li {
+      flex: auto;
+  }
+  .main-navi ul {
+      flex: auto;
+  }
+
+ .main-navi  a {
+      flex: auto;
+  }
+
+  .insta_btn2 {
+    /*ボタンの下地*/
+    color: #f3f3f3;
+    /*文字・アイコン色*/
+    border-radius: 7px;
+    /*角丸に*/
+    position: relative;
+    display: inline-block;
+    height: 35px;
+    /*高さ*/
+    width: 150px;
+    /*幅*/
+    text-align: center;
+    /*中身を中央寄せ*/
+    font-size: 15px;
+    /*文字のサイズ*/
+    line-height: 35px;
+    /*高さと合わせる*/
+    background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+    /*グラデーション①*/
+    overflow: hidden;
+    /*はみ出た部分を隠す*/
+    text-decoration: none;
+    /*下線は消す*/
+  }
+
+  .insta_btn2:before {
+    /*グラデーション②*/
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;/*全体を覆う*/
-    height: 100%;/*全体を覆う*/
-    background: -webkit-linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
-    background: linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
+    width: 100%;
+    /*全体を覆う*/
+    height: 100%;
+    /*全体を覆う*/
+    background: linear-gradient(15deg, #ffdb2c, #f9764c 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
   }
 
-  .insta_btn2 .fa-instagram{/*アイコン*/
-    font-size: 25px;/*アイコンサイズ*/
+  .insta_btn2 .fa-instagram {
+    /*アイコン*/
+    font-size: 25px;
+    /*アイコンサイズ*/
     position: relative;
-    top: 5px;/*アイコン位置の微調整*/
+    top: 5px;
+    /*アイコン位置の微調整*/
     padding: 0px;
   }
 
-  .insta_btn2 span {/*テキスト*/
-    display:inline-block;
+  .insta_btn2 span {
+    /*テキスト*/
+    display: inline-block;
     position: relative;
-    transition: .5s
+    transition: 0.5s;
   }
 
-  .insta_btn2:hover span{/*ホバーで一周回転*/
-    -webkit-transform: rotateX(360deg);
-    -ms-transform: rotateX(360deg);
+  .insta_btn2:hover span {
+    /*ホバーで一周回転*/
     transform: rotateX(360deg);
     color: #FFF;
   }
 
   .line_btn {
-    color: #FFF;/*文字・アイコン色*/
-    border-radius: 7px;/*角丸に*/
+    color: #f3f3f3;
+    /*文字・アイコン色*/
+    border-radius: 7px;
+    /*角丸に*/
     position: relative;
     display: inline-block;
-    height: 35px;/*高さ*/
-    width: 150px;/*幅*/
-    text-align: center;/*中身を中央寄せ*/
-    font-size: 15px;/*文字のサイズ*/
-    line-height: 40px;/*高さと合わせる*/
-    overflow: hidden;/*はみ出た部分を隠す*/
-    text-decoration:none;/*下線は消す*/
-    background:#25af00;
+    height: 35px;
+    /*高さ*/
+    width: 150px;
+    /*幅*/
+    text-align: center;
+    /*中身を中央寄せ*/
+    font-size: 15px;
+    /*文字のサイズ*/
+    line-height: 40px;
+    /*高さと合わせる*/
+    overflow: hidden;
+    /*はみ出た部分を隠す*/
+    text-decoration: none;
+    /*下線は消す*/
+    background: #25af00;
+  }
 
-}
-
-.line_btn .fa-line{/*アイコン*/
-    font-size: 25px;/*アイコンサイズ*/
+  .line_btn .fa-line {
+    /*アイコン*/
+    font-size: 25px;
+    /*アイコンサイズ*/
     position: relative;
-    top: 3px;/*アイコン位置の微調整*/
+    top: 3px;
+    /*アイコン位置の微調整*/
     padding-right: 5px;
   }
 
-.line_btn span {/*テキスト*/
-    display:inline-block;
+  .line_btn span {
+    /*テキスト*/
+    display: inline-block;
     position: relative;
-    transition: .5s
+    transition: 0.5s;
   }
 
-.line_btn:hover span{/*ホバーで一周回転*/
-    -webkit-transform: rotateX(360deg);
-    -ms-transform: rotateX(360deg);
+  .line_btn:hover span {
+    /*ホバーで一周回転*/
     transform: rotateX(360deg);
     color: #FFF;
   }
 
   .fb_btn {
-    color: #FFF;/*文字・アイコン色*/
-    border-radius: 7px;/*角丸に*/
+    color: #f3f3f3;
+    /*文字・アイコン色*/
+    border-radius: 7px;
+    /*角丸に*/
     position: relative;
     display: inline-block;
-    height: 35px;/*高さ*/
-    width: 150px;/*幅*/
-    text-align: center;/*中身を中央寄せ*/
-    font-size: 15px;/*文字のサイズ*/
-    line-height: 40px;/*高さと合わせる*/
-    overflow: hidden;/*はみ出た部分を隠す*/
-    text-decoration:none;/*下線は消す*/
+    height: 35px;
+    /*高さ*/
+    width: 150px;
+    /*幅*/
+    text-align: center;
+    /*中身を中央寄せ*/
+    font-size: 15px;
+    /*文字のサイズ*/
+    line-height: 40px;
+    /*高さと合わせる*/
+    overflow: hidden;
+    /*はみ出た部分を隠す*/
+    text-decoration: none;
+    /*下線は消す*/
     background: #355392;
+  }
 
-}
-
-.fb_btn .fa-facebook{/*アイコン*/
-    font-size: 25px;/*アイコンサイズ*/
+  .fb_btn .fa-facebook {
+    /*アイコン*/
+    font-size: 25px;
+    /*アイコンサイズ*/
     position: relative;
-    top: 3px;/*アイコン位置の微調整*/
+    top: 3px;
+    /*アイコン位置の微調整*/
     padding-right: 5px;
   }
 
-
-.fb_btn span {/*テキスト*/
-    display:inline-block;
+  .fb_btn span {
+    /*テキスト*/
+    display: inline-block;
     position: relative;
-    transition: .5s
+    transition: 0.5s;
   }
 
-.fb_btn:hover span{/*ホバーで一周回転*/
-    -webkit-transform: rotateX(360deg);
-    -ms-transform: rotateX(360deg);
+  .fb_btn:hover span {
+    /*ホバーで一周回転*/
     transform: rotateX(360deg);
     color: #FFF;
   }
@@ -285,35 +326,6 @@ border-color: rgb(0, 0, 0, 0.2);
     font-size: 1rem;
 }
 
-.abc h3 {
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.25;
-    color: #444444;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #a0c5ef;
-}
-
-dt {
-    font-size: 0.8rem;
-    padding-left: 15px;
-    margin-top: 25px;
-    border-left-width: 5px;
-    border-left-style: solid;
-    border-left-color: #a0c5ef;
-}
-
-dd {
-    font-size: 0.8rem;
-    margin-top: 10px;
-    margin-left: 37px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-}
-
 .paragraph {
     margin-top: 0px;
     margin-bottom: 19px;
@@ -327,83 +339,149 @@ dd {
     text-justify: inter-ideograph;
 }
 
-.contact-form {
-    font-size: 0.8rem;
-    /* border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid; */
-    border-top-color: #d5d5d5;
-    border-left-color: #d5d5d5;
-    border-right-color: #d5d5d5;
-    border-bottom-color: #d5d5d5;
-    margin: 20px auto;
+.map {
+    width: 100%
+         }
+
+
+  @media screen and (max-width:860px) {
+    .logo-container {
+        padding: 0.2em 0.8em;
+    }
+      li:hover{
+        background-color: #fff5ea00;
+        }
+
+      li:active{
+        background-color: #fff5ea00;
+        }
+
+        .header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 40px;
+
+            z-index: 100;
+          }
+
+          .header a {
+            font-size: 17px;
+            color: white;
+          }
+          .global-nav {
+            position: fixed;
+            right: -300px; /* これで隠れる */
+            top: 0;
+            width: 200px; /* スマホに収まるくらい */
+            height: 100vh;
+            padding-top: 40px;
+            background-color: rgba(0, 0, 0, 0.83);
+            transition: all .6s;
+            z-index: 200;
+            overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+          }
+          .hamburger {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+            height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+            cursor: pointer;
+            z-index: 300;
+            background-color: rgba(255, 255, 255, 0.095);
+            padding: 20px;
+          }
+          .global-nav__list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          .global-nav__item {
+            text-align: center;
+            padding: 0 14px;
+          }
+          .global-nav__item a {
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            text-decoration: none;
+            color: rgb(139, 126, 126);
+          }
+          .global-nav__item a:hover {
+            background-color: #eee;
+          }
+          .hamburger__line {
+            position: absolute;
+            left: 11px;
+            width: 18px;
+            height: 1px;
+            background-color: rgb(0, 0, 0);
+            transition: all .6s;
+          }
+          .hamburger__line--1 {
+            top: 14px;
+          }
+          .hamburger__line--2 {
+            top: 20px;
+          }
+          .hamburger__line--3 {
+            top: 26px;
+          }
+          .black-bg {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 100;
+            /* background-color: #000; */
+            opacity: 0;
+            visibility: hidden;
+            transition: all .6s;
+            cursor: pointer;
+          }
+          /* 表示された時用のCSS */
+          .nav-open .global-nav {
+            right: 0;
+          }
+          .nav-open .black-bg {
+            opacity: .8;
+            visibility: visible;
+          }
+          .nav-open .hamburger__line--1 {
+            transform: rotate(45deg);
+            top: 20px;
+          }
+          .nav-open .hamburger__line--2 {
+            width: 0;
+            left: 50%;
+          }
+          .nav-open .hamburger__line--3 {
+            transform: rotate(-45deg);
+            top: 20px;
+          }
+
+
+
+
+         .logo-container {
+             padding-left: 5px;
+             padding-top: 0px;
+         }
+
+         .drop-down-container {
+             background-color: rgb(0, 0, 0);
+             color: #111;
+         }
+
+         .dropdown-menu {
+            background-color: #00000000;
+        }
+
+  }
+
+  .delete {
+    display: none;
 }
-
-.contact-form th {
-    color: #b48054;
-    background-color: #d8ebea;
-    padding: 10px;
-    width: 200px;
-}
-
-.contact-form td {
-    background-color: #ffffff;
-    padding: 10px;
-    border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-top-color: #d5d5d5;
-    border-left-color: #d5d5d5;
-    border-right-color: #d5d5d5;
-    border-bottom-color: #d5d5d5;
-    width: 600px;
-}
-
-@media screen and (max-width: 640px) {
-
-//     .contact-form {
-//       /* width: 100%; */
-//     }
-//     .contact-form th,
-//     .contact-form td {
-//   　　border-bottom: none;
-//       display: block;
-//       width: 180%;
-//     }
-//   }
-}
-
-.sub-button {
-    background-color: #a0c5ef;
-    color: #fff;
-}
-
-.sub-button:hover {
-
-    color: #fff;
-}
-
-
-.policy li {
-    background-image: url(img/icon-arrow-01.png);
-    background-repeat: no-repeat;
-    background-position: left 1.2em;
-    padding-top: 8px;
-    padding-left: 10px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    font-size: 0.7rem;
-}
-
-
-

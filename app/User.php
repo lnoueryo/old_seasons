@@ -23,13 +23,13 @@ class User extends Authenticatable
     public $sortable = ['id',
                         'kana_family_name',
                         'email',
-                        'booking_counter',
+                        'phone_number',
                         'latest_booking_date',
                         'latest_booking_plan',
                         'review_customer_gives',
                         'review_to_customer',
                     ];
-                    
+
 
     /**
      * The attributes that should be hidden for arrays.

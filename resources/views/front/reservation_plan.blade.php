@@ -13,8 +13,7 @@
 <div class="container main">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <form id="sp-form-1" action="{{ action('HomeController@reservationDate') }}" method="POST" name="Form">
-                {{ csrf_field() }}
+            <form id="sp-form-1" action="{{ action('HomeController@reservationDate') }}" name="Form">
                 <table class="table-responsive confirmation-form">
                     <thead class="thead-light">
                     </thead>
@@ -76,7 +75,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <input id="id" type="hidden" name="id" value="{{ Auth::user()->id }}">
                 <input type="hidden" id="cut" name="cut" value="{{ old('cut') }}">
                 <input type="hidden" id="perm" name="perm" value="{{ old('perm') }}">
                 <input type="hidden" id="color" name="color" value="{{ old('color') }}">
@@ -98,7 +96,7 @@
                                 </th>
                                 <th width="3.5%">
                                     <div class="back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" class="btn back">◀戻る</button></a></div>
-                                    <div class="next-container"><input id="next"class="btn next" type="submit" value="次へ▶"></div>
+                                    <div class="next-container"><input id="next"class="btn next" type="submit" value="次へ▶" disabled></div>
                                 </th>
                             </tr>
                             <tr>
@@ -135,3 +133,5 @@
 </div> --}}
 
 @endsection
+
+    </script>

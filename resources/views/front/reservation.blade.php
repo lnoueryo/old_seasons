@@ -55,13 +55,14 @@
                 <div class="plan-footer-container-pc">
                     <ul class="float1 ml-5">
                         <li class="back-container offset-md-2">
+                            {{--  <input id="back" name="back" class="btn back" type="submit" value="◀戻る">  --}}
                             <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
                         </li>
                         <li class="cancel-container">
                             <a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel"class="btn cancel">取消</button></a>
                         </li>
                         <li class="next-container">
-                            <input id="next"class="btn next" type="submit" value="予約確定">
+                            <input id="next" name="confirmation" class="btn next" type="submit" value="予約確定">
                         </li>
                     </ul>
                 </div>
@@ -70,7 +71,7 @@
                 <tbody>
                     <tr>
                         <th width="5%">
-                            <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
+                            <a href="{{ action('HomeController@reservationDateSM', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
                         </th>
                         <th width="3.5%">
                             <div class="float-left back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel" class="btn cancel">取消</button></a></div>
@@ -86,7 +87,7 @@
             <tr>
                 <th width="5%">
                 {{--  <div class="fixed-output">  --}}
-                    <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
+                    <a href="{{ action('HomeController@reservationDateSM', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn back">◀戻る</button></a>
                 {{--  </div>  --}}
                 </th>
                 {{--  <th width="2%">
@@ -94,7 +95,7 @@
                 </th>  --}}
                 <th width="3.5%">
                     <div class="float-left back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel" class="btn cancel">取消</button></a></div>
-                    <div class="float-right next-container"><input id="next"class="btn next" type="submit" value="予約確定"></div>
+                    <div class="float-right next-container"><input name="confirmation" id="next"class="btn next" type="submit" value="予約確定"></div>
                 </th>
             </tr>
         </tbody>

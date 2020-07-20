@@ -1,90 +1,74 @@
-.logo-flame {
-    line-height: 1;
-    align-self: center;
-    position: absolute;
-    z-index: 100;
-}
+.calender {
+    height: 600px;
+    border: solid 1.2px;
+    border-color: rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+    background-color: #ddbc0000;
+  }
 
-.logo-container {
-    padding: 0.2em 2em;
-    font-family: cursive;
-}
-
-.logo-container a {
-    padding: 1em 0;
-    font-family: 'Lobster',cursive;
-    /* font-size: 50px; */
-    font-size: calc(4.5rem + ((1vw - 0.64rem) * 6));
-    color: #444444;
-    text-decoration: underline;
-}
-
-.main-img {
-    object-fit: cover;
-    width: 100%;
-    object-position: 50% 90%
-}
-
-.main-image-container-inside {
-
-    display: inline-block;
-    position: relative;
-    }
-.main-nav h3 {
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.25;
-    color: #444444;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: #a0c5ef;
-}
-.main-nav {
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 50px;
-    border: solid 3px;
-    border-color: #d8d6bc;
-    background-color:#d5e6e4;
-    width: 100%;
-    display: flex;
-    margin-left: 120px;
-    margin-right: 120px;
-}
-
-footer {
-    width: 100%;
-    margin-top: 60px;
-}
-
-footer .pp {
-    color: #6e6e6e;
-    background-color: #d8ebea;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+  .calender th {
+    /*table内のthに対して*/
+    padding: 10px;
+    /*上下左右10pxずつ*/
     font-size: 0.9rem;
-    font-weight: bold;
-}
+    border-color: #626262;
+  }
 
-.pp a {
-    color: #6e6e6e;
-    background-color: #d8ebea;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: none;
-}
+  .calender th:first-child {
+    /* 横スクロール時に固定する */
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    background-color: #fffacd;
+    z-index: 10;
+  }
 
-footer .cr {
-    color: #ffffff;
-    background-color: #a0c5ef;
+  .calender thead th {
+    /* 縦スクロール時に固定する */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /* tbody内のセルより手前に表示する */
+    z-index: 1;
+    border-bottom: none;
+    background-color: #fffacd;
+  }
+
+  .calender thead th:first-child {
+    padding: 20px;
+    z-index: 10;
+  }
+
+  .calender td {
+    /*table内のtdに対して*/
+    padding: 3px 10px;
+    /*上下3pxで左右10px*/
+    z-index: 0;
+    border-color: black;
+  }
+
+  .calender td:hover {
+    /*table内のtdに対して*/
+    padding: 3px 10px;
+    /*上下3pxで左右10px*/
+    z-index: 0;
+    background-color: #4444442d;
+  }
+
+  /* input */
+
+  .calender-cell {
+    width: 40px;
+    height: 35px;
+    border: none;
+    background: none;
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 0.9rem;
-}
+    z-index: 0;
+    color: #4b9dd8;
+  }
+
+  .calender-cell:active {
+    border: none;
+    background: none;
+    outline: 0;
+  }

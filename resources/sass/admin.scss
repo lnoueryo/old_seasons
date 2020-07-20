@@ -1,9 +1,9 @@
 body {
-    font-size: 1rem;
-    font-family: "03スマートフォントUI", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, sans-serif;
+    font-size: 1.3rem;
+    font-family: "03スマートフォントUI", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Arial, sans-serif, "Lobster",cursive;
     line-height: 1.5;
-    color: rgb(51, 51, 51);
-    background-image: linear-gradient(to right bottom, rgb(216, 235, 234), rgb(255, 245, 234));
+    color: #626262;
+    background-color: rgb(240, 240, 240);
     text-align: left;
     padding-top: 0px;
     padding-left: 0px;
@@ -14,7 +14,6 @@ body {
     margin-right: 0px;
     margin-bottom: 0px;
     overflow-wrap: break-word;
-    min-width: 1000px;
 }
 
 .header {
@@ -22,71 +21,220 @@ body {
     font-size: 1rem;
 }
 
-.nav1 ul {
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 50px;
-    border: solid 3px;
-    border-color: #d8d6bc;
-    background-color:#d5e6e4;
-}
+  .main-img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    -o-object-position: 50% 90%;
+       object-position: 50% 90%;
+  }
 
-.nav1 li:hover{
-    background-color: #fff5ea;
-    border-radius: 50px;
-    }
+  .nav1 li:hover {
+    background-color: #e9967a87;
+  }
+  .nav1 a:hover {
+    background-color: #e9967a87;
+  }
 
-    .nav1 a {
+  .nav1 a {
     position: relative;
     display: inline-block;
     text-decoration: none;
+    color: #626262;
   }
+
   .nav1 a::after {
     position: absolute;
     bottom: 2px;
     left: 0;
-    content: '';
+    content: "";
     width: 100%;
     height: 2px;
     background: #eae0dd;
     opacity: 0;
     visibility: hidden;
-    transition: .3s;
-  }
-  .nav1 a:hover::after {
-    bottom: -4px;
-    opacity: 1;
-    visibility: visible;
+    transition: 0.3s;
   }
 
-  .address {
-    border-radius: 50px;
-    border: solid 7px;
-    border-color: rgb(170, 204, 202);
-    background-color:#ebeade;
-    list-style: none;
+  .main-navi h3 {
     font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.25;
+    color: #444444;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #a0c5ef;
+  }
+
+  .main-navi {
+    font-size: 0.8rem;
     font-weight: bold;
+    border: solid 3px;
+    border-color: #ebdedaa3;
+    background-color: #e9967a87;
+    width: 100%;
+    display: flex;
+    margin-left: 0px;
+    margin-right: px;
+    margin: 0 auto;
+
+  }
+
+  .main-navi li {
+      flex: auto;
+  }
+  .main-navi ul {
+      flex: auto;
+  }
+
+ .main-navi  a {
+      flex: auto;
+  }
+
+  .delete {
+    display: none;
 }
 
-  .tel {
-    font-size: 1.3rem;
-    font-weight: bold;
-}
 
-  .introduction {
-    border-radius: 42px;
-    border: solid 2px;
-    border-color: rgb(204, 179, 171);
-    background-color:rgb(234, 224, 221);
-    list-style: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-  .name {
-padding-top: 5px;
-line-height: 35px;
-}
+  @media screen and (max-width:860px) {
+    .logo-container {
+        padding: 0.2em 0.8em;
+    }
+      li:hover{
+        background-color: #fff5ea00;
+        border-radius: 50px;
+        }
+
+      li:active{
+        background-color: #fff5ea00;
+        border-radius: 50px;
+        }
+
+        .header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 40px;
+
+            z-index: 100;
+          }
+
+          .header a {
+            font-size: 17px;
+            color: white;
+          }
+          .global-nav {
+            position: fixed;
+            right: -300px; /* これで隠れる */
+            top: 0;
+            width: 200px; /* スマホに収まるくらい */
+            height: 100vh;
+            padding-top: 40px;
+            background-color: rgba(0, 0, 0, 0.83);
+            transition: all .6s;
+            z-index: 200;
+            overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+          }
+          .hamburger {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+            height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+            cursor: pointer;
+            z-index: 300;
+            background-color: rgba(255, 255, 255, 0.095);
+            padding: 20px;
+          }
+          .global-nav__list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+          }
+          .global-nav__item {
+            text-align: center;
+            padding: 0 14px;
+          }
+          .global-nav__item a {
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            text-decoration: none;
+            color: rgb(139, 126, 126);
+          }
+          .global-nav__item a:hover {
+            background-color: #eee;
+          }
+          .hamburger__line {
+            position: absolute;
+            left: 11px;
+            width: 18px;
+            height: 1px;
+            background-color: rgb(0, 0, 0);
+            transition: all .6s;
+          }
+          .hamburger__line--1 {
+            top: 14px;
+          }
+          .hamburger__line--2 {
+            top: 20px;
+          }
+          .hamburger__line--3 {
+            top: 26px;
+          }
+          .black-bg {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 100;
+            /* background-color: #000; */
+            opacity: 0;
+            visibility: hidden;
+            transition: all .6s;
+            cursor: pointer;
+          }
+          /* 表示された時用のCSS */
+          .nav-open .global-nav {
+            right: 0;
+          }
+          .nav-open .black-bg {
+            opacity: .8;
+            visibility: visible;
+          }
+          .nav-open .hamburger__line--1 {
+            transform: rotate(45deg);
+            top: 20px;
+          }
+          .nav-open .hamburger__line--2 {
+            width: 0;
+            left: 50%;
+          }
+          .nav-open .hamburger__line--3 {
+            transform: rotate(-45deg);
+            top: 20px;
+          }
 
 
+
+
+         .logo-container {
+             padding-left: 5px;
+             padding-top: 0px;
+         }
+
+         .drop-down-container {
+             background-color: rgb(0, 0, 0);
+             color: #111;
+         }
+
+         .dropdown-menu {
+            background-color: #00000000;
+        }
+
+  }
 

@@ -11,8 +11,9 @@
     margin: 0 auto;
 }
 .s_03 .accordion_one .accordion_header {
-    background-color: #db0f2f;
+    background-color:#e9967a87;
     color: #fff;
+    text-shadow: 1px 1px 0 #000;
     font-size: 22px;
     font-weight: bold;
     padding: 20px 11%;
@@ -23,16 +24,16 @@
     transition-duration: 0.2s;
 }
 .s_03 .accordion_one:nth-of-type(2) .accordion_header {
-    background-color: #ff9a05;
+    background-color: #fffacd;
 }
 .s_03 .accordion_one:nth-of-type(3) .accordion_header {
-    background-color: #1c85d8;
+    background-color: #b6cee5e5;
 }
 .s_03 .accordion_one:nth-of-type(4) .accordion_header {
-    background-color: #25d81c;
+    background-color: #bdb76bb6;
 }
 .s_03 .accordion_one:nth-of-type(5) .accordion_header {
-    background-color: #bc1cd8;
+    background-color: #ffe4e1;
 }
 .s_03 .accordion_one .accordion_header:hover {
     opacity: .8;
@@ -124,28 +125,28 @@
 .s_03 .accordion_one .accordion_inner {
     display: none;
     padding: 15px 15px;
-    border-left: 2px solid #db0f2f;
-    border-right: 2px solid #db0f2f;
-    border-bottom: 2px solid #db0f2f;
+    border-left: 2px solid #e9967a87;
+    border-right: 2px solid #e9967a87;
+    border-bottom: 2px solid #e9967a87;
     box-sizing: border-box;
 }
 .s_03 .accordion_one .accordion_inner.stay {
     display: block;
 }
 .s_03 .accordion_one:nth-of-type(2) .accordion_inner {
-    border-left: 2px solid #ff9a05;
-    border-right: 2px solid #ff9a05;
-    border-bottom: 2px solid #ff9a05;
+    border-left: 2px solid #fffacd;
+    border-right: 2px solid #fffacd;
+    border-bottom: 2px solid #fffacd;
 }
 .s_03 .accordion_one:nth-of-type(3) .accordion_inner {
-    border-left: 2px solid #1c85d8;
-    border-right: 2px solid #1c85d8;
-    border-bottom: 2px solid #1c85d8;
+    border-left: 2px solid #b6cee5e5;
+    border-right: 2px solid #b6cee5e5;
+    border-bottom: 2px solid #b6cee5e5;
 }
 .s_03 .accordion_one:nth-of-type(4) .accordion_inner {
-    border-left: 2px solid #25d81c;;
-    border-right: 2px solid #25d81c;;
-    border-bottom: 2px solid #25d81c;;
+    border-left: 2px solid #bdb76bb6;
+    border-right: 2px solid #bdb76bb6;
+    border-bottom: 2px solid #bdb76bb6;
 }
 .s_03 .accordion_one:nth-of-type(5) .accordion_inner {
     border-left: 2px solid #1c85d8;

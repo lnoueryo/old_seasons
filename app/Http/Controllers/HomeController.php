@@ -9,6 +9,7 @@ use Session;
 use Illuminate\Support\Facades\Auth;
 use App\Events\Book;
 use App\Booking;
+use App\Blog;
 use App\BookingController;
 
 class HomeController extends Controller
@@ -18,10 +19,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -46,8 +47,68 @@ class HomeController extends Controller
         $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
         $json2 = BookingController::all('day_of_the_week');
         $json3 = BookingController::all('day_time');
+        $dateArray = Array();
+        for($i=1; $i<=14; $i++){
+            $dateArray[] = array('date' => Carbon::today()->addDays($i)->format('d日'), 'date2' => Carbon::today()->addDays($i)->isoformat("(ddd)"));
+        }
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user_booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
+            if(null !== $user_booking && $user_booking->booking_date_number > Carbon::now()->format("ndHi")) {
+                $btn = 0;
+            } else {
+                $btn = 1;
+            }
+        } else {
+            $user_booking = null;
+            $btn = 2;
+        }
 
-        return view('front.calender', ['json' => $json, 'json2' => $json2, 'json3' => $json3]);
+        return view('front.calender', ['json' => $json, 'json2' => $json2, 'json3' => $json3, 'dateArray' => $dateArray, 'user_booking' => $user_booking, 'btn' => $btn]);
+
+
+    }
+
+    public function Ajax()
+    {
+        return \App\Booking::all();
+    }
+    public function JSCalender()
+    {
+        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);$dateArray = Array();
+        for ($j=0; $j<=18; $j++) {
+            for ($i=1; $i<=14; $i++) {
+                $date_number[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
+                $dateArray_chunk = array_chunk($date_number,14);
+            }
+            $date1[] = "date";
+            $dateArray2 = array_combine($date1, $dateArray_chunk);
+            $date_time[] = Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
+            $time1[] = "time";
+            $dateArray3 = array_combine($time1, $date_time);
+            $dateArray4[] = array_merge($dateArray2, $dateArray3);
+            $dateArray = $dateArray4;
+        }
+    // {   $dateArray = Array();
+    //     for ($j=0; $j<=18; $j++) {
+    //         for ($i=1; $i<=14; $i++) {
+    //             $date_number[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
+    //             $dateArray_chunk = array_chunk($date_number,14);
+    //         }
+    //         $date_time[] = Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
+    //         $dateArray = array_combine($date_time,$dateArray_chunk);
+    //     }
+        // $dateArray = Array();
+        // for($i=1; $i<=14; $i++){
+        //     $abc[] = Carbon::today()->addDays($i-1)->addHours(10)->format("ndHi");
+        //     // array_push($dateArray, Carbon::today()->addDays($i)->format('ndHi'));
+        //     $dateArray = array('abc' => $abc);
+        //     // $dateArray[] = Carbon::today()->addDays($i)->format('d日');
+        //     // $dateArray2[] = \Carbon\Carbon::today()->addDays($i)->isoformat("(ddd)");
+        // }
+
+
+        return view('front.JS_calender', ['dates' => $dateArray, 'json' => $json]);
     }
 
     public function menu()
@@ -91,8 +152,13 @@ class HomeController extends Controller
         $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
         $json2 = BookingController::all('day_of_the_week');
         $json3 = BookingController::all('day_time');
+        $user = Auth::user();
+        $user_booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
+        for($i=1; $i<=14; $i++){
+            $dateArray[] = array('date' => Carbon::today()->addDays($i)->format('d日'), 'date2' => Carbon::today()->addDays($i)->isoformat("(ddd)"));
+        }
 
-        return view('front.reservation_date', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3]);
+        return view('front.reservation_date', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3, 'user_booking' => $user_booking, 'dateArray' => $dateArray]);
     }
 
     public function reservationDateSM(Request $request) {
@@ -101,8 +167,13 @@ class HomeController extends Controller
         $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
         $json2 = BookingController::all('day_of_the_week');
         $json3 = BookingController::all('day_time');
+        $user = Auth::user();
+        $user_booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
+        for($i=1; $i<=14; $i++){
+            $dateArray[] = array('date' => Carbon::today()->addDays($i)->format('d日'), 'date2' => Carbon::today()->addDays($i)->isoformat("(ddd)"));
+        }
 
-        return view('front.reservation_date_sm', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3]);
+        return view('front.reservation_date', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3, 'user_booking' => $user_booking, 'dateArray' => $dateArray]);
     }
 
     public function reservation(Request $request)
@@ -111,6 +182,7 @@ class HomeController extends Controller
         $booking_date_day = $request->booking_date_day;
         $booking_date_hour = $request->booking_date_hour;
         $booking_date_minute = $request->booking_date_minute;
+        $booking_date = $request->booking_date;
 
 
         $booking = new Booking($request->all());
@@ -118,7 +190,7 @@ class HomeController extends Controller
 
 
         return view('front.reservation', ['booking' => $booking, 'booking_date_month' => $booking_date_month,
-        'booking_date_day' => $booking_date_day, 'booking_date_hour' => $booking_date_hour, 'booking_date_minute' => $booking_date_minute]);
+        'booking_date_day' => $booking_date_day, 'booking_date_hour' => $booking_date_hour, 'booking_date_minute' => $booking_date_minute, 'booking_date' => $booking_date]);
 
 
     }
@@ -126,31 +198,32 @@ class HomeController extends Controller
 
     public function booking(Request $request)
     {
-        $user = User::find($request->id);
-        $user->phone_number = $request->phone_number;
-        $user->booking_counter += 1;
+
         // $user->last_booking_date = $user->latest_booking_date ? $user->latest_booking_date : $request->latest_booking_date;
         // $user->last_booking_plan = $user->latest_booking_plan ? $user->latest_booking_plan : $request->latest_booking_plan;
         // $user->latest_booking_date = $request->latest_booking_date;
         // $user->latest_booking_plan = $request->latest_booking_plan;
-        $user->latest_booking_date_number = $request->latest_booking_date_number;
         // $user->price = $request->price;
-        $user->update();
-
-        $booking = new Booking;
-        $booking->user_id = $request->id;
-        $booking->price = $request->price;
-        $booking->length_of_time = $request->length_of_time;
-        $booking->booking_plan = $request->latest_booking_plan;
-        $booking->booking_date = $request->latest_booking_date;
-        $booking->booking_date_number = $request->latest_booking_date_number;
 
 
-        $booking->save();
+            $user = User::find($request->id);
+            $user->phone_number = $request->phone_number;
+            $user->booking_counter += 1;
+            $user->latest_booking_date_number = $request->latest_booking_date_number;
+            $user->update();
+
+            $booking = new Booking;
+            $booking->user_id = $request->id;
+            $booking->price = $request->price;
+            $booking->length_of_time = $request->length_of_time;
+            $booking->booking_plan = $request->latest_booking_plan;
+            $booking->booking_date = $request->latest_booking_date;
+            $booking->booking_date_number = $request->latest_booking_date_number;
+            $booking->save();
+            return redirect('/');
 
 
 
-        return redirect('/');
 
     }
 
@@ -180,6 +253,19 @@ class HomeController extends Controller
         return redirect('/');
 
     }
+
+    public function blog(Request $request)
+  {
+    $posts = Blog::all()->sortByDesc('updated_at');
+
+    if (count($posts) > 0) {
+        $headline = $posts->shift();
+    } else {
+        $headline = null;
+    }
+
+    return view('front.blog', ['headline' => $headline, 'posts' => $posts]);
+  }
 
 
 }

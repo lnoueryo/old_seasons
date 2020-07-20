@@ -42,14 +42,13 @@
 }
 
 
-
 .back {
-    margin-right: 135px;
-    right: 0;
-    margin-bottom: -50px;
+    margin-left: 0px;
+    left: 0;
+    margin-bottom: -15px;
     padding: 15px 30px 15px 30px;
     bottom: 0;
-    position: absolute;
+    position: static;
     background-color: rgb(255, 245, 234);
     border: solid #CCCCCC;
     border-radius: 4px;
@@ -59,12 +58,13 @@
     text-align: center;
     cursor: pointer;
     z-index: 400;
+
 }
 
 .next {
-    margin-right: 0px;
+    margin-right: 137px;
     right: 0;
-    margin-bottom: -50px;
+    margin-bottom: -15px;
     padding: 15px 30px 15px 30px;
     bottom: 0;
     position: absolute;
@@ -82,8 +82,8 @@
 .cancel {
     margin-right: 15px;
     right: 0;
-    margin-bottom: -51px;
-    padding: 16px 20px 16px 20px;
+    margin-bottom: -15px;
+    padding: 15px 20px 15px 20px;
     bottom: 0;
     position: absolute;
     background-color: #8d1515;

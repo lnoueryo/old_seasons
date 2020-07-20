@@ -34,11 +34,6 @@ class MyLoginController extends Controller
             } else{
                 return redirect()->route('home');
             }
-            // if($user->is_admin() && $user->isVerified == 2) {
-            //     return redirect()->route('user');
-            // } else{
-            //     return redirect()->route('home');
-            // }
 
         } else {
             return redirect()->back();

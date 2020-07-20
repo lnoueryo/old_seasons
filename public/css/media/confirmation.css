@@ -48,12 +48,12 @@
 
 
     .back {
-        margin-right: 135px;
-        right: 0;
-        margin-bottom: -50px;
+        margin-left: 20px;
+        left: 0;
+        margin-bottom: 5px;
         padding: 15px 30px 15px 30px;
         bottom: 0;
-        position: absolute;
+        position: fixed;
         background-color: rgb(255, 245, 234);
         border: solid #CCCCCC;
         border-radius: 4px;
@@ -66,12 +66,12 @@
     }
 
     .next {
-        margin-right: 0px;
+        margin-right: 20px;
         right: 0;
-        margin-bottom: -50px;
+        margin-bottom:5px;
         padding: 15px 30px 15px 30px;
         bottom: 0;
-        position: absolute;
+        position: fixed;
         background-color: #5f5f5f;
         border: solid #CCCCCC;
         border-radius: 4px;
@@ -84,12 +84,12 @@
     }
 
     .cancel {
-        margin-right: 15px;
+        margin-right: 150px;
         right: 0;
-        margin-bottom: -51px;
-        padding: 16px 20px 16px 20px;
+        margin-bottom: 5px;
+        padding: 15px 40px 15px 40px;
         bottom: 0;
-        position: absolute;
+        position: fixed;
         background-color: #8d1515;
         border: solid #CCCCCC;
         border-radius: 4px;
@@ -99,6 +99,19 @@
         text-align: center;
         cursor: pointer;
         z-index: 400;
+    }
+
+
+    .plan-footer-container {
+        background-color: rgba(0, 0, 0, 0.626);
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 0px;
+        padding-bottom: 70px;
+        color: #ffffffef;
+        z-index: 400;
+        width: 100%;
+
     }
 
 }
@@ -181,42 +194,72 @@
 
 
 
-    .back {
-        margin-right: 120px;
-        right: 0;
-        margin-bottom: -50px;
-        padding: 10px 25px 10px 25px;
-        bottom: 0;
-        position: absolute;
-        background-color: rgb(255, 245, 234);
-        border: solid #CCCCCC;
-        border-radius: 4px;
-        border-width: 1px 1px 3px;
-        color: #666666 !important;
-        font-weight: bold;
-        text-align: center;
-        cursor: pointer;
-        z-index: 400;
-    }
+        .back {
+            margin-left: 20px;
+            left: 0;
+            margin-bottom: 5px;
+            padding: 5px 10px 5px 10px;
+            bottom: 0;
+            position: fixed;
+            background-color: rgb(255, 245, 234);
+            border: solid #CCCCCC;
+            border-radius: 4px;
+            border-width: 1px 1px 3px;
+            color: #666666 !important;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            z-index: 400;
+        }
+
+        .next {
+            margin-right: 5px;
+            right: 0;
+            margin-bottom:5px;
+            padding: 5px 10px 5px 10px;
+            bottom: 0;
+            position: fixed;
+            background-color: #5f5f5f;
+            border: solid #CCCCCC;
+            border-radius: 4px;
+            border-width: 1px 1px 3px;
+            color: rgb(255, 245, 234);
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            z-index: 400;
+        }
+
+        .cancel {
+            margin-right: 90px;
+            right: 0;
+            margin-bottom: 5px;
+            padding: 5px 15px 5px 15px;
+            bottom: 0;
+            position: fixed;
+            background-color: #8d1515;
+            border: solid #CCCCCC;
+            border-radius: 4px;
+            border-width: 1px 1px 3px;
+            color: rgb(255, 245, 234);
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            z-index: 400;
+        }
 
 
-    .cancel {
-        margin-right: 15px;
-        right: 0;
-        margin-bottom: -51px;
-        padding: 10px 10px 10px 10px;
-        bottom: 0;
-        position: absolute;
-        background-color: #8d1515;
-        border: solid #CCCCCC;
-        border-radius: 4px;
-        border-width: 1px 1px 3px;
-        color: rgb(255, 245, 234);
-        font-weight: bold;
-        text-align: center;
-        cursor: pointer;
-        z-index: 400;
-    }
+        .plan-footer-container {
+            background-color: rgba(0, 0, 0, 0.626);
+            position: fixed;
+            bottom: 0;
+            margin-bottom: 0px;
+            padding-bottom: 50px;
+            color: #ffffffef;
+            z-index: 400;
+            width: 100%;
+
+        }
 
 
 }

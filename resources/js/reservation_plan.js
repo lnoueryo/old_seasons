@@ -1,3 +1,4 @@
+
 function total() {
     yen = 0;
     time = 0;
@@ -269,7 +270,7 @@ function total() {
         }
       });
 
-      
+
     var number5 = 0;
     $('#spa90min').click(function() {
         number5 +=1;

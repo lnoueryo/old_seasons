@@ -39,11 +39,14 @@
                         </tr>
                     </tbody>
                 </table>
-                <table>
+                <table class="plan-footer-container-pc delete">
                     <tbody>
                         <tr>
-                            <th width="3.5%">
+                            <th width="5%">
                                 <div class="back-container"><a href="{{ action('HomeController@calender') }}"><button id="back-pc" type="button" class="btn back">◀戻る</button></a></div>
+                            </th>
+                            <th width="3.5%">
+                                {{--  <a href="{{ action('HomeController@reservationDate', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn next">予約変更</button></a>  --}}
                                 <div class="next-container"><a href="{{ action('HomeController@cancel') }}"><button type="button" id="cancel"class="btn cancel">キャンセル</button></a></div>
                             </th>
                         </tr>
@@ -53,6 +56,28 @@
         </div>
     </div>
 </div>
+<table>
+    <tbody class="plan-footer-container delete">
+        <tr>
+            <th width="5%">
+                <div class="back-container"><a href="{{ action('HomeController@calender') }}"><button id="back-pc" type="button" class="btn back">◀戻る</button></a></div></th>
+            <th width="3.5%">
+                {{--  <a href="{{ action('HomeController@reservationDateSM', ['price' => $booking->price, 'length_of_time' => $booking->length_of_time, 'cut' =>$booking->cut, 'perm' =>$booking->perm, 'color' =>$booking->color, 'spa' =>$booking->spa, 'treatment' =>$booking->treatment,]) }}"><button type="button" class="btn next">予約変更</button></a>  --}}
+                <div class="next-container"><a href="{{ action('HomeController@cancel') }}"><button type="button" id="cancel"class="btn cancel">キャンセル</button></a></div>
+            </th>
+        </tr>
+    </tbody>
+</table>
 
-
+ <script>
+    $(document).ready(function () {
+        if (matchMedia('(max-width: 960px)').matches) {
+          $('.plan-footer-container-pc').addClass('delete');
+          $('.plan-footer-container').removeClass('delete');
+        } else {
+          $('.plan-footer-container-pc').removeClass('delete');
+          $('.plan-footer-container').addClass('delete');
+        }
+      });
+ </script>
 @endsection

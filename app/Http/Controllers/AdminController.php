@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\BookingController;
 use App\Booking;
+use App\Blog;
 use Carbon\Carbon;
 
 class AdminController extends Controller
@@ -15,7 +16,8 @@ class AdminController extends Controller
 
         $days = [BookingController::find(1)->day];
         $users = User::all();
-        return view('admin.calender', ['users' => $users, 'days' => $days]);
+        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        return view('admin.calender', ['users' => $users, 'days' => $days, 'json' => $json]);
 
     }
 
@@ -150,6 +152,37 @@ class AdminController extends Controller
         $booking_controller->delete();
         return redirect('/calender');
 
+    }
+
+    public function add()
+    {
+
+        return view('admin.blog');
+    }
+
+    public function create(Request $request)
+    {
+        $this->validate($request, Blog::$rules);
+
+              $blog = new Blog;
+              $form = $request->all();
+
+              if (isset($form['image'])) {
+                $path = $request->file('image')->store('public/image');
+                $blog->image_path = basename($path);
+              } else {
+                  $news->image_path = null;
+              }
+
+              unset($form['_token']);
+
+              unset($form['image']);
+
+              $blog->fill($form);
+              $blog->save();
+
+
+        return redirect('create/blog');
     }
 
 }

@@ -17,7 +17,10 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/reservation.js', 'public/js')
     .js('resources/js/calender.min.js', 'public/js')
     .js('resources/js/admin_calender.js', 'public/js')
+    .js('resources/js/vue.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/media/calender.scss', 'public/css/media')
     .sass('resources/sass/PC/calender.scss', 'public/css/PC')
-    .sass('resources/sass/admin.scss', 'public/css');
+    .sass('resources/sass/admin.scss', 'public/css')
+    .sass('resources/sass/PC/blog.scss', 'public/css/PC')
+    .sass('resources/sass/front.scss', 'public/css');

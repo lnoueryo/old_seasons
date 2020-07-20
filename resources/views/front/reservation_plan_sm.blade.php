@@ -1,12 +1,9 @@
-
-
 @extends('layouts.front3')
 
 @section('content')
 
 <div class="section s_03">
-    <form id="sp-form-1" action="{{ action('HomeController@reservationDateSM') }}" method="POST" name="Form">
-        {{ csrf_field() }}
+    <form id="sp-form-1" action="{{ action('HomeController@reservationDateSM') }}" name="Form">
         <div class="accordion_one">
             <div class="accordion_header stay">Cut
                 <div class="i_box"><i class="one_i"></i>
@@ -215,7 +212,7 @@
                     </th>
                     <th width="3.5%">
                         <div class="float-left back-container"><a href="{{ action('HomeController@calender') }}"><button type="button" class="btn back">◀戻る</button></a></div>
-                        <div class="float-right next-container"><input id="next"class="btn next" type="submit" value="次へ▶"></div>
+                        <div class="float-right next-container"><input id="next"class="btn next" type="submit" value="次へ▶" disabled></div>
                     </th>
                 </tr>
             </tbody>
@@ -223,7 +220,6 @@
     </form>
 </div>
 
-{{--  <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/jquery-ui.js"></script>  --}}
 <link href="{{ asset('css/media/reservation_plan_sm.css') }}" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 

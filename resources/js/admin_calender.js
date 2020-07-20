@@ -27,3 +27,16 @@ $(document).ready(function(){
   toggleNav();
 
 //   ↑ドロワー↑
+$(function() {
+    for (var i = 0; i < $('form[name="Form"] td').length - 1; i++) {
+
+        for (var l = 0; l < 16; l += 1) {
+          if ($('form[name="Form"] td').eq(i).attr('class') === 'time' + (1 + 0.5 * l) + '時間') {
+            for (var j = 14; j < 14 * l + 15; j += 14) {
+              $('form[name="Form"] td').eq(i + j).text("×");
+              $('form[name="Form"] td').eq(i + j).attr('disabled', true);
+            }
+          }
+      }
+  }
+})  

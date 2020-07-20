@@ -29,35 +29,37 @@
         }
 
     </style>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 offset-md-1">
-            <div id="tabBoxes">
-                <div id="tabBox3">
-                    <form id="sp-form-1" action="{{ action('HomeController@reservation') }}" method="POST" name="Form">
-                        @include('components.calender', ['cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa, 'price' => $booking->price, 'length_of_time' => $booking->length_of_time])
-                    </form>
+<div id="app2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div id="tabBoxes">
+                    <div id="tabBox3">
+                        <form id="sp-form-1" name="Form">
+                            @include('components.calender', ['cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa, 'price' => $booking->price, 'length_of_time' => $booking->length_of_time])
+                        </form>
+                    </div>
                 </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th width="1%">
+                                <span class="fixed-output">Total</span>
+                                <span class="fixed-output2">{{ $booking->price }}</span>
+                            </th>
+                            <th width="2%">
+                                <span class="fixed-output3">所要時間</span>
+                                <span class="fixed-output4">{{ $booking->length_of_time }}</span>
+                            </th>
+                            <th width="3.5%">
+                                <div class="back-container"><a href="{{ action('HomeController@reservationPlan', ['cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa, 'price' => $booking->price, 'length_of_time' => $booking->length_of_time]) }}">
+                                    <button id="back-pc" type="button" class="btn back">◀戻る</button></a></div>
+                                <div class="next-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel"class="btn cancel">取消</button></a></div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <th width="1%">
-                            <span class="fixed-output">Total</span>
-                            <span class="fixed-output2">{{ $booking->price }}</span>
-                        </th>
-                        <th width="2%">
-                            <span class="fixed-output3">所要時間</span>
-                            <span class="fixed-output4">{{ $booking->length_of_time }}</span>
-                        </th>
-                        <th width="3.5%">
-                            <div class="back-container"><a href="{{ action('HomeController@reservationPlan') }}"><button id="back-pc" type="button" class="btn back">◀戻る</button></a></div>
-                            <div class="next-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel"class="btn cancel">取消</button></a></div>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>
@@ -65,6 +67,7 @@
             const booking = @json($json);
             const bookingController = @json($json2);
             const bookingController2 = @json($json3);
+            const dateArray = @json($dateArray);
             console.log(booking[0].length_of_time);
             console.log($('form[name="Form"] input').eq(270).val());
 
@@ -125,6 +128,8 @@
 
 
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="{{ asset('js/calender.min.js') }}" defer></script>
-       
+        <script src="{{ asset('js/vue.js') }}" defer></script>
+
 @endsection

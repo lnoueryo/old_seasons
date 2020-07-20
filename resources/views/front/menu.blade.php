@@ -1,7 +1,11 @@
-@extends('layouts.front2')
+@extends('layouts.front')
 
 @section('content')
-
+    <style>
+        #sp-definition-list-2 {
+            font-size: 1px;
+        }
+    </style>
 <div class="container">
     <div class="row">
         <div class="col-md-10 mx-auto">
@@ -50,4 +54,5 @@
         </div>
     </div>
 </div>
+
 @endsection('content')
