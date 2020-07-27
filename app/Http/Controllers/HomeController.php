@@ -42,14 +42,15 @@ class HomeController extends Controller
     //     return view('front.calender');
     // }
 
-    public function calender()
+    public function calenderOld()
     {
+
         $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
         $json2 = BookingController::all('day_of_the_week');
         $json3 = BookingController::all('day_time');
         $dateArray = Array();
         for($i=1; $i<=14; $i++){
-            $dateArray[] = array('date' => Carbon::today()->addDays($i)->format('d日'), 'date2' => Carbon::today()->addDays($i)->isoformat("(ddd)"));
+            $dateArray[] = array('date' => Carbon::today()->addDays($i-1)->format('d日'), 'date2' => Carbon::today()->addDays($i-1)->isoformat("(ddd)"));
         }
         if(Auth::check()) {
             $user = Auth::user();
@@ -64,51 +65,95 @@ class HomeController extends Controller
             $btn = 2;
         }
 
-        return view('front.calender', ['json' => $json, 'json2' => $json2, 'json3' => $json3, 'dateArray' => $dateArray, 'user_booking' => $user_booking, 'btn' => $btn]);
+        return view('front.calender_old', ['json' => $json, 'json2' => $json2, 'json3' => $json3, 'dateArray' => $dateArray, 'user_booking' => $user_booking, 'btn' => $btn]);
 
 
     }
 
     public function Ajax()
     {
-        return \App\Booking::all();
+        $items = Booking::all();
+        return response()->json($items);
     }
     public function JSCalender()
     {
-        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);$dateArray = Array();
+        $current_booking = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $day_of_the_week = BookingController::all('day_of_the_week');
+        $day_time = BookingController::all('day_time');
+        $days = BookingController::find(1)->day;
+        $hour_from_now = Carbon::now()->addHours(1)->format("ndHi");
+        $dateArray = Array();
         for ($j=0; $j<=18; $j++) {
             for ($i=1; $i<=14; $i++) {
                 $date_number[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
+                $day[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("N");
+                $date_of_the_week1[] = Carbon::today()->addDays($i-1)->format("N");
                 $dateArray_chunk = array_chunk($date_number,14);
+                $dateArray_chunk2 = array_chunk($date_of_the_week1,14);
             }
             $date1[] = "date";
             $dateArray2 = array_combine($date1, $dateArray_chunk);
             $date_time[] = Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
             $time1[] = "time";
             $dateArray3 = array_combine($time1, $date_time);
-            $dateArray4[] = array_merge($dateArray2, $dateArray3);
-            $dateArray = $dateArray4;
+            $day1[] = "day";
+            $dateArray4 = array_combine($day1, $dateArray_chunk2);
+            $dateArray5[] = array_merge($dateArray2, $dateArray3, $dateArray4);
+            $dateArray = $dateArray5;
         }
-    // {   $dateArray = Array();
-    //     for ($j=0; $j<=18; $j++) {
-    //         for ($i=1; $i<=14; $i++) {
-    //             $date_number[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
-    //             $dateArray_chunk = array_chunk($date_number,14);
-    //         }
-    //         $date_time[] = Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
-    //         $dateArray = array_combine($date_time,$dateArray_chunk);
-    //     }
-        // $dateArray = Array();
-        // for($i=1; $i<=14; $i++){
-        //     $abc[] = Carbon::today()->addDays($i-1)->addHours(10)->format("ndHi");
-        //     // array_push($dateArray, Carbon::today()->addDays($i)->format('ndHi'));
-        //     $dateArray = array('abc' => $abc);
-        //     // $dateArray[] = Carbon::today()->addDays($i)->format('d日');
-        //     // $dateArray2[] = \Carbon\Carbon::today()->addDays($i)->isoformat("(ddd)");
-        // }
+        $dateArray2 = Array();
+        for($i=1; $i<=14; $i++){
+            $dateArray2[] = array('date' => Carbon::today()->addDays($i-1)->format('d日'), 'date2' => Carbon::today()->addDays($i-1)->isoformat("(ddd)"));
+        }
 
+        return view('front.JS_calender', ['dateArray' => $dateArray, 'current_booking' => $current_booking, 'day_of_the_week' => $day_of_the_week,
+        'day_time' => $day_time, 'days' => $days, 'day' => $day, 'hour_from_now' => $hour_from_now, 'dateArray2' => $dateArray2, 'date_number' => $date_number]);
+    }
+    public function calender()
+    {
+        $current_booking = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $day_of_the_week = BookingController::all('day_of_the_week');
+        $day_time = BookingController::all('day_time');
+        $days = BookingController::find(1)->day;
+        $hour_from_now = Carbon::now()->addHours(1)->format("ndHi");
+        $dateArray = Array();
+        for ($j=0; $j<=18; $j++) {
+            for ($i=1; $i<=14; $i++) {
+                $date_number[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
+                $day[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("N");
+                $date_of_the_week1[] = Carbon::today()->addDays($i-1)->format("N");
+                $dateArray_chunk = array_chunk($date_number,14);
+                $dateArray_chunk2 = array_chunk($date_of_the_week1,14);
+            }
+            $date1[] = "date";
+            $dateArray2 = array_combine($date1, $dateArray_chunk);
+            $date_time[] = Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
+            $time1[] = "time";
+            $dateArray3 = array_combine($time1, $date_time);
+            $day1[] = "day";
+            $dateArray4 = array_combine($day1, $dateArray_chunk2);
+            $dateArray5[] = array_merge($dateArray2, $dateArray3, $dateArray4);
+            $dateArray = $dateArray5;
+        }
+        $dateArray2 = Array();
+        for($i=1; $i<=14; $i++){
+            $dateArray2[] = array('date' => Carbon::today()->addDays($i-1)->format('d日'), 'date2' => Carbon::today()->addDays($i-1)->isoformat("(ddd)"));
+        }
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user_booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
+            if(null !== $user_booking && $user_booking->booking_date_number > Carbon::now()->format("ndHi")) {
+                $btn = 0;
+            } else {
+                $btn = 1;
+            }
+        } else {
+            $user_booking = null;
+            $btn = 2;
+        }
 
-        return view('front.JS_calender', ['dates' => $dateArray, 'json' => $json]);
+        return view('front.calender', ['dateArray' => $dateArray, 'current_booking' => $current_booking, 'day_of_the_week' => $day_of_the_week,
+        'day_time' => $day_time, 'days' => $days, 'day' => $day, 'hour_from_now' => $hour_from_now, 'btn' => $btn, 'dateArray2' => $dateArray2, 'date_number' => $date_number]);
     }
 
     public function menu()
@@ -146,34 +191,81 @@ class HomeController extends Controller
     }
 
     public function reservationDate(Request $request) {
-
+        $current_booking = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $day_of_the_week = BookingController::all('day_of_the_week');
+        $day_time = BookingController::all('day_time');
+        $days = BookingController::find(1)->day;
+        $hour_from_now = Carbon::now()->addHours(1)->format("ndHi");
+        $dateArray = Array();
+        for ($j=0; $j<=18; $j++) {
+            for ($i=1; $i<=14; $i++) {
+                $date_number[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
+                $day[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("N");
+                $date_of_the_week1[] = Carbon::today()->addDays($i-1)->format("N");
+                $dateArray_chunk = array_chunk($date_number,14);
+                $dateArray_chunk2 = array_chunk($date_of_the_week1,14);
+            }
+            $date1[] = "date";
+            $dateArray2 = array_combine($date1, $dateArray_chunk);
+            $date_time[] = Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
+            $time1[] = "time";
+            $dateArray3 = array_combine($time1, $date_time);
+            $day1[] = "day";
+            $dateArray4 = array_combine($day1, $dateArray_chunk2);
+            $dateArray5[] = array_merge($dateArray2, $dateArray3, $dateArray4);
+            $dateArray = $dateArray5;
+        }
+        $dateArray6 = Array();
+        for($i=1; $i<=14; $i++){
+            $dateArray6[] = array('date' => Carbon::today()->addDays($i-1)->format('d日'), 'date2' => Carbon::today()->addDays($i-1)->isoformat("(ddd)"));
+        }
         $booking = new Booking($request->all());
         $request->session()->put('booking', $booking);
-        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
-        $json2 = BookingController::all('day_of_the_week');
-        $json3 = BookingController::all('day_time');
         $user = Auth::user();
         $user_booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
-        for($i=1; $i<=14; $i++){
-            $dateArray[] = array('date' => Carbon::today()->addDays($i)->format('d日'), 'date2' => Carbon::today()->addDays($i)->isoformat("(ddd)"));
-        }
 
-        return view('front.reservation_date', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3, 'user_booking' => $user_booking, 'dateArray' => $dateArray]);
+        return view('front.reservation_date', ['dateArray' => $dateArray, 'current_booking' => $current_booking, 'day_of_the_week' => $day_of_the_week,
+        'day_time' => $day_time, 'days' => $days, 'day' => $day, 'hour_from_now' => $hour_from_now, 'dateArray6' => $dateArray6, 'date_number' => $date_number,
+         'booking' => $booking, 'user_booking' => $user_booking, 'dateArray' => $dateArray]);
     }
 
     public function reservationDateSM(Request $request) {
+        $current_booking = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $day_of_the_week = BookingController::all('day_of_the_week');
+        $day_time = BookingController::all('day_time');
+        $days = BookingController::find(1)->day;
+        $hour_from_now = Carbon::now()->addHours(1)->format("ndHi");
+        $dateArray = Array();
+        for ($j=0; $j<=18; $j++) {
+            for ($i=1; $i<=14; $i++) {
+                $date_number[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
+                $day[] = Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("N");
+                $date_of_the_week1[] = Carbon::today()->addDays($i-1)->format("N");
+                $dateArray_chunk = array_chunk($date_number,14);
+                $dateArray_chunk2 = array_chunk($date_of_the_week1,14);
+            }
+            $date1[] = "date";
+            $dateArray2 = array_combine($date1, $dateArray_chunk);
+            $date_time[] = Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
+            $time1[] = "time";
+            $dateArray3 = array_combine($time1, $date_time);
+            $day1[] = "day";
+            $dateArray4 = array_combine($day1, $dateArray_chunk2);
+            $dateArray5[] = array_merge($dateArray2, $dateArray3, $dateArray4);
+            $dateArray = $dateArray5;
+        }
+        $dateArray6 = Array();
+        for($i=1; $i<=14; $i++){
+            $dateArray6[] = array('date' => Carbon::today()->addDays($i-1)->format('d日'), 'date2' => Carbon::today()->addDays($i-1)->isoformat("(ddd)"));
+        }
         $booking = new Booking($request->all());
         $request->session()->put('booking', $booking);
-        $json = Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
-        $json2 = BookingController::all('day_of_the_week');
-        $json3 = BookingController::all('day_time');
         $user = Auth::user();
         $user_booking = Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
-        for($i=1; $i<=14; $i++){
-            $dateArray[] = array('date' => Carbon::today()->addDays($i)->format('d日'), 'date2' => Carbon::today()->addDays($i)->isoformat("(ddd)"));
-        }
 
-        return view('front.reservation_date', ['booking' => $booking, 'json' => $json, 'json2' => $json2, 'json3' => $json3, 'user_booking' => $user_booking, 'dateArray' => $dateArray]);
+        return view('front.reservation_date', ['dateArray' => $dateArray, 'current_booking' => $current_booking, 'day_of_the_week' => $day_of_the_week,
+        'day_time' => $day_time, 'days' => $days, 'day' => $day, 'hour_from_now' => $hour_from_now, 'dateArray6' => $dateArray6, 'date_number' => $date_number,
+         'booking' => $booking, 'user_booking' => $user_booking, 'dateArray' => $dateArray]);
     }
 
     public function reservation(Request $request)
@@ -236,8 +328,7 @@ class HomeController extends Controller
 
     public function confirmation()
     {
-        $booking = Booking::where('user_id', Auth::user()->id)->where('active', 1)->first();
-
+        $booking = Booking::where('user_id', Auth::user()->id)->where('active', 1)->where('booking_date_number', '>', Carbon::now()->format('ndHi'))->first();
         return view('front.confirmation', (['booking' => $booking]));
 
     }

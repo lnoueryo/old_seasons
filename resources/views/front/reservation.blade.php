@@ -32,11 +32,11 @@
                             </tr>
                             <tr>
                                 <th>予約プラン</th>
-                                <td>@if ($booking->cut != '')&nbsp;&nbsp;&nbsp;{{ $booking->cut }}@endif
-                                    @if ($booking->perm != '')&nbsp;&nbsp;&nbsp;{{ $booking->perm }}@endif
-                                    @if ($booking->color != '')&nbsp;&nbsp;&nbsp;{{ $booking->color }}@endif
-                                    @if ($booking->spa != '')&nbsp;&nbsp;&nbsp;{{ $booking->spa }}@endif
-                                    @if ($booking->treatment != '')&nbsp;&nbsp;&nbsp;{{ $booking->treatment }}@endif</td>
+                                <td>@if ($booking->cut != 'null')&nbsp;&nbsp;&nbsp;{{ $booking->cut }}@endif
+                                    @if ($booking->perm != 'null')&nbsp;&nbsp;&nbsp;{{ $booking->perm }}@endif
+                                    @if ($booking->color != 'null')&nbsp;&nbsp;&nbsp;{{ $booking->color }}@endif
+                                    @if ($booking->spa != 'null')&nbsp;&nbsp;&nbsp;{{ $booking->spa }}@endif
+                                    @if ($booking->treatment != 'null')&nbsp;&nbsp;&nbsp;{{ $booking->treatment }}@endif</td>
                             </tr>
                             <tr>
                                 <th>料金</th>

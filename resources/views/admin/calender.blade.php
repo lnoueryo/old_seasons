@@ -6,13 +6,13 @@
         <label class="control-label" for="day[]">店休日</label>
             <div class="radio">
                 <p>
-                    <input type="checkbox" name="day[]" value="日" {{ (App\BookingController::find(1)->where('day', 'like', '%'."日". '%')->first())? "checked" : "" }}>日
-                    <input type="checkbox" name="day[]" value="月" {{ (App\BookingController::find(1)->where('day', 'like', '%'."月". '%')->first())? "checked" : "" }}>月
-                    <input type="checkbox" name="day[]" value="火" {{ (App\BookingController::find(1)->where('day', 'like', '%'."火". '%')->first())? "checked" : "" }}>火
-                    <input type="checkbox" name="day[]" value="水" {{ (App\BookingController::find(1)->where('day', 'like', '%'."水". '%')->first())? "checked" : "" }}>水
-                    <input type="checkbox" name="day[]" value="木" {{ (App\BookingController::find(1)->where('day', 'like', '%'."木". '%')->first())? "checked" : "" }}>木
-                    <input type="checkbox" name="day[]" value="金" {{ (App\BookingController::find(1)->where('day', 'like', '%'."金". '%')->first())? "checked" : "" }}>金
-                    <input type="checkbox" name="day[]" value="土" {{ (App\BookingController::find(1)->where('day', 'like', '%'."土". '%')->first())? "checked" : "" }}>土
+                    <input type="checkbox" name="day[]" value="7" {{ (App\BookingController::find(1)->where('day', 'like', '%'."7". '%')->first())? "checked" : "" }}>日
+                    <input type="checkbox" name="day[]" value="1" {{ (App\BookingController::find(1)->where('day', 'like', '%'."1". '%')->first())? "checked" : "" }}>月
+                    <input type="checkbox" name="day[]" value="2" {{ (App\BookingController::find(1)->where('day', 'like', '%'."2". '%')->first())? "checked" : "" }}>火
+                    <input type="checkbox" name="day[]" value="3" {{ (App\BookingController::find(1)->where('day', 'like', '%'."3". '%')->first())? "checked" : "" }}>水
+                    <input type="checkbox" name="day[]" value="4" {{ (App\BookingController::find(1)->where('day', 'like', '%'."4". '%')->first())? "checked" : "" }}>木
+                    <input type="checkbox" name="day[]" value="5" {{ (App\BookingController::find(1)->where('day', 'like', '%'."5". '%')->first())? "checked" : "" }}>金
+                    <input type="checkbox" name="day[]" value="6" {{ (App\BookingController::find(1)->where('day', 'like', '%'."6". '%')->first())? "checked" : "" }}>土
                 </p>
                 <input type="hidden" class="form-control col-md-8" name="movie" value="{{ \App\BookingController::find(1)->first()->movie }}" required>
             </div>
@@ -61,7 +61,7 @@
             <td class="time{{ \App\Booking::where('booking_date_number', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->where('active', 1)->first()->length_of_time }}">
             <a class="text-secondry" href="{{ action('AdminController@profile', ['id' => \App\Booking::where('booking_date_number', Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first()->user_id]) }}">予約</a></td>
             {{--  定休日×  --}}
-            @elseif(\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first() || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30))
+            @elseif(\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->format("N"). '%')->first() || \Carbon\Carbon::now() > \Carbon\Carbon::today()->addDays($i-1)->addHours(8)->addMinutes($j*30+30))
             <td>×</td>
 
             @elseif(null !==\App\BookingController::where('day_time', \Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi"))->first())

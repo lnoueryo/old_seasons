@@ -1,1 +1,351 @@
-@media screen and (max-width:1025px){.booking-btn{background-color:rgba(139,69,19,.78);color:#fff;width:100%;padding-top:20px;padding-bottom:20px;letter-spacing:3px;font-size:18px}.booking-btn-container{position:fixed;bottom:1px;transition:1s;opacity:.95;z-index:50;text-align:center;width:100%}.balloon-container{margin-top:350px;margin-right:0;top:0;right:0;position:absolute}.balloon{height:5%;width:60%;margin:0 0 0 auto;font-size:10px;line-height:15px;padding:10px;font-weight:600;position:relative;padding:20px;background-color:#c6e1ff;border-radius:10px;font-family:cursive;transition:2s;box-shadow:4px 5px 0 0 rgba(97,128,163,.51)}.balloon:before{left:25px;bottom:-17px;border-top:15px solid rgba(97,128,163,.47)}.balloon:after,.balloon:before{content:"";position:absolute;display:block;width:0;height:0;border-right:15px solid transparent;border-left:15px solid transparent}.balloon:after{left:20px;bottom:-15px;border-top:15px solid #c6e1ff}}@media screen and (max-width:860px){.logo-container{padding:.2em .8em}li:active,li:hover{background-color:rgba(255,245,234,0);border-radius:50px}.header{position:fixed;left:0;top:0;width:100%;height:40px;z-index:100}.header a{font-size:17px;color:#fff}.global-nav{position:fixed;right:-300px;top:0;width:200px;height:100vh;padding-top:40px;background-color:rgba(0,0,0,.83);transition:all .6s;z-index:200;overflow-y:auto}.hamburger{position:absolute;right:0;top:0;width:40px;height:40px;cursor:pointer;z-index:300;background-color:hsla(0,0%,100%,.095)}.global-nav__list{margin:0;padding:0;list-style:none}.global-nav__item{text-align:center;padding:0 14px}.global-nav__item a{display:block;padding:8px 0;border-bottom:1px solid #eee;text-decoration:none;color:#111}.global-nav__item a:hover{background-color:#eee}.hamburger__line{position:absolute;left:11px;width:18px;height:1px;background-color:#000;transition:all .6s}.hamburger__line--1{top:14px}.hamburger__line--2{top:20px}.hamburger__line--3{top:26px}.black-bg{position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:100;opacity:0;visibility:hidden;transition:all .6s;cursor:pointer}.nav-open .global-nav{right:0}.nav-open .black-bg{opacity:.8;visibility:visible}.nav-open .hamburger__line--1{transform:rotate(45deg);top:20px}.nav-open .hamburger__line--2{width:0;left:50%}.nav-open .hamburger__line--3{transform:rotate(-45deg);top:20px}.logo-container{padding-left:5px;padding-top:0}.drop-down-container{background-color:#000;color:#111}.dropdown-menu{background-color:transparent}}@media screen and (max-width:640px){.quick-booking-able-text{padding-top:80px}.booking-btn-container{position:fixed;bottom:1px;transition:1s;opacity:.95;z-index:50;text-align:center;width:100%}.booking-btn{z-index:50;padding-top:20px;padding-bottom:20px;background-color:rgba(139,69,19,.78);color:#fff;width:100%}.balloon-container{margin-top:390px;margin-right:15px;top:0;position:absolute}.balloon{height:5%;width:60%;margin:0 0 0 auto;font-size:10px;line-height:15px;padding:10px;font-weight:600}.fix-line a{color:#626262;font-size:13px;font-weight:700;text-decoration:none}.balloon{position:relative;padding:20px;background-color:#c6e1ff;border-radius:10px;font-family:cursive;transition:2s;box-shadow:4px 5px 0 0 rgba(97,128,163,.51)}.balloon:before{left:25px;bottom:-17px;border-top:15px solid rgba(97,128,163,.47)}.balloon:after,.balloon:before{content:"";position:absolute;display:block;width:0;height:0;border-right:15px solid transparent;border-left:15px solid transparent}.balloon:after{left:20px;bottom:-15px;border-top:15px solid #c6e1ff}}.disabled{pointer-events:none;color:#000}
+@charset "UTF-8";
+
+@media screen and (max-width: 1025px) {
+  .booking-btn {
+    background-color: #8b4513c7;
+    color: #fff;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 3px;
+    font-size: 18px;
+  }
+
+  .booking-btn-container {
+    position: fixed;
+    bottom: 1px;
+    transition: 1s;
+    opacity: 0.95;
+    z-index: 50;
+    text-align: center;
+    width: 100%;
+  }
+
+  .balloon-container {
+    margin-top: 350px;
+    margin-right: 0px;
+    top: 0;
+    right: 0;
+    position: absolute;
+  }
+
+  .balloon {
+    height: 5%;
+    width: 60%;
+    margin: 0 0 0 auto;
+    font-size: 10px;
+    line-height: 15px;
+    padding: 10px;
+    font-weight: 600;
+  }
+
+  /* ↓吹き出し↓ */
+
+  /* 吹き出し本体 */
+
+  .balloon {
+    position: relative;
+    padding: 20px;
+    background-color: #c6e1ff;
+    border-radius: 10px;
+    font-family: cursive;
+    transition: 2s;
+    box-shadow: 4px 5px 0px 0px #6180a382;
+    /* 吹き出し本体の影 */
+  }
+
+  /* 三角アイコン */
+
+  .balloon::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: 25px;
+    bottom: -17px;
+    border-top: 15px solid #6180a378;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  /* 三角アイコンの影 */
+
+  .balloon::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: 20px;
+    bottom: -15px;
+    border-top: 15px solid #c6e1ff;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  /* ↑吹き出し↑ */
+}
+
+@media screen and (max-width: 860px) {
+  .logo-container {
+    padding: 0.2em 0.8em;
+  }
+
+  li:hover {
+    background-color: #fff5ea00;
+    border-radius: 50px;
+  }
+
+  li:active {
+    background-color: #fff5ea00;
+    border-radius: 50px;
+  }
+
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 100;
+  }
+
+  .header a {
+    font-size: 17px;
+    color: white;
+  }
+
+  .global-nav {
+    position: fixed;
+    right: -300px;
+    /* これで隠れる */
+    top: 0;
+    width: 200px;
+    /* スマホに収まるくらい */
+    height: 100vh;
+    padding-top: 40px;
+    background-color: rgba(0, 0, 0, 0.83);
+    transition: all 0.6s;
+    z-index: 200;
+    overflow-y: auto;
+    /* メニューが多くなったらスクロールできるように */
+  }
+
+  .hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    /* クリックしやすいようにちゃんと幅を指定する */
+    height: 40px;
+    /* クリックしやすいようにちゃんと高さを指定する */
+    cursor: pointer;
+    z-index: 300;
+    background-color: rgba(255, 255, 255, 0.095);
+  }
+
+  .global-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .global-nav__item {
+    text-align: center;
+    padding: 0 14px;
+  }
+
+  .global-nav__item a {
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #111;
+  }
+
+  .global-nav__item a:hover {
+    background-color: #eee;
+  }
+
+  .hamburger__line {
+    position: absolute;
+    left: 11px;
+    width: 18px;
+    height: 1px;
+    background-color: black;
+    transition: all 0.6s;
+  }
+
+  .hamburger__line--1 {
+    top: 14px;
+  }
+
+  .hamburger__line--2 {
+    top: 20px;
+  }
+
+  .hamburger__line--3 {
+    top: 26px;
+  }
+
+  .black-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    /* background-color: #000; */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s;
+    cursor: pointer;
+  }
+
+  /* 表示された時用のCSS */
+
+  .nav-open .global-nav {
+    right: 0;
+  }
+
+  .nav-open .black-bg {
+    opacity: 0.8;
+    visibility: visible;
+  }
+
+  .nav-open .hamburger__line--1 {
+    transform: rotate(45deg);
+    top: 20px;
+  }
+
+  .nav-open .hamburger__line--2 {
+    width: 0;
+    left: 50%;
+  }
+
+  .nav-open .hamburger__line--3 {
+    transform: rotate(-45deg);
+    top: 20px;
+  }
+
+  .logo-container {
+    padding-left: 5px;
+    padding-top: 0px;
+  }
+
+  .drop-down-container {
+    background-color: black;
+    color: #111;
+  }
+
+  .dropdown-menu {
+    background-color: #00000000;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .quick-booking-able-text {
+    padding-top: 80px;
+  }
+
+  .booking-btn-container {
+    position: fixed;
+    bottom: 1px;
+    transition: 1s;
+    opacity: 0.95;
+    z-index: 50;
+    text-align: center;
+    width: 100%;
+  }
+
+  .booking-btn {
+    z-index: 50;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #8b4513c7;
+    color: #fff;
+    width: 100%;
+  }
+
+  .balloon-container {
+    margin-top: 390px;
+    margin-right: 15px;
+    top: 0;
+    position: absolute;
+  }
+
+  .balloon {
+    height: 5%;
+    width: 60%;
+    margin: 0 0 0 auto;
+    font-size: 10px;
+    line-height: 15px;
+    padding: 10px;
+    font-weight: 600;
+  }
+
+  .fix-line a {
+    color: #626262;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  /* ↓吹き出し↓ */
+
+  /* 吹き出し本体 */
+
+  .balloon {
+    position: relative;
+    padding: 20px;
+    background-color: #c6e1ff;
+    border-radius: 10px;
+    font-family: cursive;
+    transition: 2s;
+    box-shadow: 4px 5px 0px 0px #6180a382;
+    /* 吹き出し本体の影 */
+  }
+
+  /* 三角アイコン */
+
+  .balloon::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: 25px;
+    bottom: -17px;
+    border-top: 15px solid #6180a378;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  /* 三角アイコンの影 */
+
+  .balloon::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: 20px;
+    bottom: -15px;
+    border-top: 15px solid #c6e1ff;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+
+  /* ↑吹き出し↑ */
+}
+
+/* ↓JSクラス追加用↓ */
+
+/* ↓カレンダーの〇が×に変わったときにリンクを無効にする↓ */
+
+.disabled {
+  pointer-events: none;
+  color: black;
+}
+

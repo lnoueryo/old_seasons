@@ -81,47 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/reservation.js":
-/*!*************************************!*\
-  !*** ./resources/js/reservation.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-  if (matchMedia('(max-width: 960px)').matches) {
-    $('.plan-footer-container-pc').addClass('delete');
-    $('.plan-footer-container').removeClass('delete');
-  } else {
-    $('.plan-footer-container-pc').removeClass('delete');
-    $('.plan-footer-container').addClass('delete');
-  }
-});
-$(function () {
-  history.pushState(null, null, null); //ブラウザバック無効化
-  //ブラウザバックボタン押下時
-
-  $(window).on("popstate", function (event) {
-    history.pushState(null, null, null);
-    window.alert('前のページに戻る場合、前に戻るボタンから戻ってください。');
-  });
-});
-
-/***/ }),
-
-/***/ 3:
-/*!*******************************************!*\
-  !*** multi ./resources/js/reservation.js ***!
-  \*******************************************/
+/***/ 7:
+/*!**************************************!*\
+  !*** multi ./resources/js/vuepra.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\project\seasons\resources\js\reservation.js */"./resources/js/reservation.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'C:\\xampp\\project\\seasons\\resources\\js\\vuepra.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })

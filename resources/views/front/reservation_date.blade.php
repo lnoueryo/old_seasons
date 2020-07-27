@@ -29,107 +29,64 @@
         }
 
     </style>
-<div id="app2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <div id="tabBoxes">
-                    <div id="tabBox3">
-                        <form id="sp-form-1" name="Form">
-                            @include('components.calender', ['cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa, 'price' => $booking->price, 'length_of_time' => $booking->length_of_time])
-                        </form>
-                    </div>
-                </div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <th width="1%">
-                                <span class="fixed-output">Total</span>
-                                <span class="fixed-output2">{{ $booking->price }}</span>
-                            </th>
-                            <th width="2%">
-                                <span class="fixed-output3">所要時間</span>
-                                <span class="fixed-output4">{{ $booking->length_of_time }}</span>
-                            </th>
-                            <th width="3.5%">
-                                <div class="back-container"><a href="{{ action('HomeController@reservationPlan', ['cut' => $booking->cut, 'perm' => $booking->perm, 'color' => $booking->color, 'treatment' => $booking->treatment, 'spa' => $booking->spa, 'price' => $booking->price, 'length_of_time' => $booking->length_of_time]) }}">
-                                    <button id="back-pc" type="button" class="btn back">◀戻る</button></a></div>
-                                <div class="next-container"><a href="{{ action('HomeController@calender') }}"><button type="button" id="cancel"class="btn cancel">取消</button></a></div>
-                            </th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <div id="app1">
+        <div id="calender">
+            <keep-alive>
+                <div v-bind:is="component"></div>
+            </keep-alive>
         </div>
     </div>
-</div>
-        <script>
-            const booking = @json($json);
-            const bookingController = @json($json2);
-            const bookingController2 = @json($json3);
-            const dateArray = @json($dateArray);
-            console.log(booking[0].length_of_time);
-            console.log($('form[name="Form"] input').eq(270).val());
 
-            function getServerDate(callback){
-                $.ajax({
-                    type : 'HEAD',
-                    url :  window.location.href,
-                    cache : false
-                }).done(function(data, textStatus, xhr) {
-                    try {
-                        var result = new Date(xhr.getResponseHeader("Date"));
-                    } catch(e) {
-                        var result = new Date();
-                    }
-                    callback(result);
-                }).fail(function() {
-                    var result = new Date();
-                    callback(result);
-                });
-            }
-            function makeHTML(result){
-                const month = result.getMonth() + 1;
-                const day = String(result.getDate()).padStart(2,'0');
-                const hour = result.getHours();
-                const twoHours = String(result.getHours()+2).padStart(2,'0');
-                const min = String(result.getMinutes()).padStart(2,'0');
-                const now = `${month}${day}${hour}${min}`;
-                const twoHoursFromNow = `${month}${day}${twoHours}${min}`;
-
-                for (var i = 0; i < document.Form.length - 1; i++) {
-                    var placeholder = $('form[name="Form"] input').eq(i).attr("placeholder");
-                    if (placeholder < twoHoursFromNow) {
-
-                                $('form[name="Form"] input').eq(i).val("×").css({
-                                    'color': '#696969',
-                                    'font-weight': '600'
-                                  });
-                                $('form[name="Form"] input').eq(i).attr('disabled', true);
-
-                    }
-                  }
-                console.log(twoHoursFromNow);
-            }
-            getServerDate(makeHTML);
-            // ↓カレンダー値別カラー↓
-            window.onload = function () {
-                $('#tabBox3 input[value="×"]').css({
-                    'color': '#696969',
-                    'font-weight': '600'
-                  });
-                  $('#tabBox3 input[value="〇"]').css({
-                    'color': '#d84b6a',
-                    'font-weight': '600'
-                  });
-            };
-            // ↑カレンダー値別カラー↑
-
-
-
-        </script>
+        {{--  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>  --}}
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="{{ asset('js/calender.min.js') }}" defer></script>
-        <script src="{{ asset('js/vue.js') }}" defer></script>
+        {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>  --}}
+        <script type="text/javascript">
+        var dayDayOfTheWeeks = @json($dateArray6);
+        var dayOfTheWeek = @json($day_of_the_week);
+        var days = @json($days);
+        var day = @json($day);
+        var hourFromNow = {{ $hour_from_now }};
+        var dayTime = @json($day_time);
+        var dates = @json($dateArray);
+        var currentBooking = @json($current_booking);
+        var bookingPlan = @json($booking);
 
-@endsection
+        console.log(bookingPlan.length_of_time);
+        </script>
+        <script src="{{ asset('js/reservation_date.js') }}" defer></script>
+
+            <style>
+                .pointerEvents {
+                    pointer-events: none;
+                }
+                input {
+                    border: none;
+                }
+
+
+                .float li {
+                    height: 50px;
+                    {{--  padding: 20px;  --}}
+                    {{--  padding-right: 30px;  --}}
+
+                }
+                .float {
+                    margin: auto;
+                }
+
+
+                .main-img {
+
+                    object-fit: cover;
+                    width: 100%;
+                    object-position: 50% 100%
+                }
+
+                .abc {
+                    padding-right: 50px;
+                    margin-right: 10px;
+                }
+
+
+            </style>
+    @endsection

@@ -3,13 +3,16 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/media/calender.css": "/css/media/calender.css",
+    "/css/media/confirmation.css": "/css/media/confirmation.css",
     "/css/PC/calender.css": "/css/PC/calender.css",
     "/css/admin.css": "/css/admin.css",
     "/css/PC/blog.css": "/css/PC/blog.css",
     "/css/front.css": "/css/front.css",
     "/js/calender.js": "/js/calender.js",
     "/js/calender.min.js": "/js/calender.min.js",
+    "/js/calender.vue.js": "/js/calender.vue.js",
     "/js/plan.js": "/js/plan.js",
     "/js/reservation.js": "/js/reservation.js",
+    "/js/reservation_date.js": "/js/reservation_date.js",
     "/js/vue.js": "/js/vue.js"
 }

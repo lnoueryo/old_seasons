@@ -1,8 +1,10 @@
-<table class="table-responsive mt-2 calender" border="5" v-cloak>
+<table class="table-responsive mt-2 calender" border="5">
     <thead>
         <tr class="text-center">
             <th width="15%">{{ Carbon\Carbon::now()->format('n月') }}</th>
-            <th v-for="date in dates" width="3%">@{{ date.date }}<br>@{{ date.date2 }}</th>
+            @for($i = 1; $i <= 14; $i++)
+            <th width="3%">{{ \Carbon\Carbon::today()->addDays($i-1)->format("d日") }}<br>{{ \Carbon\Carbon::today()->addDays($i-1)->isoformat("(ddd)") }}</th>
+            @endfor
         </tr>
     </thead>
     <tbody>
@@ -10,7 +12,7 @@
         <tr>
             <th class="align-middle" scope="row">{{ \Carbon\Carbon::today()->addHours(10)->addMinutes($j*30)->format("H:i") }}</th>
             @for($i = 1; $i <= 14; $i++)
-                @if (\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->isoformat("ddd"). '%')->first())
+                @if (\App\BookingController::find(1)->where('day', 'like', '%'.\Carbon\Carbon::today()->addDays($i-1)->format("N"). '%')->first())
                     <td class="align-middle text-center">
                         <input class="calender-cell text-center" type="text" placeholder="{{\Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes($j*30)->format("ndHi")}}" value="×" size="1" disabled>
                     </td>

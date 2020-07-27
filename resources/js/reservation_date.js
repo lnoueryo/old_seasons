@@ -1,895 +1,191 @@
-$(function(){
-    // $('#tabBox1 input[value="×"]').css({'color':'#696969','font-weight':'600'});
-    // $('#tabBox1 input[value="〇"]').css({'color':'#4b9dd8;','font-weight':'600'});
-    $('#booking-calender input[value="×"]').css({'color':'#696969','font-weight':'600'});
-    $('#booking-calender input[value="〇"]').css({'color':'#d84b6a','font-weight':'600'});
-    });
-
-
-
-
-
-
-    $(document).ready(function(){
-        if (matchMedia('(max-width: 960px)').matches) {
-            $('.back-sm').show();
-            $('#back-pc').hide();
-        } else {
-            $('.back-sm').hide();
-            $('.back-pc').show();
+var myComponentA = {
+    template: `<table class="table-responsive mt-2 calender" border="5" v-cloak>
+                <thead>
+                    <tr class="text-center">
+                        <th width="15%"></th>
+                        <th v-for="date in dayDayOfTheWeeks" width="3%">{{ date.date }}<br>{{ date.date2 }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="date in dates">
+                        <th>{{ date.time }}</th>
+                        <td v-for="days in date.date" v-bind:key="days" class="text-center">
+                            <a
+                            type="button"
+                            data-day="2"
+                            data-value="〇"
+                            v-on:click="parameter"
+                            v-bind:href="url"
+                            v-bind:style="circle"
+                            v-bind:data-date="days"
+                            v-bind:data-cut="cut"
+                            v-bind:data-perm="perm"
+                            v-bind:data-color="color"
+                            v-bind:data-treatment="treatment"
+                            v-bind:data-spa="spa"
+                            v-bind:data-price="price"
+                            v-bind:data-length-of-time="length_of_time"
+                            v-bind:class="pointer">〇</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>`,
+    data: function(){
+        return{
+            dates: dates,
+            dayDayOfTheWeeks: dayDayOfTheWeeks,
+            dayOfTheWeek: dayOfTheWeek,
+            dayTime: dayTime,
+            days: days,
+            day: day,
+            hourFromNow: hourFromNow,
+            bookings: currentBooking,
+            booking_date_month: '',
+            booking_date_day: '',
+            booking_date_hour: '',
+            booking_date_minute: '',
+            length_of_time: '3.5時間',
+            bookingPlan: bookingPlan,
+            isPointer: false,
+            circle: {
+                color: "#d84b6a",
+                fontWeight: "600",
+                textDecoration: "none",
+            },
         }
-
-
-      });
-
-
-    // ↓ブラウザバックを無効にする処理↓
-
-
-
-    $(function(){
-        history.pushState(null, null, null); //ブラウザバック無効化
-        //ブラウザバックボタン押下時
-        $(window).on("popstate", function (event) {
-          history.pushState(null, null, null);
-          window.alert('前のページに戻る場合、下記の戻るボタンからお戻りください。');
-        });
-       });
-
-
-
-    // ↑ブラウザバックを無効にする処理↑
-
-
-
-
-
-    //    ↓既存の予約の所要時間を考慮して×をつける処理(6時間まで)↓
-
-
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '1時間'){
-
-            for (j=0; j< 15; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '1.5時間'){
-
-            for (j=0; j< 29; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '2時間'){
-
-            for (j=0; j< 43; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '2.5時間'){
-
-            for (j=0; j< 57; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '3時間'){
-
-            for (j=0; j< 71; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '3.5時間'){
-
-            for (j=0; j< 85; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '4時間'){
-
-            for (j=0; j< 99; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-        if(abc.placeholder === '4.5時間'){
-
-            for (j=0; j< 113; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '5時間'){
-
-            for (j=0; j< 127; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '5.5時間'){
-
-            for (j=0; j< 141; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-    for (i=0; i< document.Form.length-1; i++) {
-        var abc = document.Form.elements[i];
-
-
-        if(abc.placeholder === '6時間'){
-
-            for (j=0; j< 155; j+=14) {
-                document.Form.elements[i+j].value = "×";
-                document.Form.elements[i+j].classList.add('disabled');
-
-            }
-
-    }
-
-    }
-
-
-
-        //    ↑既存の予約の所要時間を考慮して×をつける処理↑
-
-
-
-
-
-    // ↓現在予約しようとしているお客様の所要時間を考慮して×をつける処理(6時間まで)↓
-
-
-
-    60
-    for (i=0; i< document.Form.length-1; i++) {
-
-    if(document.Form.elements[i].name == '1時間'){
-
-
-    if(document.Form.elements[i+14].value == "×") {
-        document.Form.elements[i].value = "×";
-        document.Form.elements[i].classList.add('disabled');
-
-    }
-    if(document.Form.elements[i+28].value !== "〇" && document.Form.elements[i+28].value !== "×") {
-        for (k=14; k< 28; k++) {
-            document.Form.elements[i+k].value = "×";
-            document.Form.elements[i+k].classList.add('disabled');
-
-
-        }
-
-
-
-    }
-}
-
-}
-
-    90
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '1.5時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-
-        if(document.Form.elements[i+42].value !== "〇" && document.Form.elements[i+42].value !== "×") {
-            for (k=14; k< 42; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-
-
-
-        }
-
-
-
-}
-
-}
-
-    120
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '2時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+56].value !== "〇" && document.Form.elements[i+56].value !== "×") {
-            for (k=14; k< 56; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
+    },
+    computed:{
+         url: function() {
+            return '/seasons/public/calender/reservation?booking_date_month='+ this.booking_date_month +
+            '&booking_date_day=' + this.booking_date_day +
+            '&booking_date_hour=' + this.booking_date_hour +
+            '&booking_date_minute=' + this.booking_date_minute +
+            '&cut=' + this.bookingPlan.cut +
+            '&perm=' + this.bookingPlan.perm +
+            '&color=' + this.bookingPlan.color +
+            '&treatment=' + this.bookingPlan.treatment +
+            '&spa=' + this.bookingPlan.spa +
+            '&price=' + this.bookingPlan.price +
+            '&length_of_time=' + this.bookingPlan.length_of_time;
+        },
+        pointer: function() {
+            return {
+                pointerEvents: this.isPointer === true,
             }
         }
-
-
-
-}
-
-}
-
-    150
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '2.5時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+70].value !== "〇" && document.Form.elements[i+70].value !== "×") {
-            for (k=14; k< 70; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
+    },
+    methods: {
+        parameter: function(ele) {
+            var eve = ele.target.dataset.date;
+            this.booking_date_month = eve.charAt(0);
+            this.booking_date_day = eve.charAt(1) + eve.charAt(2);
+            this.booking_date_hour = eve.charAt(3) + eve.charAt(4);
+            this.booking_date_minute = eve.charAt(5) + eve.charAt(6);
+        },
+    },
+    mounted: function(){
+        var aDatasetDate = document.querySelectorAll('#calender a');
+        for (let i=0;i<aDatasetDate.length;i++){
+            for (let j=0;j<this.dayOfTheWeek.length;j++){
+                var dataDate = aDatasetDate[i].dataset.date;
+                if (Math.floor(dataDate / 10000) == this.dayOfTheWeek[j].day_of_the_week) {
+                aDatasetDate[i].textContent = '×';
+                aDatasetDate[i].dataset.value = '×';
+                aDatasetDate[i].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                }
+            }
+            for (let j=0;j<this.dayTime.length;j++){
+                var dataDate = aDatasetDate[i].dataset.date;
+                if (dataDate == this.dayTime[j].day_time) {
+                    aDatasetDate[i].textContent = '×';
+                    aDatasetDate[i].dataset.value = '×';
+                    aDatasetDate[i].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                    for (let r = 0; r < 14; r++){
+                        if (this.bookingPlan.length_of_time ==  1 + 0.5 * r + '時間') {
+                            for (let m = 0; m < 14 * r + 15; m += 14) {
+                                if(aDatasetDate[i - m] == null) {
+                                    aDatasetDate[i].textContent = '×';
+                                    aDatasetDate[i].dataset.value = '×';
+                                    aDatasetDate[i].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                                } else {
+                                    aDatasetDate[i - m].textContent = '×';
+                                    aDatasetDate[i - m].dataset.value = '×';
+                                    aDatasetDate[i - m].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                                }
+                            }
+                            for (let m = 252-14*r; m < 266; m++) {
+                                aDatasetDate[m].textContent = '×';
+                                aDatasetDate[m].dataset.value = '×';
+                                aDatasetDate[m].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                            }
+                        }
+                    }
+                }
+            }
+            if (this.days.includes(this.day[i])) {
+                aDatasetDate[i].textContent = '×';
+                aDatasetDate[i].dataset.value = '×';
+                aDatasetDate[i].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+            }
+            if (dataDate < hourFromNow) {
+                aDatasetDate[i].textContent = '×';
+                aDatasetDate[i].dataset.value = '×';
+                aDatasetDate[i].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+            }
+            for (let j=0;j<this.bookings.length;j++){
+                if(aDatasetDate[i].dataset.date == this.bookings[j].booking_date_number){
+                    aDatasetDate[i].textContent = '×';
+                    aDatasetDate[i].dataset.value = '×';
+                    aDatasetDate[i].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                    for (let l=0; l<14; l++){
+                        if(this.bookings[j].length_of_time == 1 + 0.5*l + '時間') {
+                            for (var k = 0; k < (14 * l) + 15; k += 14) {
+                                aDatasetDate[i + k].textContent = '×';
+                                aDatasetDate[i + k].dataset.value = '×';
+                                aDatasetDate[i + k].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                            }
+                        }
+                        if (this.bookingPlan.length_of_time ==  1 + 0.5 * l + '時間') {
+                            for (let m = 252-14*l; m < 266; m++) {
+                                aDatasetDate[m].textContent = '×';
+                                aDatasetDate[m].dataset.value = '×';
+                                aDatasetDate[m].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                            }
+                        }
+                    }
+                    for (let r = 0; r < 14; r++){
+                        if (this.bookingPlan.length_of_time ==  1 + 0.5 * r + '時間') {
+                            for (let m = 0; m < 14 * r + 15; m += 14) {
+                                if(aDatasetDate[i - m] == null) {
+                                    aDatasetDate[i].textContent = '×';
+                                    aDatasetDate[i].dataset.value = '×';
+                                    aDatasetDate[i].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                                } else {
+                                    aDatasetDate[i - m].textContent = '×';
+                                    aDatasetDate[i - m].dataset.value = '×';
+                                    aDatasetDate[i - m].style="pointer-events:none; color: rgb(105,105,105); font-weight: 600;";
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-
-
-
+    }
 }
-
-}
-
-    180
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '3時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+70].value == "×") {
-        for (j=0; j< 69; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+84].value !== "〇" && document.Form.elements[i+84].value !== "×") {
-            for (k=14; k< 84; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-        }
-
-
-
-}
-
-}
-
-    210
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '3.5時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+70].value == "×") {
-        for (j=0; j< 69; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+84].value == "×") {
-        for (j=0; j< 83; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+98].value !== "〇" && document.Form.elements[i+98].value !== "×") {
-            for (k=14; k< 98; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-        }
-
-
-
-}
-
-}
-    240
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '4時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+70].value == "×") {
-        for (j=0; j< 69; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+84].value == "×") {
-        for (j=0; j< 83; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+98].value == "×") {
-        for (j=0; j< 97; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+112].value !== "〇" && document.Form.elements[i+112].value !== "×") {
-            for (k=14; k< 112; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-        }
-
-
-
-}
-
-}
-
-    270
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '4.5時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+70].value == "×") {
-        for (j=0; j< 69; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+84].value == "×") {
-        for (j=0; j< 83; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+98].value == "×") {
-        for (j=0; j< 97; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+112].value == "×") {
-        for (j=0; j< 111; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+126].value !== "〇" && document.Form.elements[i+126].value !== "×") {
-            for (k=14; k< 126; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-        }
-
-
-
-}
-
-}
-    300
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '5時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+70].value == "×") {
-        for (j=0; j< 69; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+84].value == "×") {
-        for (j=0; j< 83; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+98].value == "×") {
-        for (j=0; j< 97; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+112].value == "×") {
-        for (j=0; j< 111; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+126].value == "×") {
-        for (j=0; j< 125; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+140].value !== "〇" && document.Form.elements[i+140].value !== "×") {
-            for (k=14; k< 140; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-        }
-
-
-
-}
-
-}
-
-    330
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '5.5時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+70].value == "×") {
-        for (j=0; j< 69; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+84].value == "×") {
-        for (j=0; j< 83; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+98].value == "×") {
-        for (j=0; j< 97; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+112].value == "×") {
-        for (j=0; j< 111; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+126].value == "×") {
-        for (j=0; j< 125; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+140].value == "×") {
-        for (j=0; j< 139; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+154].value !== "〇" && document.Form.elements[i+154].value !== "×") {
-            for (k=14; k< 154; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-        }
-
-
-
-}
-
-}
-    360
-    var length_of_time = document.getElementById('length_of_time');
-    if(length_of_time.value == '6時間'){
-for (i=0; i< document.Form.length-1; i++) {
-    if(document.Form.elements[i+14].value == "×") {
-
-            document.Form.elements[i].value = "×";
-            document.Form.elements[i].classList.add('disabled');
-        }
-    if(document.Form.elements[i+28].value == "×") {
-        for (j=0; j< 27; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+42].value == "×") {
-        for (j=0; j< 41; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+56].value == "×") {
-        for (j=0; j< 55; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+70].value == "×") {
-        for (j=0; j< 69; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+84].value == "×") {
-        for (j=0; j< 83; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+98].value == "×") {
-        for (j=0; j< 97; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+112].value == "×") {
-        for (j=0; j< 111; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+126].value == "×") {
-        for (j=0; j< 125; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+140].value == "×") {
-        for (j=0; j< 139; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-    if(document.Form.elements[i+156].value == "×") {
-        for (j=0; j< 155; j+=14) {
-
-            document.Form.elements[i+j].value = "×";
-            document.Form.elements[i+j].classList.add('disabled');
-        }
-        }
-        if(document.Form.elements[i+168].value !== "〇" && document.Form.elements[i+168].value !== "×") {
-            for (k=14; k< 168; k++) {
-                document.Form.elements[i+k].value = "×";
-                document.Form.elements[i+k].classList.add('disabled');
-
-
-            }
-        }
-
-
-
-
-}
-
-}
-
-
-
-    // ↑現在予約しようとしているお客様の所要時間を考慮して×をつける処理↑
+new Vue({
+    el: '#app1',
+    components: {
+        'my-component-a': myComponentA,
+    },
+    data: {
+        componentTypes: ['my-component-a'],
+        current: false,
+    },
+    computed:{
+        component: function(){
+    return this.componentTypes[0]
+    }
+
+    }
+})

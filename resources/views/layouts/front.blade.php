@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Seasons') }}</title>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <!-- Styles -->
@@ -37,46 +37,60 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <footer>
-            <div id="footer-sm" class="container delete">
-                <div class="row">
-                    <div class="col-md-10">
-                        <div class="mt-5">
-                            <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
-                                <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
-                            </a>
-                            <a type="button" class="line_btn" href="https://line.me/R/ti/p/%40fai2592a">
-                                <i class="fab fa-line fa-4x"></i><span>友だち追加</span>
-                            </a>
-                            <a type="button" class="fb_btn" href="https://www.facebook.com/hairmakeseasons">
-                                <i class="fab fa-facebook"></i><span>Facebook</span>
-                            </a>
+        <div id="app5">
+            <footer>
+                <div id="footer-sm" class="container delete">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="mt-5">
+                                <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
+                                    <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
+                                </a>
+                                <a type="button" class="line_btn" href="https://line.me/R/ti/p/%40fai2592a">
+                                    <i class="fab fa-line fa-4x"></i><span>友だち追加</span>
+                                </a>
+                                <a type="button" class="fb_btn" href="https://www.facebook.com/hairmakeseasons">
+                                    <i class="fab fa-facebook"></i><span>Facebook</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="footer-pc" class="text-center delete">
-                <div class="mt-5">
-                    {{--  <iframe width="700" height="400" src="{{ \App\BookingController::find(1)->first()->movie }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>  --}}
-                    <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
-                        <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
-                    </a>
-                    <a type="button" class="line_btn" href="https://line.me/R/ti/p/%40fai2592a">
-                        <i class="fab fa-line fa-4x"></i><span>友だち追加</span>
-                    </a>
-                    <a type="button" class="fb_btn" href="https://www.facebook.com/hairmakeseasons">
-                        <i class="fab fa-facebook"></i><span>Facebook</span>
-                    </a>
+                <div id="footer-pc" class="text-center delete">
+                    <div class="mt-5">
+                        {{--  <iframe width="700" height="400" src="{{ \App\BookingController::find(1)->first()->movie }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>  --}}
+                        <a type="button" class="insta_btn2 " href="https://www.instagram.com/hairmakeseasons/">
+                            <i class="fab fa-instagram"></i> <span class="align-middle">Follow Me</span>
+                        </a>
+                        <a type="button" class="line_btn" href="https://line.me/R/ti/p/%40fai2592a">
+                            <i class="fab fa-line fa-4x"></i><span>友だち追加</span>
+                        </a>
+                        <a type="button" class="fb_btn" href="https://www.facebook.com/hairmakeseasons">
+                            <i class="fab fa-facebook"></i><span>Facebook</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <p class="pp"><a href="{{ route('policy') }}">プライバシーポリシー</a></p>
-            <p class="cr"><a href="{{ route('JS') }}"> 2019 SEASONS Inc.</a></p>
-        </footer>
+                <p class="pp"><a href="{{ route('policy') }}">プライバシーポリシー</a></p>
+                <p class="cr"><a href="{{ route('reservationPC') }}">2019 SEASONS Inc.</a></p>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
     <script>
-        $(document).ready(function(){
+        new Vue({
+            el: '#app5',
+            mounted: function(){
+                if (window.matchMedia( "(max-width: 960px)" ).matches) {
+                    var element = document.getElementById('footer-sm');
+                    element.classList.remove("delete");
+                  } else {
+                    var element2 = document.getElementById('footer-pc');
+                    element2.classList.remove("delete");
+                  }
+            },
+        })
+        {{--  $(document).ready(function(){
             if (matchMedia('(max-width: 960px)').matches) {
                 $('#footer-sm').removeClass('delete');
 
@@ -85,5 +99,5 @@
 
             }
 
-          });
+          });  --}}
     </script>

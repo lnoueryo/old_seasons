@@ -15,27 +15,49 @@
 //     return view('auth.login');
 // });
 Route::get('/', function () {
-    $json = App\Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
-    $json2 = App\BookingController::all('day_of_the_week');
-    $json3 = App\BookingController::all('day_time');
-    $dateArray = Array();
-    for($i=1; $i<=14; $i++){
-        $dateArray[] = array('date' => Carbon\Carbon::today()->addDays($i)->format('d日'), 'date2' => Carbon\Carbon::today()->addDays($i)->isoformat("(ddd)"));
-    }
-    if(Auth::check()) {
-        $user = Auth::user();
-        $user_booking = App\Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
-        if(null !== $user_booking && $user_booking->booking_date_number > \Carbon\Carbon::now()->format("ndHi")) {
-            $btn = 0;
-        } else {
-            $btn = 1;
+        $current_booking = App\Booking::where('active', 1)->get(['booking_date_number','length_of_time']);
+        $day_of_the_week = App\BookingController::all('day_of_the_week');
+        $day_time = App\BookingController::all('day_time');
+        $days = App\BookingController::find(1)->day;
+        $hour_from_now = Carbon\Carbon::now()->addHours(1)->format("ndHi");
+        $dateArray = Array();
+        for ($j=0; $j<=18; $j++) {
+            for ($i=1; $i<=14; $i++) {
+                $date_number[] = Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("ndHi");
+                $day[] = Carbon\Carbon::today()->addDays($i-1)->addHours(10)->addMinutes(30 * $j)->format("N");
+                $date_of_the_week1[] = Carbon\Carbon::today()->addDays($i-1)->format("N");
+                $dateArray_chunk = array_chunk($date_number,14);
+                $dateArray_chunk2 = array_chunk($date_of_the_week1,14);
+            }
+            $date1[] = "date";
+            $dateArray2 = array_combine($date1, $dateArray_chunk);
+            $date_time[] = Carbon\Carbon::today()->addHours(10)->addMinutes(30 * $j)->format("H:i");
+            $time1[] = "time";
+            $dateArray3 = array_combine($time1, $date_time);
+            $day1[] = "day";
+            $dateArray4 = array_combine($day1, $dateArray_chunk2);
+            $dateArray5[] = array_merge($dateArray2, $dateArray3, $dateArray4);
+            $dateArray = $dateArray5;
         }
-    } else {
-        $user_booking = null;
-        $btn = 2;
-    }
+        $dateArray2 = Array();
+        for($i=1; $i<=14; $i++){
+            $dateArray2[] = array('date' => Carbon\Carbon::today()->addDays($i-1)->format('d日'), 'date2' => Carbon\Carbon::today()->addDays($i-1)->isoformat("(ddd)"));
+        }
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user_booking = App\Booking::where('user_id', $user->id)->where('booking_date_number', $user->latest_booking_date_number)->where('active', 1)->first();
+            if(null !== $user_booking && $user_booking->booking_date_number > Carbon\Carbon::now()->format("ndHi")) {
+                $btn = 0;
+            } else {
+                $btn = 1;
+            }
+        } else {
+            $user_booking = null;
+            $btn = 2;
+        }
 
-    return view('front.calender', ['json' => $json, 'json2' => $json2, 'json3' => $json3, 'dateArray' => $dateArray, 'user_booking' => $user_booking, 'btn' => $btn]);
+        return view('front.calender', ['dateArray' => $dateArray, 'current_booking' => $current_booking, 'day_of_the_week' => $day_of_the_week,
+        'day_time' => $day_time, 'days' => $days, 'day' => $day, 'hour_from_now' => $hour_from_now, 'btn' => $btn, 'dateArray2' => $dateArray2, 'date_number' => $date_number]);
 
 });
 
@@ -52,7 +74,7 @@ Route::get('/reservation_plan_sm', 'HomeController@reservationPlanSM')->middlewa
 Route::get('/policy', 'HomeController@policy')->name('policy');
 Route::get('/confirmation', 'HomeController@confirmation')->name('confirmation');
 Route::get('/confirmation/delete', 'HomeController@cancel');
-Route::get('/reservation_date', 'HomeController@reservationDate');
+Route::get('/reservation_date', 'HomeController@reservationDate')->name('reservationDate');
 Route::get('/reservation_date_sm', 'HomeController@reservationDateSM');
 Route::post('/home', 'HomeController@booking');
 Route::get('/blog', 'HomeController@blog')->name('blog');
@@ -82,4 +104,5 @@ Route::post('/login/custom', [
 
 
     Route::get('/JS_calender', 'HomeController@JSCalender')->name('JS');
-    Route::get('Ajax/JS_calender', 'HomeController@Ajax');
+    Route::get('/JS_calenderPR', 'HomeController@JSCalenderPR')->name('JSPR');
+    Route::get('Ajax/calender', 'HomeController@Ajax');
